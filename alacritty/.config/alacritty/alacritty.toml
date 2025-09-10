@@ -1,7 +1,7 @@
 [general]
 live_config_reload = true
 import = [
-	"~/.config/alacritty/themes/rose_pine_moon.toml"
+	"./rose_pine_moon.toml"
 ]
 
 [window]

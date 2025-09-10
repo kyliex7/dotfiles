@@ -38,6 +38,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Applications
 bindsym Mod1+e exec thunar
 bindsym $mod+b exec brave --proxy-server=socks5://192.168.42.129:9050
+bindsym $mod+t exec Telegram
 bindsym $mod+Shift+F1 exec --no-startup-id ~/.config/i3/toggle-edp.sh
 
 # Use Mouse+$mod to drag floating windows to their wanted position

@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
@@ -16,11 +9,14 @@ zinit ice depth"1" # git clone depth
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
-zinit light romkatv/powerlevel10k
 
 # auto load completions
 autoload -U compinit && compinit
 zinit cdreplay -q
+# prompt
+autoload -U colors && colors
+# PROMPT='%(?.%F{blue}>.%F{red}>) %F{green}[%n@%m]%f %F{yellow}%~%f :: '
+PROMPT='󰣇 %F{blue}%n%f :: '
 
 # exports
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/n00b/scripts
@@ -39,9 +35,12 @@ setopt correct
 alias la="ls -lah"
 alias vi="nvim"
 alias gall="git add . ;git commit --allow-empty-message -m '' ;prox git push -u origin main"
+alias gs="git status"
+alias ga="git add ."
+alias gc="git commit --allow-empty-message -m ''"
 alias s="shutdown now"
 alias prox="proxychains -q" 
-alias zshconf="vi ~/.zshrc" 
+alias vizsh="vi ~/.zshrc" 
 alias so="source ~/.zshrc" 
 alias tns="tmux new -s '@kyliex7'"
 alias tks="tmux kill-server"
@@ -51,7 +50,7 @@ alias chm="chmod +x"
 alias brave="brave --proxy-server=socks5://192.168.42.129:9050"
 alias ls="ls --color=auto"
 alias c="clear"
-alias i3conf="vi ~/.config/i3/config"
+alias vii3="vi ~/.config/i3/config"
 
 
 ### Keybinds ###
@@ -126,6 +125,3 @@ zstyle ':fzf-tab:complete:cd*' fzf-preview "ls --color $realpath"
 
 # shell intergration
 eval "$(fzf --zsh)"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
