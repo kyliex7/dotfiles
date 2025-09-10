@@ -38,6 +38,7 @@ alias gall="git add . ;git commit --allow-empty-message -m '' ;prox git push -u 
 alias gs="git status"
 alias ga="git add ."
 alias gc="git commit --allow-empty-message -m ''"
+alias gp="git push -u origin main"
 alias s="shutdown now"
 alias prox="proxychains -q" 
 alias vizsh="vi ~/.zshrc" 
