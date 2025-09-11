@@ -27,19 +27,23 @@ export FZF_DEFAULT_OPTS="
 	--color=border:#403d52,header:#31748f,gutter:#191724
 	--color=spinner:#f6c177,info:#9ccfd8
 	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
+        setopt correct
+
+# proxies
 declare -x http_proxy="socks5h://192.168.42.129:9050"
 declare -x https_proxy="socks5h://192.168.42.129:9050"
-setopt correct
+declare -x all_proxy="socks5h://192.168.42.129:9050"
 
 # aliases
 alias la="ls -lah"
-alias vi="nvim"
+alias git="proxychains -q git"
+alias vi="proxychains -q nvim"
 alias gs="git status"
 alias ga="git add ."
 alias gc="git commit --allow-empty-message -m ''"
-alias gp="prox git push -u origin main"
+alias gp="proxychains -q git push -u origin main"
 alias s="shutdown now"
-alias prox="proxychains -q" 
+alias p="proxychains -q" 
 alias vizsh="vi ~/.zshrc" 
 alias so="source ~/.zshrc" 
 alias tns="tmux new -s '@kyliex7'"
@@ -47,7 +51,7 @@ alias tks="tmux kill-server"
 alias t="tmux"
 alias copy="xclip -selection clipboard"
 alias chm="chmod +x"
-# alias brave="brave --proxy-server=socks5://192.168.42.129:9050"
+alias brave="brave --proxy-server=socks5://192.168.42.129:9050"
 alias ls="ls --color=auto"
 alias c="clear"
 alias vii3="vi ~/.config/i3/config"

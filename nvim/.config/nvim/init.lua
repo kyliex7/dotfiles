@@ -4,7 +4,7 @@ vim.g.maplocalleader = ' '
 
 vim.g.have_nerd_font = true
 
-vim.o.guicursor = ""
+-- vim.o.guicursor = ""
 
 vim.o.number = true
 
