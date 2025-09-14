@@ -1,7 +1,7 @@
 [general]
 live_config_reload = true
 import = [
-	"./rose_pine_moon.toml"
+	"~/dotfiles/alacritty/.config/alacritty/tokyonight_enhanced.toml"
 ]
 
 [window]

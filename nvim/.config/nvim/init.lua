@@ -10,7 +10,7 @@ vim.o.number = true
 
 vim.o.relativenumber = true
 
-vim.opt.shiftwidth = 2
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.o.mouse = 'a'
@@ -39,7 +39,7 @@ vim.o.splitbelow = true
 
 vim.o.inccommand = 'split'
 
-vim.o.cursorline = false
+vim.o.cursorline = true
 
 vim.o.scrolloff = 10
 
@@ -328,7 +328,12 @@ require('lazy').setup({
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
       local servers = {
-        clangd = {},
+        clangd = {
+          cmd = {
+            "clangd",
+            "--fallback-style=webkit"
+          }
+        },
         pyright = {},
         lua_ls = {
           settings = {
@@ -445,15 +450,64 @@ require('lazy').setup({
   },
 
   {
-    'rose-pine/neovim',
-    name = 'rose-pine',
+    "olimorris/onedarkpro.nvim",
+    priority = 1000, -- Ensure it loads first
+    opts = {
+      highlights = {
+        Comment = { italic = true },
+        Directory = { bold = true },
+        ErrorMsg = { italic = true, bold = true }
+      },
+      styles = {
+        types = "NONE",
+        methods = "NONE",
+        numbers = "NONE",
+        strings = "NONE",
+        comments = "italic",
+        keywords = "bold,italic",
+        constants = "NONE",
+        functions = "italic",
+        operators = "NONE",
+        variables = "NONE",
+        parameters = "NONE",
+        conditionals = "italic",
+        virtual_text = "NONE",
+      },
+      options = {
+        transparency = true
+      }
+    },
     config = function()
-      vim.cmd.colorscheme("rose-pine")
-      vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-      vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
-    end,
+      vim.cmd("colorscheme onedark_dark")
+    end
   },
 
+  -- {
+  --   'rose-pine/neovim',
+  --   name = 'rose-pine',
+  --   config = function()
+  --     vim.cmd.colorscheme("rose-pine")
+  --     vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+  --     vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+  --   end,
+  -- },
+
+  -- {
+  --   'folke/tokyonight.nvim',
+  --   priority = 1000, -- Make sure to load this before all the other start plugins.
+  --   config = function()
+  --     ---@diagnostic disable-next-line: missing-fields
+  --     require('tokyonight').setup {
+  --       transparent = true,
+  --       styles = {
+  --         comments = { italic = true }, -- Disable italics in comments
+  --         sidebars = "transparent",
+  --         floats = "transparent"
+  --       },
+  --     }
+  --     vim.cmd.colorscheme 'tokyonight-night'
+  --   end,
+  -- },
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()
