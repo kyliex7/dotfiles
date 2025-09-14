@@ -427,7 +427,7 @@ require('lazy').setup({
       },
 
       appearance = {
-        nerd_font_variant = 'propo',
+        nerd_font_variant = 'mono',
       },
 
       completion = {
@@ -450,37 +450,70 @@ require('lazy').setup({
   },
 
   {
-    "olimorris/onedarkpro.nvim",
-    priority = 1000, -- Ensure it loads first
-    opts = {
-      highlights = {
-        Comment = { italic = true },
-        Directory = { bold = true },
-        ErrorMsg = { italic = true, bold = true }
-      },
-      styles = {
-        types = "NONE",
-        methods = "NONE",
-        numbers = "NONE",
-        strings = "NONE",
-        comments = "italic",
-        keywords = "bold,italic",
-        constants = "NONE",
-        functions = "italic",
-        operators = "NONE",
-        variables = "NONE",
-        parameters = "NONE",
-        conditionals = "italic",
-        virtual_text = "NONE",
-      },
-      options = {
-        transparency = true
-      }
-    },
+    'goolord/alpha-nvim',
+    dependencies = { 'echasnovski/mini.icons' },
     config = function()
-      vim.cmd("colorscheme onedark_dark")
+      require 'alpha'.setup(require 'alpha.themes.startify'.config)
     end
   },
+
+  {
+    'marko-cerovac/material.nvim',
+    opts = {
+      contrast = {
+        cursor_line = true,      -- Enable darker background for the cursor line
+        lsp_virtual_text = true, -- Enable contrasted background for lsp virtual text
+      },
+
+      styles = { -- Give comments style such as bold, italic, underline etc.
+        comments = { italic = true },
+        operators = { italic = true },
+      },
+
+      plugins = { -- Uncomment the plugins that you use to highlight them
+        "blink",
+        "nvim-web-devicons",
+        "telescope",
+        "which-key",
+      },
+    },
+    config = function()
+      vim.g.material_style = "deep ocean"
+      vim.cmd("colorscheme material")
+    end
+  },
+  -- {
+  --   "olimorris/onedarkpro.nvim",
+  --   priority = 1000, -- Ensure it loads first
+  --   opts = {
+  --     highlights = {
+  --       Comment = { italic = true },
+  --       Directory = { bold = true },
+  --       ErrorMsg = { italic = true, bold = true }
+  --     },
+  --     styles = {
+  --       types = "NONE",
+  --       methods = "NONE",
+  --       numbers = "NONE",
+  --       strings = "NONE",
+  --       comments = "italic",
+  --       keywords = "bold,italic",
+  --       constants = "NONE",
+  --       functions = "italic",
+  --       operators = "NONE",
+  --       variables = "NONE",
+  --       parameters = "NONE",
+  --       conditionals = "italic",
+  --       virtual_text = "NONE",
+  --     },
+  --     options = {
+  --       transparency = true
+  --     }
+  --   },
+  --   config = function()
+  --     vim.cmd("colorscheme onedark_dark")
+  --   end
+  -- },
 
   -- {
   --   'rose-pine/neovim',
