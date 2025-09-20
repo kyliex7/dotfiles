@@ -4,7 +4,7 @@ vim.g.maplocalleader = ' '
 
 vim.g.have_nerd_font = true
 
--- vim.o.guicursor = ""
+vim.o.guicursor = ""
 
 vim.o.number = true
 
@@ -15,7 +15,7 @@ vim.opt.expandtab = true
 
 vim.o.mouse = 'a'
 
-vim.o.showmode = false
+vim.o.showmode = true
 
 vim.schedule(function()
   vim.o.clipboard = 'unnamedplus'
@@ -208,7 +208,7 @@ require('lazy').setup({
       end, { desc = '[S]earch [/] in Open Files' })
 
       vim.keymap.set('n', '<leader>sn', function()
-        builtin.find_files { cwd = vim.fn.stdpath 'config' }
+        builtin.find_files { cwd = "~/dotfiles/nvim/.config/nvim" }
       end, { desc = '[S]earch [N]eovim files' })
     end,
   },
@@ -399,56 +399,30 @@ require('lazy').setup({
     },
   },
 
-  { -- Autocompletion
+  { -- Autocompletions
     'saghen/blink.cmp',
-    event = 'VimEnter',
+    dependencies = { 'rafamadriz/friendly-snippets' },
     version = '1.*',
-    dependencies = {
-      {
-        'L3MON4D3/LuaSnip',
-        version = '2.*',
-        build = (function()
-          if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
-            return
-          end
-          return 'make install_jsregexp'
-        end)(),
-        dependencies = {
-        },
-        opts = {},
-      },
-      'folke/lazydev.nvim',
-    },
-    --- @module 'blink.cmp'
-    --- @type blink.cmp.Config
+
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
     opts = {
-      keymap = {
-        preset = 'default',
-      },
+      keymap = { preset = 'default' },
 
       appearance = {
-        nerd_font_variant = 'mono',
+        nerd_font_variant = 'mono'
       },
 
-      completion = {
-        documentation = { auto_show = false, auto_show_delay_ms = 500 },
-      },
+      completion = { documentation = { auto_show = true } },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'lazydev' },
-        providers = {
-          lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-        },
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
       },
 
-      snippets = { preset = 'luasnip' },
-
-      fuzzy = { implementation = 'lua' },
-
-      signature = { enabled = true },
+      fuzzy = { implementation = "prefer_rust_with_warning" }
     },
+    opts_extend = { "sources.default" }
   },
-
   {
     'goolord/alpha-nvim',
     dependencies = { 'echasnovski/mini.icons' },
@@ -456,9 +430,9 @@ require('lazy').setup({
       require 'alpha'.setup(require 'alpha.themes.startify'.config)
     end
   },
-
   {
     'marko-cerovac/material.nvim',
+    priority = 1000,
     opts = {
       contrast = {
         cursor_line = true,      -- Enable darker background for the cursor line
@@ -469,17 +443,12 @@ require('lazy').setup({
         comments = { italic = true },
         operators = { italic = true },
       },
-
-      plugins = { -- Uncomment the plugins that you use to highlight them
-        "blink",
-        "nvim-web-devicons",
-        "telescope",
-        "which-key",
-      },
     },
     config = function()
       vim.g.material_style = "deep ocean"
       vim.cmd("colorscheme material")
+      vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+      vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
     end
   },
   -- {
@@ -544,21 +513,19 @@ require('lazy').setup({
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()
-      --  - va)  - [V]isually select [A]round [)]paren
-      --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
-      --  - ci'  - [C]hange [I]nside [']quote
       require('mini.ai').setup { n_lines = 500 }
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
-      local statusline = require 'mini.statusline'
-      statusline.setup { use_icons = true }
+      ---- Why don't stick with defaults? ----
+      -- local statusline = require 'mini.statusline'
+      -- statusline.setup { use_icons = true }
 
-      ---@diagnostic disable-next-line: duplicate-set-field
-      statusline.section_location = function()
-        return '%2l:%-2v'
-      end
+      -- ---@diagnostic disable-next-line: duplicate-set-field
+      -- statusline.section_location = function()
+      --   return '%2l:%-2v'
+      -- end
     end,
   },
   { -- Highlight, edit, and navigate code

@@ -37,7 +37,10 @@ declare -x all_proxy="socks5h://192.168.42.129:9050"
 
 # aliases
 alias la="ls -lah"
-alias vivi="vi ~/dotfiles/nvim/.config/nvim/init.lua"
+alias pav="pavucontrol"
+alias fd="fzf | xargs nvim"
+alias neofetch="fastfetch"
+# alias vivi="vi ~/dotfiles/nvim/.config/nvim/init.lua"
 alias cdwm="vi ~/dotfiles/dwm/.config/dwm/config.h"
 alias mdwm="cd ~/dotfiles/dwm/.config/dwm ;sudo make clean install ;cd -"
 alias git="proxychains -q git"
