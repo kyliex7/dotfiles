@@ -6,7 +6,7 @@ import = [
 
 [window]
 # title = "@kyliex7"
-padding = { x = 2, y = 2 }
+padding = { x = 4, y = 4 }
 dynamic_title = true
 decorations = "None"
 opacity = 0.9
