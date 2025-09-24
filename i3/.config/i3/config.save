@@ -14,7 +14,7 @@ exec_always --no-startup-id xrandr --output eDP-1 --off
 font pango:JetBrainsMonoNerdFont 9
 
 # Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
+/q# https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -51,7 +51,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec alacritty
-# bindsym $mod+Return exec kitty --config ~/dotfiles/kitty/.config/kitty/kitty.conf
+bindsym $mod+Return exec kitty
 # bindsym $mod+Return exec st
 
 # kill focused window

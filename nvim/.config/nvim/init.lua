@@ -1,10 +1,7 @@
--- Options
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 vim.g.have_nerd_font = true
-
-vim.o.guicursor = ""
 
 vim.o.number = true
 
@@ -187,7 +184,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-      vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
+      vim.keymap.set('n', '<leader>si', builtin.diagnostics, { desc = '[S]earch D[i]agnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
@@ -206,10 +203,14 @@ require('lazy').setup({
           prompt_title = 'Live Grep in Open Files',
         }
       end, { desc = '[S]earch [/] in Open Files' })
-
+      --
       vim.keymap.set('n', '<leader>sn', function()
-        builtin.find_files { cwd = "~/dotfiles/nvim/.config/nvim" }
+        builtin.find_files { cwd = '~/dotfiles/nvim/.config/nvim' }
       end, { desc = '[S]earch [N]eovim files' })
+
+      -- vim.keymap.set('n', '<leader>sd', function()
+      --   builtin.find_files { cwd = '~/dotfiles' }
+      -- end, { desc = '[S]earch [D]otfiles' })
     end,
   },
 
@@ -487,6 +488,13 @@ require('lazy').setup({
   -- {
   --   'rose-pine/neovim',
   --   name = 'rose-pine',
+  --   opts = {
+  --     styles = {
+  --       bold = false,
+  --       italic = false,
+  --       transparency = false,
+  --     },
+  --   },
   --   config = function()
   --     vim.cmd.colorscheme("rose-pine")
   --     vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
@@ -576,5 +584,15 @@ require('lazy').setup({
   },
 })
 
+vim.schedule(function()
+  vim.opt.guicursor = {
+    "n-v-c:block-blinkon500-blinkoff500-blinkwait200",
+    "i:block-blinkon500-blinkoff500-blinkwait200",
+    "v:block-blinkon500-blinkoff500-blinkwait200",
+    "r-cr:hor20",
+    "o:hor50",
+    "sm:block-blinkon500-blinkoff500-blinkwait200",
+  }
+end)
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
