@@ -7,7 +7,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 zinit ice depth"1" # git clone depth
 # zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
+# zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
 # auto load completions
@@ -16,7 +16,8 @@ zinit cdreplay -q
 # prompt
 autoload -U colors && colors
 # PROMPT='%(?.%F{blue}>.%F{red}>) %F{green}[%n@%m]%f %F{yellow}%~%f :: '
-PROMPT='󰣇 %F{blue}%n%f %F{yellow}%~ %f :: '
+# PROMPT='󰣇 %F{blue}%n%f at %F{yellow}%~ %f :: '
+PROMPT='%F{green}%~ %f :: '
 
 # exports
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/n00b/scripts
@@ -36,14 +37,12 @@ declare -x https_proxy="socks5h://192.168.42.129:9050"
 declare -x all_proxy="socks5h://192.168.42.129:9050"
 
 # aliases
-alias gdb="gdb -q"
+alias gdb="gdb -q -x ~/dotfiles/gdb/x.cfg"
 alias la="ls -lah"
 alias pav="pavucontrol"
 alias fd="fzf | xargs nvim"
 alias neofetch="fastfetch"
 # alias vivi="vi ~/dotfiles/nvim/.config/nvim/init.lua"
-alias cdwm="vi ~/dotfiles/dwm/.config/dwm/config.h"
-alias mdwm="cd ~/dotfiles/dwm/.config/dwm ;sudo make clean install ;cd -"
 alias git="proxychains -q git"
 alias vi="proxychains -q nvim"
 alias gs="git status"
@@ -51,7 +50,7 @@ alias ga="git add ."
 alias gc="git commit --allow-empty-message -m ''"
 alias gp="proxychains -q git push -u origin main"
 alias s="shutdown now"
-alias p="proxychains -q" 
+alias prox="proxychains -q" 
 alias vizsh="vi ~/.zshrc" 
 alias so="source ~/.zshrc" 
 alias tns="tmux new -s '@kyliex7'"
@@ -96,8 +95,8 @@ bindkey '^[c' fzf-cd-widget
 
 function zle-keymap-select {
   case $KEYMAP in
-    vicmd)      echo -ne '\e[1 q' ;;  # steady block for NORMAL mode
-    viins|main) echo -ne '\e[5 q' ;;  # steady bar for INSERT mode
+    vicmd)      echo -ne '\e[2 q' ;;  # steady block for NORMAL mode
+    viins|main) echo -ne '\e[2 q' ;;  # steady bar for INSERT mode
   esac
 }
 zle -N zle-keymap-select
@@ -105,12 +104,12 @@ zle -N zle-keymap-select
 # When zsh first starts, make sure cursor matches mode
 function zle-line-init {
   zle -K viins
-  echo -ne '\e[6 q'  # steady bar
+  echo -ne '\e[2 q'  # steady bar
 }
 zle -N zle-line-init
 
 # Fix cursor on exit (so you don’t get stuck with a weird shape)
-precmd() { echo -ne '\e[1 q'; }
+precmd() { echo -ne '\e[2 q'; }
 # hist
 HISTSIZE=10000
 HISTFILE=$HOME/.zsh_history

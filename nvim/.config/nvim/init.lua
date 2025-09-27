@@ -447,6 +447,7 @@ require('lazy').setup({
       vim.cmd("colorscheme material")
       vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
       vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+      vim.o.guicursor = "" -- either material will set it's own guicursor
     end
   },
   -- {
@@ -581,15 +582,6 @@ require('lazy').setup({
   },
 })
 
-vim.schedule(function()
-  vim.opt.guicursor = {
-    "n-v-c:block-blinkon500-blinkoff500-blinkwait200",
-    "i:block-blinkon500-blinkoff500-blinkwait200",
-    "v:block-blinkon500-blinkoff500-blinkwait200",
-    "r-cr:hor20",
-    "o:hor50",
-    "sm:block-blinkon500-blinkoff500-blinkwait200",
-  }
-end)
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
