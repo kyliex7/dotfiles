@@ -207,10 +207,6 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = '~/dotfiles/nvim/.config/nvim' }
       end, { desc = '[S]earch [N]eovim files' })
-
-      -- vim.keymap.set('n', '<leader>sd', function()
-      --   builtin.find_files { cwd = '~/dotfiles' }
-      -- end, { desc = '[S]earch [D]otfiles' })
     end,
   },
 
@@ -430,6 +426,7 @@ require('lazy').setup({
     config = function()
       require 'alpha'.setup(require 'alpha.themes.startify'.config)
     end
+
   },
   {
     'marko-cerovac/material.nvim',

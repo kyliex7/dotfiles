@@ -21,12 +21,12 @@ PROMPT='󰣇 %F{blue}%n%f %F{yellow}%~ %f :: '
 # exports
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/n00b/scripts
 export EDITOR=nvim
-export FZF_DEFAULT_OPTS="
-	--color=fg:#908caa,bg:#191724,hl:#ebbcba
-	--color=fg+:#e0def4,bg+:#26233a,hl+:#ebbcba
-	--color=border:#403d52,header:#31748f,gutter:#191724
-	--color=spinner:#f6c177,info:#9ccfd8
-	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
+# export FZF_DEFAULT_OPTS="
+# 	--color=fg:#908caa,bg:#191724,hl:#ebbcba
+# 	--color=fg+:#e0def4,bg+:#26233a,hl+:#ebbcba
+# 	--color=border:#403d52,header:#31748f,gutter:#191724
+# 	--color=spinner:#f6c177,info:#9ccfd8
+# 	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
 setopt correct
 export CLANGD_FLAGS="--fallback-style=webkit"
 
@@ -36,6 +36,7 @@ declare -x https_proxy="socks5h://192.168.42.129:9050"
 declare -x all_proxy="socks5h://192.168.42.129:9050"
 
 # aliases
+alias gdb="gdb -q"
 alias la="ls -lah"
 alias pav="pavucontrol"
 alias fd="fzf | xargs nvim"
@@ -71,14 +72,10 @@ bindkey -v  # enable vim mode
 bindkey -M viins '^f' autosuggest-accept
 bindkey -M viins '^p' history-search-backward
 bindkey -M viins '^n' history-search-forward
-bindkey -M viins '^a' beginning-of-line
-bindkey -M viins '^e' end-of-line
 bindkey -M viins '^u' backward-kill-line
 bindkey -M viins 'jj' vi-cmd-mode
 
 # Command mode mappings
-bindkey -M vicmd '^a' beginning-of-line
-bindkey -M vicmd '^e' end-of-line
 bindkey -M vicmd '^p' history-search-backward
 bindkey -M vicmd '^n' history-search-forward
 bindkey -M vicmd 'J' down-line-or-history

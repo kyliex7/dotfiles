@@ -20,10 +20,8 @@ exec --no-startup-id dex --autostart --environment i3
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-bindsym Mod1+l exec --no-startup-id "i3lock && systemctl suspend"
+bindsym Mod1+Shift+l exec --no-startup-id "i3lock && systemctl suspend"
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
@@ -37,7 +35,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Applications
 bindsym Mod1+e exec thunar
-# bindsym $mod+b exec brave --proxy-server=socks5://192.168.42.129:9050
+bindsym Mod1+b exec brave --proxy-server=socks5://192.168.42.129:9050
 bindsym $mod+b exec firefox
 bindsym $mod+t exec Telegram
 bindsym $mod+Shift+F1 exec --no-startup-id ~/.config/i3/toggle-edp.sh
