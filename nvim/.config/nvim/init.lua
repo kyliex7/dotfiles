@@ -57,6 +57,7 @@ vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 vim.keymap.set('i', 'jj', '<Esc>', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
+vim.keymap.set('n', '<leader>a', vim.cmd.Alpha)
 
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
@@ -430,6 +431,7 @@ require('lazy').setup({
   },
   {
     'marko-cerovac/material.nvim',
+    enabled = true,
     priority = 1000,
     opts = {
       contrast = {
@@ -445,8 +447,8 @@ require('lazy').setup({
     config = function()
       vim.g.material_style = "deep ocean"
       vim.cmd("colorscheme material")
-      vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-      vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+      -- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+      -- vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
       vim.o.guicursor = "" -- either material will set it's own guicursor
     end
   },
@@ -495,8 +497,8 @@ require('lazy').setup({
   --   },
   --   config = function()
   --     vim.cmd.colorscheme("rose-pine")
-  --     vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-  --     vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+  --     -- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+  --     -- vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
   --   end,
   -- },
 

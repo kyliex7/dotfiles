@@ -15,9 +15,7 @@ autoload -U compinit && compinit
 zinit cdreplay -q
 # prompt
 autoload -U colors && colors
-# PROMPT='%(?.%F{blue}>.%F{red}>) %F{green}[%n@%m]%f %F{yellow}%~%f :: '
-# PROMPT='󰣇 %F{blue}%n%f at %F{yellow}%~ %f :: '
-PROMPT='%F{green}%~ %f :: '
+PROMPT='%F{#808992}%~ %f :: '
 
 # exports
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/n00b/scripts
@@ -37,12 +35,12 @@ declare -x https_proxy="socks5h://192.168.42.129:9050"
 declare -x all_proxy="socks5h://192.168.42.129:9050"
 
 # aliases
+alias cat="bat"
 alias gdb="gdb -q -x ~/dotfiles/gdb/x.cfg"
 alias la="ls -lah"
 alias pav="pavucontrol"
 alias fd="fzf | xargs nvim"
 alias neofetch="fastfetch"
-# alias vivi="vi ~/dotfiles/nvim/.config/nvim/init.lua"
 alias git="proxychains -q git"
 alias vi="proxychains -q nvim"
 alias gs="git status"
@@ -59,7 +57,7 @@ alias t="tmux"
 alias copy="xclip -selection clipboard"
 alias chm="chmod +x"
 alias brave="brave --proxy-server=socks5://192.168.42.129:9050"
-alias ls="ls --color=auto"
+alias ls="ls --color=auto --sort=version"
 alias c="clear"
 alias vii3="vi ~/.config/i3/config"
 

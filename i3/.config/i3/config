@@ -4,9 +4,9 @@ gaps inner 6px
 
 # autostart
 exec_always xrdb -merge ~/.Xresources 
-exec_always picom --config ~/.config/picom/picom.conf &
+# exec_always picom --config ~/.config/picom/picom.conf &
 # exec_always --no-startup-id ~/.config/polybar/launch.sh &
-exec_always feh --bg-scale --randomize ~/Pictures/wallpapers/wallpaperflare.com_wallpaper.jpg &
+# exec_always feh --bg-scale --randomize ~/Pictures/wallpapers/wallpaperflare.com_wallpaper.jpg &
 # exec_always --no-startup-id xrandr --output eDP-1 --off --output HDMI-1 --primary --mode 1920x1080 &
 exec_always --no-startup-id xrandr --output eDP-1 --off
 # exec_always --no-startup-id autotiling &
@@ -35,8 +35,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Applications
 bindsym Mod1+e exec thunar
-bindsym Mod1+b exec brave --proxy-server=socks5://192.168.42.129:9050
-bindsym $mod+b exec firefox
+# bindsym Mod1+b exec brave --proxy-server=socks5://192.168.42.129:9050
+# bindsym $mod+b exec firefox
+bindsym $mod+b exec zen-browser
 bindsym $mod+t exec Telegram
 bindsym $mod+Shift+F1 exec --no-startup-id ~/.config/i3/toggle-edp.sh
 
@@ -229,7 +230,8 @@ client.background       $base
     # Borders
         # Also removes all title bars
         for_window [class=".*"] title_format " "
-        default_border pixel 1
+        for_window [class=".*"] border pixel 2
+        default_border pixel 2
         default_floating_border pixel 1
 
         # Hide borders at the edge of the screen
