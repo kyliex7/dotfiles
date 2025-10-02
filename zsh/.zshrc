@@ -20,12 +20,6 @@ PROMPT='%F{#808992}%~ %f :: '
 # exports
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/n00b/scripts
 export EDITOR=nvim
-# export FZF_DEFAULT_OPTS="
-# 	--color=fg:#908caa,bg:#191724,hl:#ebbcba
-# 	--color=fg+:#e0def4,bg+:#26233a,hl+:#ebbcba
-# 	--color=border:#403d52,header:#31748f,gutter:#191724
-# 	--color=spinner:#f6c177,info:#9ccfd8
-# 	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
 setopt correct
 export CLANGD_FLAGS="--fallback-style=webkit"
 
@@ -35,6 +29,9 @@ declare -x https_proxy="socks5h://192.168.42.129:9050"
 declare -x all_proxy="socks5h://192.168.42.129:9050"
 
 # aliases
+alias repo="cd ~/learn/ost2/arch1001/arch1001_x86-64_asm_code_for_class/"
+alias b="cat /sys/class/power_supply/BAT0/capacity"
+alias rs="redshift -O 6000"
 alias cat="bat"
 alias gdb="gdb -q -x ~/dotfiles/gdb/x.cfg"
 alias la="ls -lah"
@@ -121,11 +118,34 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
+# fzf-tab appearance
+zstyle ':fzf-tab:*' fzf-flags --height=40% --border
+zstyle ':fzf-tab:*' default-color $'\033[38;2;144;140;170m'
+zstyle ':fzf-tab:*' fzf-bindings 'ctrl-a:toggle-all'
+zstyle ':fzf-tab:*' switch-group ',' '.'
+
 # completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd*' fzf-preview "ls --color $realpath"
+# zstyle ':fzf-tab:complete:cd*' fzf-preview "ls --color $realpath"
+
+# Enhanced fzf-tab configuration for directory previews
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color=always $realpath 2>/dev/null'
+zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' \
+    fzf-preview 'echo ${(P)word}'
+
+# Show directory contents for various file-related completions
+zstyle ':fzf-tab:complete:(ls|bat|cat|vim|nvim|vi):*' fzf-preview 'ls --color=always $realpath 2>/dev/null'
+zstyle ':fzf-tab:complete:(cp|mv|rm|mkdir|touch):*' fzf-preview 'ls --color=always $realpath 2>/dev/null'
+
+# General file preview (fallback)
+zstyle ':fzf-tab:complete:*' fzf-preview '
+    if [ -d $realpath ]; then
+        ls --color=always $realpath 2>/dev/null
+    else
+        bat --color=always $realpath 2>/dev/null || ls --color=always $realpath 2>/dev/null
+    fi'
 
 
 # shell intergration

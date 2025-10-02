@@ -5,6 +5,8 @@ vim.g.have_nerd_font = true
 
 vim.o.number = true
 
+vim.o.guicursor = ""
+
 vim.o.relativenumber = true
 
 vim.opt.shiftwidth = 4
@@ -12,7 +14,7 @@ vim.opt.expandtab = true
 
 vim.o.mouse = 'a'
 
-vim.o.showmode = true
+vim.o.showmode = false
 
 vim.schedule(function()
   vim.o.clipboard = 'unnamedplus'
@@ -421,17 +423,57 @@ require('lazy').setup({
     },
     opts_extend = { "sources.default" }
   },
+  -- dashboard
   {
     'goolord/alpha-nvim',
     dependencies = { 'echasnovski/mini.icons' },
     config = function()
       require 'alpha'.setup(require 'alpha.themes.startify'.config)
     end
-
+  },
+  -- colorscheme
+  {
+    "rose-pine/neovim",
+    enabled = true,
+    priority = 1000,
+    name = "rose-pine",
+    opts = {
+      styles = {
+        bold = false,
+        italic = false,
+      },
+      highlight_groups = {
+        TelescopeBorder = { fg = "highlight_high", bg = "none" },
+        TelescopeNormal = { bg = "none" },
+        TelescopePromptNormal = { bg = "base" },
+        TelescopeResultsNormal = { fg = "subtle", bg = "none" },
+        TelescopeSelection = { fg = "text", bg = "base" },
+        TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
+      },
+    },
+    config = function()
+      vim.cmd("colorscheme rose-pine-moon")
+      vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+      vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+    end
+  },
+  {
+    'rebelot/kanagawa.nvim',
+    enabled = false,
+    opts = {
+      keywordStyle = { italic = false },
+      statementStyle = { bold = true },
+      transparent = true,
+      theme = "wave",    -- Load "wave" theme
+      background = {     -- map the value of 'background' option to a theme
+        dark = "dragon", -- try "dragon" !
+        light = "lotus"
+      },
+    }
   },
   {
     'marko-cerovac/material.nvim',
-    enabled = true,
+    enabled = false,
     priority = 1000,
     opts = {
       contrast = {
@@ -447,77 +489,27 @@ require('lazy').setup({
     config = function()
       vim.g.material_style = "deep ocean"
       vim.cmd("colorscheme material")
-      -- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-      -- vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
-      vim.o.guicursor = "" -- either material will set it's own guicursor
+      vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+      vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
     end
   },
-  -- {
-  --   "olimorris/onedarkpro.nvim",
-  --   priority = 1000, -- Ensure it loads first
-  --   opts = {
-  --     highlights = {
-  --       Comment = { italic = true },
-  --       Directory = { bold = true },
-  --       ErrorMsg = { italic = true, bold = true }
-  --     },
-  --     styles = {
-  --       types = "NONE",
-  --       methods = "NONE",
-  --       numbers = "NONE",
-  --       strings = "NONE",
-  --       comments = "italic",
-  --       keywords = "bold,italic",
-  --       constants = "NONE",
-  --       functions = "italic",
-  --       operators = "NONE",
-  --       variables = "NONE",
-  --       parameters = "NONE",
-  --       conditionals = "italic",
-  --       virtual_text = "NONE",
-  --     },
-  --     options = {
-  --       transparency = true
-  --     }
-  --   },
-  --   config = function()
-  --     vim.cmd("colorscheme onedark_dark")
-  --   end
-  -- },
-
-  -- {
-  --   'rose-pine/neovim',
-  --   name = 'rose-pine',
-  --   opts = {
-  --     styles = {
-  --       bold = false,
-  --       italic = false,
-  --       transparency = false,
-  --     },
-  --   },
-  --   config = function()
-  --     vim.cmd.colorscheme("rose-pine")
-  --     -- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-  --     -- vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
-  --   end,
-  -- },
-
-  -- {
-  --   'folke/tokyonight.nvim',
-  --   priority = 1000, -- Make sure to load this before all the other start plugins.
-  --   config = function()
-  --     ---@diagnostic disable-next-line: missing-fields
-  --     require('tokyonight').setup {
-  --       transparent = true,
-  --       styles = {
-  --         comments = { italic = true }, -- Disable italics in comments
-  --         sidebars = "transparent",
-  --         floats = "transparent"
-  --       },
-  --     }
-  --     vim.cmd.colorscheme 'tokyonight-night'
-  --   end,
-  -- },
+  {
+    'folke/tokyonight.nvim',
+    enabled = false,
+    priority = 1000, -- Make sure to load this before all the other start plugins.
+    config = function()
+      ---@diagnostic disable-next-line: missing-fields
+      require('tokyonight').setup {
+        transparent = true,
+        styles = {
+          comments = { italic = true }, -- Disable italics in comments
+          sidebars = "transparent",
+          floats = "transparent"
+        },
+      }
+      vim.cmd.colorscheme 'tokyonight-night'
+    end,
+  },
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()
@@ -526,14 +518,13 @@ require('lazy').setup({
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
-      ---- Why don't stick with defaults? ----
-      -- local statusline = require 'mini.statusline'
-      -- statusline.setup { use_icons = true }
+      local statusline = require 'mini.statusline'
+      statusline.setup { use_icons = true }
 
-      -- ---@diagnostic disable-next-line: duplicate-set-field
-      -- statusline.section_location = function()
-      --   return '%2l:%-2v'
-      -- end
+      ---@diagnostic disable-next-line: duplicate-set-field
+      statusline.section_location = function()
+        return '%2l:%-2v'
+      end
     end,
   },
   { -- Highlight, edit, and navigate code

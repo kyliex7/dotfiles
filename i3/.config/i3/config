@@ -3,12 +3,11 @@ gaps outer 15px
 gaps inner 6px
 
 # autostart
-exec_always xrdb -merge ~/.Xresources 
-# exec_always picom --config ~/.config/picom/picom.conf &
+# exec_always --no-startup-id picom --config ~/.config/picom/picom.conf &
 # exec_always --no-startup-id ~/.config/polybar/launch.sh &
-# exec_always feh --bg-scale --randomize ~/Pictures/wallpapers/wallpaperflare.com_wallpaper.jpg &
+# exec_always --no-startup-id feh --bg-scale --randomize ~/Pictures/wallpapers/wallhaven-9omylw.png &
 # exec_always --no-startup-id xrandr --output eDP-1 --off --output HDMI-1 --primary --mode 1920x1080 &
-exec_always --no-startup-id xrandr --output eDP-1 --off
+exec_always --no-startup-id xrandr --output eDP-1 --off &
 # exec_always --no-startup-id autotiling &
 
 font pango:JetBrainsMonoNerdFont 9
@@ -239,8 +238,8 @@ client.background       $base
 
 ## Screenshots
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
-bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
-bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date).png"
+bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date).jpg"
 
 ## Clipboard Screenshots
 bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png

@@ -6,7 +6,7 @@ import = [
 
 [window]
 # title = "@kyliex7"
-padding = { x = 7, y = 0 }
+padding = { x = 2, y = 0 }
 dynamic_title = true
 decorations = "None"
 opacity = 0.9
@@ -14,15 +14,12 @@ blur = false
 startup_mode = "Windowed"
 
 [font]
-size = 11
-# normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
-# bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
-# italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
-normal = { family = "AdwaitaMono Nerd Font Propo", style = "Regular" }
-bold = { family = "AdwaitaMono Nerd Font Propo", style = "Bold" }
-italic = { family = "AdwaitaMono Nerd Font Propo", style = "Italic" }
-offset = { x = 0, y = -1 }
-glyph_offset = { x = 0, y = 1 }
+size = 12
+normal = { family = "HackNerdFontMono", style = "Regular" }
+bold = { family = "HackNerdFontMono", style = "Bold" }
+italic = { family = "HackNerdFontMono", style = "Italic" }
+offset = { x = 0, y = 0 }
+glyph_offset = { x = 0, y = 0 }
 
 [terminal]
 shell = { program = "/bin/zsh", args = ["-l"] }
@@ -42,16 +39,6 @@ hide_when_typing = true
 bindings = [
   { mouse = "Right", action = "PasteSelection" }
 ]
-
-# [keyboard]
-# bindings = [
-#   { key = "D", mods = "Alt", chars = "\u001BD" },  # Alt + D (Delete the word after the cursor)
-#   { key = "Backspace", mods = "Alt", chars = "\u001B\u007F" },  # Alt + Backspace (Delete word before cursor)
-# # Move line/block up
-#   { key = "Up", mods = "Alt", chars = "\\u2191" },
-#   # Move line/block down
-#   { key = "Down", mods = "Alt", chars = "\\u2193" },
-# ]
 
 [keyboard]
 bindings = [
