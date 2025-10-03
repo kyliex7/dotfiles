@@ -29,14 +29,14 @@ declare -x https_proxy="socks5h://192.168.42.129:9050"
 declare -x all_proxy="socks5h://192.168.42.129:9050"
 
 # aliases
-alias repo="cd ~/learn/ost2/arch1001/arch1001_x86-64_asm_code_for_class/"
-alias b="cat /sys/class/power_supply/BAT0/capacity"
+# alias gdb32="gdb -q -x ~/dotfiles/gdb/x32.cfg"
+alias arch1001="cd ~/learn/ost2/arch1001/arch1001_x86-64_asm_code_for_class/"
 alias rs="redshift -O 6000"
 alias cat="bat"
 alias gdb="gdb -q -x ~/dotfiles/gdb/x.cfg"
 alias la="ls -lah"
 alias pav="pavucontrol"
-alias fd="fzf | xargs nvim"
+# alias fd="fzf | xargs nvim"
 alias neofetch="fastfetch"
 alias git="proxychains -q git"
 alias vi="proxychains -q nvim"
@@ -105,6 +105,7 @@ zle -N zle-line-init
 
 # Fix cursor on exit (so you don’t get stuck with a weird shape)
 precmd() { echo -ne '\e[2 q'; }
+
 # hist
 HISTSIZE=10000
 HISTFILE=$HOME/.zsh_history

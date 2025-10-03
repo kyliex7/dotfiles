@@ -5,7 +5,7 @@ gaps inner 6px
 # autostart
 # exec_always --no-startup-id picom --config ~/.config/picom/picom.conf &
 # exec_always --no-startup-id ~/.config/polybar/launch.sh &
-# exec_always --no-startup-id feh --bg-scale --randomize ~/Pictures/wallpapers/wallhaven-9omylw.png &
+# exec_always --no-startup-id feh --bg-scale --randomize ~/Pictures/wallpapers/pacman-black.png &
 # exec_always --no-startup-id xrandr --output eDP-1 --off --output HDMI-1 --primary --mode 1920x1080 &
 exec_always --no-startup-id xrandr --output eDP-1 --off &
 # exec_always --no-startup-id autotiling &
@@ -188,7 +188,7 @@ bar {
     position top
         status_command i3status
         padding 2
-        font pango:AdwaitaMono Nerd Font 10
+        font pango:HackNerdFontMono 10
         colors {
         background #000009
         statusline #ffffff
