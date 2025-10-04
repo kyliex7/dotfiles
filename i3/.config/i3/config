@@ -10,7 +10,7 @@ gaps inner 6px
 exec_always --no-startup-id xrandr --output eDP-1 --off &
 # exec_always --no-startup-id autotiling &
 
-font pango:JetBrainsMonoNerdFont 9
+font pango:JetBrainsMonoNerdFont 6
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -219,7 +219,7 @@ set $highlighthigh  #56526e
 # target                title          bg             text     indicator border
 client.focused          $highlightlow  $highlightlow  $text    $iris     $rose
 client.focused_inactive $muted         $muted         $subtle  $muted    $muted
-client.unfocused        $muted         $muted         $subtle  $muted    $love
+client.unfocused        $muted         $muted         $subtle  $muted    $muted
 client.urgent           $love          $love          $text    $love     $love
 client.placeholder      $base          $base          $text    $base     $base
 client.background       $base
