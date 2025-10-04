@@ -188,7 +188,7 @@ bar {
     position top
         status_command i3status
         padding 2
-        font pango:HackNerdFontMono 10
+        font pango:HackNerdFontMono 6
         colors {
         background #000009
         statusline #ffffff
@@ -217,9 +217,9 @@ set $highlighthigh  #56526e
 
 # Teming border and Windows --------------
 # target                title          bg             text     indicator border
-client.focused          $highlightlow  $highlightlow  $text    $iris     $highlightlow
+client.focused          $highlightlow  $highlightlow  $text    $iris     $rose
 client.focused_inactive $muted         $muted         $subtle  $muted    $muted
-client.unfocused        $muted         $muted         $subtle  $muted    $muted
+client.unfocused        $muted         $muted         $subtle  $muted    $love
 client.urgent           $love          $love          $text    $love     $love
 client.placeholder      $base          $base          $text    $base     $base
 client.background       $base
@@ -229,9 +229,9 @@ client.background       $base
     # Borders
         # Also removes all title bars
         for_window [class=".*"] title_format " "
-        for_window [class=".*"] border pixel 2
+        for_window [class=".*"] border pixel 1
         default_border pixel 2
-        default_floating_border pixel 1
+        default_floating_border pixel 0
 
         # Hide borders at the edge of the screen
         hide_edge_borders smart
