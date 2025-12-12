@@ -1,0 +1,56 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "DejavuSansM Nerd Font Propo";
+    font-size: 15;
+    color: #ffffff;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+tooltip {
+  background: rgba(43, 48, 59, 0.5);
+  border: 1px solid rgba(100, 114, 125, 0.5);
+}
+tooltip label {
+  color: white;
+}
+
+/* #workspaces { */
+/*   transition: all 250ms ease-in-out; */
+/* } */
+
+#workspaces button {
+    padding: 0 5px;
+    background: #121212;
+    color: white;
+    border-bottom: 3px solid transparent;
+}
+
+/* #workspaces button.active { */
+/*   min-width: 40px; */
+/* } */
+
+
+#clock {
+    background-color: transparent;
+}
+
+#battery {
+    background-color: transparent;
+}
+
+#battery.charging {
+    background-color: transparent;
+}
+
+#window {
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
