@@ -7,3 +7,4 @@ o.cursorlineopt ='both' -- to enable cursorline!
 o.number = true
 o.relativenumber = true
 o.confirm = true
+require('base46').toggle_transparency()
