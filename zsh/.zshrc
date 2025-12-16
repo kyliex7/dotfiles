@@ -64,7 +64,7 @@ alias chm="chmod +x"
 alias py="python3"
 alias ipy="ipython"
 alias vi="NVIM_APPNAME=nvim-nvchad nvim"
-# vim: normal vim
+# vim: vim
 # nvim: kickstart nvim
 # vi: nvchad
 alias pwndir="cd ~/learn/pwn.college"
@@ -77,7 +77,7 @@ alias f="firefox"
 alias chem="cd ~/al/chem/pap"
 alias ph="cd ~/al/ph/pap"
 alias cm="cd ~/al/cm/pap"
-alias autoremove="sudo pacman -Rns \$(pacman -Qdtq)"
+alias autorm="sudo pacman -Rns \$(pacman -Qdtq)"
 alias mdwms="cd ~/dotfiles/suckless/dwmstatus; sudo make clean install; cd -"
 alias mdwm="cd ~/dotfiles/rice/dwm-flexipatch/; sudo make clean install; cd -"
 alias mst="cd ~/dotfiles/rice/st; sudo make clean install; cd -"
@@ -90,7 +90,15 @@ alias ga="git add ."
 alias gp="proxychains -q git push -u origin main"
 alias gp="git push -u origin main"
 alias gall="ga; gc; gp"
-alias sn="neofetch; echo 'shutting down in 3 seconds...'; sleep 2; echo 'goodbye'; sleep 0.9; shutdown now"
+sn(){
+  neofetch
+  echo -ne "shutting down in "
+  for i in {1..3}; do
+    echo -ne "${i}... "
+    sleep 0.9
+  done
+  shutdown now
+}
 alias p="proxychains -q" 
 alias vizsh="vi ~/.zshrc" 
 alias so="source ~/.zshrc" 
@@ -105,7 +113,7 @@ alias vii3="$EDITOR ~/.config/i3/config"
 
 ############################## STUFF #################################
 pipz(){ pip install "$@" --break-system-packages; }
-installz(){ sudo proxychains -q pacman -S "$@"; }
+i(){ sudo proxychains -q pacman -S "$@"; }
 pullzsh(){
 git -C ~/.zsh/plugins/fzf-tab pull; git -C ~/.zsh/plugins/zsh-completions pull
 }
@@ -141,21 +149,21 @@ bindkey '^[c' fzf-cd-widget
 
 
 ############################## CURSOR MODE ###############################
-function zle-keymap-select {
-  case $KEYMAP in
-    vicmd)      echo -ne '\e[1 q' ;;  # blinking block for NORMAL
-    viins|main) echo -ne '\e[1 q' ;;  # blinking bar for INSERT
-  esac
-}
-zle -N zle-keymap-select
-
-function zle-line-init {
-  zle -K viins
-  echo -ne '\e[1 q'   # start prompt in INSERT with blinking block
-}
-zle -N zle-line-init
-
-precmd() { echo -ne '\e[1 q'; }  # restore blinking block before prompt
+# function zle-keymap-select {
+#   case $KEYMAP in
+#     vicmd)      echo -ne '\e[3 q' ;;  # blinking block for NORMAL
+#     viins|main) echo -ne '\e[3 q' ;;  # blinking bar for INSERT
+#   esac
+# }
+# zle -N zle-keymap-select
+#
+# function zle-line-init {
+#   zle -K viins
+#   echo -ne '\e[1 q'   # start prompt in INSERT with blinking block
+# }
+# zle -N zle-line-init
+#
+# precmd() { echo -ne '\e[1 q'; }  # restore blinking block before prompt
 
 ############################## HISTORY ###################################
 HISTSIZE=10000
