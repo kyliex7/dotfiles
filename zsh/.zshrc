@@ -1,3 +1,17 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 ############################## PLUGINS ##################################
 ZSH_PLUGIN_DIR="$HOME/.zsh/plugins"
 
@@ -34,6 +48,7 @@ PROMPT="%F{#11111b}%F{#cdd6f4}  %n %F{#b4befe} %~ %f %F{#f38ba8}󰇁%f "
 # echo -e "${NEWLINE}\x1b[38;5;137m\x1b[48;5;0m it's$(print -P '%D{%_I:%M%P}\n') \x1b[38;5;180m\x1b[48;5;0m $(uptime -p | cut -c 4-) \x1b[38;5;223m\x1b[48;5;0m $(uname -r) \033[0m" # current
 
 ############################## GLOBAL EXPORTS ############################
+eval "$(batman --export-env)"
 declare -x http_proxy=socks5h://192.168.42.129:9050
 declare -x https_proxy=socks5h://192.168.42.129:9050
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/n00b/scripts:/home/n00b/.local/bin:/home/n00b/.npm-global/bin
@@ -58,15 +73,11 @@ export FZF_DEFAULT_OPTS="
 "
 
 ############################## ALIASES ###################################
-alias bat="bat --theme=Catppuccin\ Mocha"
+alias vi="NVIM_APPNAME=nvim-nvchad nvim"
 alias ..="cd .."
 alias chm="chmod +x"
 alias py="python3"
 alias ipy="ipython"
-alias vi="NVIM_APPNAME=nvim-nvchad nvim"
-# vim: vim
-# nvim: kickstart nvim
-# vi: nvchad
 alias pwndir="cd ~/learn/pwn.college"
 alias sus="systemctl suspend"
 alias y="yazi"
@@ -89,15 +100,6 @@ alias ga="git add ."
 alias gp="proxychains -q git push -u origin main"
 alias gp="git push -u origin main"
 alias gall="ga; gc; gp"
-sn(){
-  neofetch
-  echo -ne "shutting down in "
-  for i in {1..3}; do
-    echo -ne "${i}... "
-    sleep 0.9
-  done
-  shutdown now
-}
 alias p="proxychains -q" 
 alias vizsh="vi ~/.zshrc" 
 alias so="source ~/.zshrc" 
@@ -124,7 +126,23 @@ gc(){
     git commit -m "$@"
   fi
 }
-
+sn(){
+  neofetch
+  echo -ne "shutting down in "
+  for i in {1..3}; do
+    echo -ne "${i}... "
+    sleep 0.9
+  done
+  shutdown now
+}
+pipxa(){
+  unset http_proxy https_proxy
+  p pipx install "${@}"
+  source ~/.zshrc
+}
+pipxu(){
+  p pipx uninstall "${@}"
+}
 ############################## KEYBINDS ##################################
 bindkey -v  # vim mode
 
@@ -197,3 +215,7 @@ zstyle ':fzf-tab:complete:*' fzf-preview '
 if [[ $- == *i* ]]; then
   eval "$(fzf --zsh)"
 fi
+source ~/powerlevel10K/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
