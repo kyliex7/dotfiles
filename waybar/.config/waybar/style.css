@@ -1,12 +1,16 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "DejavuSansM Nerd Font Propo";
-    font-size: 15;
+    font-family: "TX\-02";
+    font-size: 15px;
     color: #ffffff;
     min-height: 0;
-    margin: 0;
-    padding: 0;
+}
+
+window#waybar>box {
+    padding-left:24px;
+    padding-right:19px;
+    margin-left: 10px;
 }
 
 window#waybar {
@@ -26,8 +30,8 @@ tooltip label {
 /* } */
 
 #workspaces button {
-    padding: 0 5px;
-    background: #121212;
+    padding: 5px;
+    background: transparent;
     color: white;
     border-bottom: 3px solid transparent;
 }
@@ -50,7 +54,7 @@ tooltip label {
 }
 
 #window {
-    border-radius: 20px;
+    border-radius: 0px;
     padding-left: 10px;
     padding-right: 10px;
 }
