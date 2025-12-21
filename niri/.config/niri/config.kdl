@@ -9,11 +9,7 @@ input {
     }
 
     mouse {
-        // off
-        // natural-scroll
-        // accel-speed 0.2
         accel-profile "flat"
-        // scroll-method "no-scroll"
     }
 
 }
@@ -25,44 +21,27 @@ input {
         hide-when-typing
         hide-after-inactive-ms 1000
     }
-// You can configure outputs by their name, which you can find
-// by running `niri msg outputs` while inside a niri instance.
-// The built-in laptop monitor is usually called "eDP-1".
-// Find more information on the wiki:
-// https://yalter.github.io/niri/Configuration:-Outputs
-// Remember to uncomment the node by removing "/-"!
 output "eDP-1" {
     off
-    // mode "1920x1080@120.030"
-    // scale 2
-    // transform "normal"
-    // position x=1280 y=0
 }
 
 output "HDMI-A-1" {
   mode "1280x1024@60"
   scale 1
 }
-// Make the wallpaper stationary, rather than moving with workspaces.
+
 layer-rule {
-    // This is for swaybg; change for other wallpaper tools.
-    // Find the right namespace by running niri msg layers.
     match namespace="^wallpaper$"
     place-within-backdrop true
 }
 
-// Optionally, disable the workspace shadows in the overview.
 overview {
     workspace-shadow {
         off
     }
 }
 
-// Settings that influence how windows are positioned and sized.
-// Find more information on the wiki:
-// https://yalter.github.io/niri/Configuration:-Layout
 layout {
-    // Set gaps around windows in logical pixels.
     gaps 5
     background-color "transparent"
     // When to center a column when changing focus, options are:
@@ -71,7 +50,7 @@ layout {
     // - "always", the focused column will always be centered.
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
-    center-focused-column "always"
+    // center-focused-column "always"
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -99,6 +78,7 @@ layout {
     // This is because windows using client-side decorations can have an arbitrary shape.
     //
     // If you don't like that, you should uncomment `prefer-no-csd` below.
+    // prefer-no-csd
     // Niri will draw focus ring and border *around* windows that agree to omit their
     // client-side decorations.
     //
@@ -107,40 +87,11 @@ layout {
 
     // You can change how the focus ring looks.
     focus-ring {
-        // Uncomment this line to disable the focus ring.
-        // off
-
-        // How many logical pixels the ring extends out from the windows.
-        width 1.5
-
-        // Colors can be set in a variety of ways:
-        // - CSS named colors: "red"
-        // - RGB hex: "#rgb", "#rgba", "#rrggbb", "#rrggbbaa"
-        // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
-
-        // Color of the ring on the active monitor.
-        active-color "#8839ef"
-
-        // Color of the ring on inactive monitors.
-        //
-        // The focus ring only draws around the active window, so the only place
-        // where you can see its inactive-color is on other monitors.
-        inactive-color "#505050"
-
-        // You can also use gradients. They take precedence over solid colors.
-        // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
-        // The angle is the same as in linear-gradient, and is optional,
-        // defaulting to 180 (top-to-bottom gradient).
-        // You can use any CSS linear-gradient tool on the web to set these up.
-        // Changing the color space is also supported, check the wiki for more info.
-        //
-        // active-gradient from="#80c8ff" to="#c7ff7f" angle=45
-
-        // You can also color the gradient relative to the entire view
-        // of the workspace, rather than relative to just the window itself.
-        // To do that, set relative-to="workspace-view".
-        //
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+        width 1.4
+        active-color "#bdae93"
+        inactive-color "#3c3836"
+        // active-gradient from="#83a598" to="#b8bb26" angle=45
+        // inactive-gradient from="#3c3836" to="#ebdbb2" angle=45 relative-to="workspace-view"
     }
 
     // You can also add a border. It's similar to the focus ring, but always visible.
@@ -202,7 +153,7 @@ layout {
     }
     struts {
         left 20
-        // right 64
+        right 15
         // top 64
         // bottom 64
     }
@@ -214,8 +165,9 @@ layout {
 // See the binds section below for more spawn examples.
 
 // spawn-at-startup "noctalia-shell"
-spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/nice-violet.png"
+spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/gruvbox/rockman.png"
 spawn-at-startup "waybar"
+spawn-at-startup "dunst"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell/"
 
@@ -235,18 +187,8 @@ hotkey-overlay {
 // The path is formatted with strftime(3) to give you the screenshot date and time.
 screenshot-path "~/Pictures/screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
-// You can also set this to null to disable saving screenshots to disk.
-// screenshot-path null
-
-// Animation settings.
-// The wiki explains how to configure individual animations:
-// https://yalter.github.io/niri/Configuration:-Animations
 animations {
-    // Uncomment to turn off all animations.
-    // off
-
-    // Slow down all animations by this factor. Values below 1 speed them up instead.
-    slowdown 1.0
+    slowdown 1.5
 }
 
 // Window rules let you adjust behavior for individual windows.
