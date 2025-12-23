@@ -23,3 +23,4 @@ map({ 'n', 'v' }, '<leader>P', '"+P', { desc = '[P]aste before from system clipb
 map({ 'n', 'v' }, '<leader>d', '"_d', { desc = '[D]elete without yanking' })
 map('n', '<leader>a', ':Nvdash<CR>', { desc = 'Open d[a]shboard' })
 map('n', '<leader>tt', require('base46').toggle_transparency, { desc = 'Toggle transparency' })
+map('n', '<leader>e', function() vim.cmd('Ex') end, { desc = 'Toggle NetRW' })

@@ -1,5 +1,9 @@
 return {
  {
+  "nvim-tree/nvim-tree.lua",
+    enabled = false
+ },
+ {
   "nvim-mini/mini.nvim",
   config = function()
     require("mini.ai").setup()

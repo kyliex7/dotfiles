@@ -35,6 +35,7 @@ PROMPT=" 󰣇 %F{#a89984} %~ %f%F{#928374} %f"
 
 ############################## GLOBAL EXPORTS ############################
 eval "$(batman --export-env)"
+export _JAVA_AWT_WM_NONREPARENTING=1 AWT_TOOLKIT=MToolkit
 declare -x http_proxy=socks5h://192.168.42.129:9050
 declare -x https_proxy=socks5h://192.168.42.129:9050
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/n00b/scripts:/home/n00b/.local/bin:/home/n00b/.npm-global/bin
@@ -90,7 +91,7 @@ alias gall="ga; gc; gp"
 alias p="proxychains -q" 
 alias vizsh="vi ~/.zshrc" 
 alias so="source ~/.zshrc" 
-alias tns="tmux new -s 'main'"
+alias tns="tmux new -s 'pwn'"
 alias tks="tmux kill-server"
 alias t="tmux"
 # alias copy="xclip -selection clipboard"
