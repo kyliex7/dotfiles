@@ -13,7 +13,7 @@ useDarkDefaults = true
 
 #-- Code font --#
 # font.monospaced = BlexMono Nerd Font Mono-PLAIN-14
-font.monospaced = Mononoki Nerd Font-PLAIN-14
+font.monospaced = DejavuSansM Nerd Font-PLAIN-14
 
 font.decompiler     = font.monospaced
 font.listing.base   = font.monospaced

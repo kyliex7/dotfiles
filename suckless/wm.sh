@@ -9,4 +9,4 @@ xset r rate 300 30
 dwmstatus 2>&1 >/dev/null &
 
 # Run dwm once (no restart loop)
-exec dwm 2>~/.dwm.log
+exec dwm 2>/dev/null

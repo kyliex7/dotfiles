@@ -27,58 +27,43 @@ autoload -U colors && colors
 # PROMPT='%F{green}%n@%m %F{blue}%~ %# %f'
 # NEWLINE=$'\n'
 # PROMPT="%K{#11111b}%F{#cdd6f4}  %n %K{#181825}%F{#b4befe} %~ %f%k %F{#f38ba8}󰇁%f "
-PROMPT=" 󰣇 %F{#a89984} %~ %f%F{#928374} %f"
+# PROMPT='%F{#a89984}%~%f %F{#928374}❯%f '
+PROMPT=' %F{#a89984}%~%f %F{#928374}%f '
 
 # echo -e "${NEWLINE}\033[48;2;46;52;64;38;2;216;222;233m $0 \033[0m\033[48;2;59;66;82;38;2;216;222;233m $(uptime -p | cut -c 4-) \033[0m\033[48;2;76;86;106;38;2;216;222;233m $(uname -r) \033[0m" # nord theme
 # echo -e "${NEWLINE}\x1b[38;5;137m\x1b[48;5;0m it's$(date +%_I:%M%P) \x1b[38;5;180m\x1b[48;5;0m $(uptime -p | cut -c 4-) \x1b[38;5;223m\x1b[48;5;0m $(uname -r) \033[0m" # warmer theme
 # echo -e "${NEWLINE}\x1b[38;5;137m\x1b[48;5;0m it's$(print -P '%D{%_I:%M%P}\n') \x1b[38;5;180m\x1b[48;5;0m $(uptime -p | cut -c 4-) \x1b[38;5;223m\x1b[48;5;0m $(uname -r) \033[0m" # current
 
 ############################## GLOBAL EXPORTS ############################
+export CLANGD_FLAGS="--fallback-style=LLVM"
 eval "$(batman --export-env)"
-export _JAVA_AWT_WM_NONREPARENTING=1 AWT_TOOLKIT=MToolkit
-declare -x http_proxy=socks5h://192.168.42.129:9050
-declare -x https_proxy=socks5h://192.168.42.129:9050
+# declare -x http_proxy=socks5h://192.168.42.129:9050
+# declare -x https_proxy=socks5h://192.168.42.129:9050
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/n00b/scripts:/home/n00b/.local/bin:/home/n00b/.npm-global/bin
 export EDITOR=nvim
+export NVIM_APPNAME=nvim-nvchad 
 setopt correct
-export LIBVA_DRIVER_NAME=iHD
-# export CLANGD_FLAGS="--fallback-style=webkit"
-export FZF_DEFAULT_OPTS="
-  --border=sharp \
-  --border-label='' \
-  --preview-window=border-sharp \
-  --prompt='> ' \
-  --marker='>' \
-  --pointer='*' \
-  --separator='─' \
-  --scrollbar='|' \
-  --highlight-line \
-  --info=inline-right \
-  --ansi \
-  --layout=reverse \
-  --color=spinner:#F5E0DC,hl:#F38BA8,fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC,marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8,selected-bg:#45475A,border:#6C7086,label:#CDD6F4
-"
 
 ############################## ALIASES ###################################
-alias viniri="vi ~/dotfiles/niri/.config/niri/config.kdl"
-alias vivi="cd ~/dotfiles/nvim-nvchad/.config/nvim-nvchad; vi"
-alias vi="NVIM_APPNAME=nvim-nvchad nvim"
+alias wf="waterfox"
+# alias vi="NVIM_APPNAME=nvim-nvchad nvim"
+alias vi="nvim"
 alias ..="cd .."
 alias chm="chmod +x"
 alias py="python3"
 alias ipy="ipython"
-alias pwndir="cd ~/learn/pwn.college"
+alias pwndir="cd ~/learn/pwn.college/yello/programsec/2"
 alias sus="systemctl suspend"
 alias y="yazi"
 alias ghidra="export _JAVA_AWT_WM_NONREPARENTING=1 AWT_TOOLKIT=MToolkit ; /usr/bin/ghidra "
-alias gdb="gdb -q -x ~/dotfiles/gdb/x_og.cfg"
+# alias gdb="gdb -q -x ~/dotfiles/gdb/x_og.cfg"
 alias chem="cd ~/al/chem/pap"
 alias ph="cd ~/al/ph/pap"
 alias cm="cd ~/al/cm/pap"
 alias autorm="sudo pacman -Rns \$(pacman -Qdtq)"
-alias mdwms="cd ~/dotfiles/suckless/dwmstatus; sudo make clean install; cd -"
-alias mdwm="cd ~/dotfiles/rice/dwm-flexipatch/; sudo make clean install; cd -"
-alias mst="cd ~/dotfiles/rice/st; sudo make clean install; cd -"
+# alias mdwms="cd ~/dotfiles/suckless/dwmstatus; sudo make clean install; cd -"
+# alias mdwm="cd ~/dotfiles/rice/dwm-flexipatch/; sudo make clean install; cd -"
+# alias mst="cd ~/dotfiles/rice/st; sudo make clean install; cd -"
 alias pav="pavucontrol"
 # alias neofetch="fastfetch --config ascii-art.jsonc"
 alias neofetch="fastfetch --config examples/13.jsonc"
@@ -100,6 +85,8 @@ alias ls="ls --color=auto --sort=version"
 alias la="ls -lah"
 alias c="clear"
 alias vii3="$EDITOR ~/.config/i3/config"
+alias viniri="vi ~/dotfiles/niri/.config/niri/config.kdl"
+alias vivi="vi ~/dotfiles/nvim-nvchad/.config/nvim-nvchad/"
 
 ############################## STUFF #################################
 pipz(){ pip install "$@" --break-system-packages; }
@@ -121,6 +108,7 @@ sn(){
     echo -ne "${i}... "
     sleep 0.9
   done
+  echo
   shutdown now
 }
 pipxa(){

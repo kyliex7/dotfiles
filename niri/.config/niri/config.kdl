@@ -83,11 +83,12 @@ layout {
     // client-side decorations.
     //
     // Alternatively, you can override it with a window rule called
-    // `draw-border-with-background`.
+    // draw-border-with-background
 
     // You can change how the focus ring looks.
     focus-ring {
-        width 1
+      on
+        width 1.2
         active-color "#bdae93"
         inactive-color "#3c3836"
         // active-gradient from="#121212" to="#e8eaed" angle=45
@@ -95,8 +96,8 @@ layout {
     }
 
     border {
-        off
-        width 4
+      off
+        width 1
         active-color "#ffc87f"
         inactive-color "#505050"
         urgent-color "#9b0000"
@@ -107,8 +108,9 @@ layout {
         off
     }
     struts {
-        left 20
-        right 15
+        left 28
+        right 20
+        bottom 5
     }
 }
 
@@ -129,6 +131,11 @@ animations {
 window-rule {
     match app-id=r#"waterfox$"# title="^Picture-in-Picture$"
     open-floating true
+}
+
+window-rule {
+  match app-id=r#"Telegram"#
+  open-maximized true
 }
 
 window-rule {

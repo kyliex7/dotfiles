@@ -6,6 +6,7 @@
     "niri/workspaces"
   ],
   "modules-left": [
+    "custom/date",
     "clock"
   ],
   "modules-right": [
@@ -23,7 +24,15 @@
     }
   },
   "clock": {
-      "format-alt": "{:%a, %d. %b  %H:%M}"
+    "interval": 60,
+    "format": "{:%m/%d %H:%M}",
+    "max-length": 30
+  },
+  "custom/date": {
+  "interval": 60,
+  "exec": "date '+%b %d'",
+  "format": "{} ",
+  "tooltip": false
   },
   "battery": {
       "bat": "BAT0",
