@@ -88,7 +88,7 @@ layout {
     // You can change how the focus ring looks.
     focus-ring {
       on
-        width 1.2
+        width 2
         active-color "#bdae93"
         inactive-color "#3c3836"
         // active-gradient from="#121212" to="#e8eaed" angle=45
@@ -115,8 +115,8 @@ layout {
 }
 
 spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/gruvbox/rockman.png"
+// spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/wallhaven-q2wrjl.jpg"
 spawn-at-startup "waybar"
-spawn-at-startup "dunst"
 
 hotkey-overlay {
     skip-at-startup

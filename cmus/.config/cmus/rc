@@ -1,0 +1,5 @@
+set continue=true
+set repeat=true
+set shuffle=false
+set confirm_run=true
+view sorted

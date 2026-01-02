@@ -9,4 +9,3 @@ o.tabstop = 2
 o.number = true
 o.relativenumber = true
 o.confirm = true
-o.guicursor = ""

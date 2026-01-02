@@ -7,7 +7,7 @@
   ],
   "modules-left": [
     "custom/date",
-    "clock"
+    "custom/clock"
   ],
   "modules-right": [
     "battery",
@@ -23,27 +23,32 @@
       "default": ""
     }
   },
-  "clock": {
-    "interval": 60,
-    "format": "{:%m/%d %H:%M}",
-    "max-length": 30
+  "custom/clock": {
+      "interval": 60,
+      "exec": "TZ='Asia/Colombo' date '+ %H:%M'",
+      "tooltip": false
   },
   "custom/date": {
-  "interval": 60,
-  "exec": "date '+%b %d'",
-  "format": "{} ",
-  "tooltip": false
+      "interval": 3600,
+      "exec": "date '+%b %d'",
+      "format": " {} ",
+      "tooltip": true,
+      "tooltip-format": "<tt><small>{}</small></tt>"
   },
   "battery": {
       "bat": "BAT0",
       "interval": 60,
       "states": {
-          "warning": 30,
-          "critical": 15
+          "warning": 40,
+          "critical": 20
       },
       "format": "{icon} {capacity}%  ",
       "format-icons": ["", "", "", "", ""],
-      "max-length": 25
+      "max-length": 25,
+      "format-low": "<span color='orange'>{icon} {capacity}%</span>",
+      "format-critical": "<span color='red'>{icon} {capacity}%</span>",
+      "on-low": "notify-send 'Battery Warning' 'Battery below 40%'",
+      "on-critical": "notify-send 'Battery Critical' 'Battery below 20%'"
   },
   "cpu": {
     "interval": 10,

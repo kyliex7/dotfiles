@@ -1,0 +1,48 @@
+set repeat=true
+set continue=true
+set continue
+set repeat=false
+view sorted
+set repeat off
+refresh
+q
+view settings
+view tree
+view tre
+view queue
+view browser
+view sor
+view
+vol -1000
+vol -30
+vol -
+vol 10000000000
+vol 10000
+vol 100
+help
+cmus-tutorial
+vol 0
+vol ON
+vol 1000
+vol
+vol 200
+vol 50
+vol 30
+vol LR
+vol L 30
+vol L
+vol up
+quit
+set repeat
+set view=sort
+view sort tree
+sort tree
+view sort
+add ~/Music
+clear
+source ~/.config/cmus/rc
+:source ~/.config/cmus/rc
+colorscheme gruvbox
+colorscheme gruvbox-alt
+colorscheme rose-pine
+live-filter sor
