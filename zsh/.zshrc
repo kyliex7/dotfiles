@@ -46,17 +46,13 @@ setopt correct
 
 ############################## ALIASES ###################################
 # suffix aliases
-alias -s py="{$EDITOR}"
-alias -s sh="${EDITOR}"
 alias -s md="bat"
-alias -s c="${EDITOR}"
 alias -s png="qiv"
 alias -s jpg="qiv"
 # global aliases
-alias -g NE="2>/dev/null"
-alias -g C="| wl-copy"
+alias -g ne="2>/dev/null"
+alias -g c="| wl-copy"
 # normal mfs
-alias ls="eza --icons --grid --sort=name"
 alias uns="unset http_proxy https_proxy"
 alias wf="waterfox"
 alias vi="nvim"
@@ -70,7 +66,7 @@ alias ghidra="export _JAVA_AWT_WM_NONREPARENTING=1 AWT_TOOLKIT=MToolkit ; /usr/b
 alias chem="cd ~/al/chem/pap"
 alias ph="cd ~/al/ph/pap"
 alias cm="cd ~/al/cm/pap"
-alias autorm="sudo pacman -Rns \$(pacman -Qdtq)"
+alias autoremove="sudo pacman -Rns \$(pacman -Qdtq)"
 # alias mdwms="cd ~/dotfiles/suckless/dwmstatus; sudo make clean install; cd -"
 # alias mdwm="cd ~/dotfiles/rice/dwm-flexipatch/; sudo make clean install; cd -"
 # alias mst="cd ~/dotfiles/rice/st; sudo make clean install; cd -"
@@ -80,28 +76,27 @@ alias neofetch="fastfetch --config examples/13.jsonc"
 alias git="proxychains -q git"
 alias gs="git status"
 alias ga="git add ."
-alias gp="proxychains -q git push -u origin main"
 alias gp="git push -u origin main"
 alias gall="ga; gc; gp"
 alias p="proxychains -q" 
 alias vizsh="vi ~/.zshrc" 
 alias so="source ~/.zshrc" 
-alias tns="tmux new -s 'pwn'"
+alias tns="tmux new -s 'main'"
 alias tks="tmux kill-server"
 alias t="tmux"
 # alias copy="xclip -selection clipboard"
 alias copy="wl-copy"
 # alias ls="ls --color=auto --sort=version"
+alias ls="eza --icons --grid --sort=name"
 alias la="eza -lah --icons --grid "
-alias la="ls -lah"
 alias c="clear"
 alias vii3="$EDITOR ~/.config/i3/config"
-alias viniri="vi ~/dotfiles/niri/.config/niri/config.kdl"
-alias vivi="vi ~/dotfiles/nvim-nvchad/.config/nvim-nvchad/"
+alias viniri="$EDITOR ~/dotfiles/niri/.config/niri/config.kdl"
+alias vivi="$EDITOR ~/dotfiles/nvim-nvchad/.config/nvim-nvchad/"
 
 ############################## STUFF #################################
-pipz(){ pip install "$@" --break-system-packages; }
-i(){ sudo proxychains -q pacman -S "$@"; }
+pipz(){ echo 'using pipx'; pipx install "${@}" }
+i(){ sudo proxychains -q pacman -S "${@}"; }
 pullzsh(){
 git -C ~/.zsh/plugins/fzf-tab pull; git -C ~/.zsh/plugins/zsh-completions pull
 }

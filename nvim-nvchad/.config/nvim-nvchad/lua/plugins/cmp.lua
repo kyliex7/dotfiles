@@ -22,6 +22,16 @@ return {
           { name = "nvim_lua" },
           { name = "async_path" },
         },
+        window = {
+          completion = {
+            border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },  -- Rounded border style
+            winhighlight = "Normal:Normal,FloatBorder:MyBorderColor,CursorLine:CursorLine,Search:Search",
+          },
+          documentation = {
+            border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+            winhighlight = "Normal:Normal,FloatBorder:MyBorderColor,CursorLine:CursorLine,Search:Search",
+          },
+        },
       }
     end,
   },
