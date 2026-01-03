@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 ############################## PLUGINS ##################################
 ZSH_PLUGIN_DIR="$HOME/.zsh/plugins"
 
@@ -28,7 +35,7 @@ autoload -U colors && colors
 # NEWLINE=$'\n'
 # PROMPT="${NEWLINE}%K{#11111b}%F{#cdd6f4}  %n %K{#181825}%F{#b4befe} %~ %f%k %F{#f38ba8}❯%f "
 # PROMPT='%F{#a89984}%~%f %F{#928374}❯%f '
-PROMPT=' %F{#a89984}%~%f %F{#928374}%f '
+# PROMPT=' %F{#a89984}%~%f %F{#928374}%f '
 
 # echo -e "${NEWLINE}\033[48;2;46;52;64;38;2;216;222;233m $0 \033[0m\033[48;2;59;66;82;38;2;216;222;233m $(uptime -p | cut -c 4-) \033[0m\033[48;2;76;86;106;38;2;216;222;233m $(uname -r) \033[0m" # nord theme
 # echo -e "${NEWLINE}\x1b[38;5;137m\x1b[48;5;0m it's$(date +%_I:%M%P) \x1b[38;5;180m\x1b[48;5;0m $(uptime -p | cut -c 4-) \x1b[38;5;223m\x1b[48;5;0m $(uname -r) \033[0m" # warmer theme
@@ -199,3 +206,7 @@ if [[ $- == *i* ]]; then
   eval "$(fzf --zsh)"
 fi
 eval "$(zoxide init --cmd cd zsh)"
+source $ZSH_PLUGIN_DIR/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
