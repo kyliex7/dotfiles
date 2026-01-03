@@ -50,8 +50,8 @@ alias -s md="bat"
 alias -s png="qiv"
 alias -s jpg="qiv"
 # global aliases
-alias -g ne="2>/dev/null"
-alias -g c="| wl-copy"
+alias -g NE="2>/dev/null"
+alias -g C="| wl-copy"
 # normal mfs
 alias uns="unset http_proxy https_proxy"
 alias wf="waterfox"

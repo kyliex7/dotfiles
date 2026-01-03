@@ -113,9 +113,7 @@ layout {
         bottom 5
     }
 }
-
-spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/gruvbox/rockman.png"
-// spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/wallhaven-q2wrjl.jpg"
+spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/gruvbox/chinesewomen.png"
 spawn-at-startup "waybar"
 
 hotkey-overlay {
