@@ -110,6 +110,7 @@ layout {
     struts {
         left 28
         right 20
+        top 2
         bottom 5
     }
 }
