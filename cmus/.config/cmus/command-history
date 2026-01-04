@@ -1,13 +1,14 @@
+colorscheme gruvbox-night
+refresh
+view sorted
+view tree
 set repeat=true
 set continue=true
 set continue
 set repeat=false
-view sorted
 set repeat off
-refresh
 q
 view settings
-view tree
 view tre
 view queue
 view browser

@@ -111,7 +111,7 @@ layout {
         left 28
         right 20
         top 2
-        bottom 5
+        bottom 2
     }
 }
 spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/gruvbox/chinesewomen.png"
@@ -150,7 +150,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Shift+S hotkey-overlay-title="Screenshot" { spawn "~/dotfiles/scripts/ss.sh"; }
 
-    Mod+Return hotkey-overlay-title="Open a Terminal: st" { spawn "foot"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
     Mod+p hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+b hotkey-overlay-title="Run an application: waterfox" { spawn "waterfox"; }
