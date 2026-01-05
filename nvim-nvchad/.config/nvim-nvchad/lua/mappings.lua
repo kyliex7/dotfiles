@@ -6,8 +6,8 @@ local map = vim.keymap.set
 
 -- map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
-map('i', '<M-p>', '<left>', { noremap = true })
-map('i', '<M-n>', '<right>', { noremap = true })
+map('i', '<M-h>', '<left>', { noremap = true })
+map('i', '<M-l>', '<right>', { noremap = true })
 map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
 map("v", "<", "<gv", { noremap = true, silent = true })

@@ -5,8 +5,7 @@
 * {
     border: none;
     border-radius: 0;
-    /* font-family: "TX\-02"; */
-    font-family: "JetBrainsMono Nerd Font Propo";
+    font-family: "CaskaydiaCove Nerd Font Propo";
     font-size: 11px;
     font-weight: bold;
     color: #3c3836; /* Dark gray text */
@@ -22,7 +21,7 @@ window#waybar {
     background-color: transparent;
 }
 tooltip {
-  background: #d5c4a1; /* Light beige */
+  background: #ebdbb2; /* Light beige */
   border: 1px solid #bdae93;
 }
 tooltip label {
@@ -30,7 +29,7 @@ tooltip label {
 }
 #workspaces {
   transition: all 250ms ease-in-out;
-  background-color: #d5c4a1; /* Light beige */
+  background-color: #ebdbb2; /* Light beige */
   border-radius: 50px;
 }
 #workspaces button {
@@ -48,7 +47,7 @@ tooltip label {
   padding: 5px;
   border-radius: 20px;
   background: transparent;
-  background-color: #d5c4a1;
+  background-color: #ebdbb2;
   color: #3c3836;
 }
 #custom-date {
@@ -57,13 +56,13 @@ tooltip label {
   padding-right: 2px;
   padding-left: 5px;
   background: transparent;
-  background-color: #d5c4a1;
+  background-color: #ebdbb2;
   color: #3c3836;
 }
 #battery {
   border-radius: 20px;
   background: transparent;
-  background-color: #d5c4a1;
+  background-color: #ebdbb2;
   margin-right: 5px;
   padding-left: 8px;
   color: #3c3836;
@@ -83,14 +82,14 @@ tooltip label {
 #cpu {
   border-radius: 20px;
   background: transparent;
-  background-color: #d5c4a1;
+  background-color: #ebdbb2;
   padding-left: 6px;
   color: #3c3836;
 }
 #memory {
   border-radius: 20px;
   background: transparent;
-  background-color: #d5c4a1;
+  background-color: #ebdbb2;
   margin-left: 2px;
   margin-right: 10px;
   padding-left: 9px;

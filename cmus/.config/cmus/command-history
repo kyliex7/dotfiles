@@ -1,18 +1,44 @@
-colorscheme gruvbox-night
-refresh
 view sorted
-view tree
-set repeat=true
+bind -f common C toggle continue
 set continue=true
+q
+s
 set continue
 set repeat=false
+set repeat_current=false
+set repeat=true
+set repeat_current=true
+help
+settings
+opt
+set continue_album=true
+set continue=ture
+set pl_env_vars
+set single=false
+set playlist_mode=normal
+set play_mode=normal
 set repeat off
-q
-view settings
+set repeat_current
+set repeat_current=off
+repeat off
+vol +1000
+vol -j
+vol 
+view tree
 view tre
+add ~/Music
+clear
+delete
+clear cache
+cache
+clear 
+viwe sorted
+view sor
+colorscheme gruvbox-night
+refresh
+view settings
 view queue
 view browser
-view sor
 view
 vol -1000
 vol -30
@@ -20,7 +46,6 @@ vol -
 vol 10000000000
 vol 10000
 vol 100
-help
 cmus-tutorial
 vol 0
 vol ON
@@ -39,8 +64,6 @@ set view=sort
 view sort tree
 sort tree
 view sort
-add ~/Music
-clear
 source ~/.config/cmus/rc
 :source ~/.config/cmus/rc
 colorscheme gruvbox
