@@ -6,13 +6,15 @@
     "niri/workspaces"
   ],
   "modules-left": [
+    "custom/fuzzel",
     "custom/date",
     "custom/clock"
   ],
   "modules-right": [
     "battery",
     "cpu",
-    "memory"
+    "memory",
+    "custom/power"
   ],
 
   /// modules ///
@@ -22,6 +24,23 @@
       "active": "",
       "default": ""
     }
+  },
+  "custom/power": {
+    "format" : "⏻ ",
+    "tooltip": false,
+    "menu": "on-click",
+    "menu-file": "/home/n00b/.config/waybar/power_menu.xml",
+    "menu-actions": {
+      "suspend": "systemctl suspend",
+      "logout": "niri msg action quit",
+      "reboot": "systemctl reboot",
+      "shutdown": "systemctl poweroff"
+    }
+  },
+  "custom/fuzzel" : {
+    "format": "",
+    "on-click": "fuzzel",
+    "tooltip": false
   },
   "custom/clock": {
       "interval": 60,

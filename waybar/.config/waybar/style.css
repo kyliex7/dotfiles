@@ -5,7 +5,7 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "CaskaydiaCove Nerd Font Propo";
+    font-family: "Iosevka Nerd Font Propo";
     font-size: 11px;
     font-weight: bold;
     color: #3c3836; /* Dark gray text */
@@ -59,6 +59,25 @@ tooltip label {
   background-color: #ebdbb2;
   color: #3c3836;
 }
+#custom-fuzzel {
+  margin-right: 4px;
+  border-radius: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
+  background: transparent;
+  background-color: #ebdbb2;
+  color: #3c3836;
+}
+#custom-power {
+  margin-right: 4px;
+  margin-left: 3px;
+  border-radius: 20px;
+  padding-right: 3px;
+  padding-left: 10px;
+  background: transparent;
+  background-color: #ebdbb2;
+  color: #3c3836;
+}
 #battery {
   border-radius: 20px;
   background: transparent;
@@ -81,6 +100,7 @@ tooltip label {
 }
 #cpu {
   border-radius: 20px;
+  margin-right: 3px;
   background: transparent;
   background-color: #ebdbb2;
   padding-left: 6px;
@@ -90,8 +110,24 @@ tooltip label {
   border-radius: 20px;
   background: transparent;
   background-color: #ebdbb2;
-  margin-left: 2px;
-  margin-right: 10px;
   padding-left: 9px;
   color: #3c3836;
+}
+menu {
+  background: #ebdbb2; /* Light beige background */
+  border: 1px solid #bdae93;
+}
+
+menu menuitem {
+  color: #3c3836; /* Dark text */
+  padding: 5px 10px;
+}
+
+menu menuitem:hover {
+  background: #d5c4a1; /* Slightly darker beige on hover */
+  color: #282828; /* Even darker text for contrast */
+}
+
+menu menuitem:disabled {
+  color: #928374; /* Gray out disabled items */
 }

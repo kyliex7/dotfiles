@@ -12,7 +12,7 @@ useDarkDefaults = true
 #**--           --**#
 
 #-- Code font --#
-font.monospaced = JetBrainsMono NF-PLAIN-14
+font.monospaced = Iosevka NF-PLAIN-14
 #font.monospaced = DejavuSansM Nerd Font-PLAIN-14
 
 font.decompiler     = font.monospaced
