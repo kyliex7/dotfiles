@@ -138,10 +138,10 @@ window-rule {
   open-maximized true
 }
 
-window-rule {
-  match app-id=r#"foot"#
-  open-maximized true
-}
+// window-rule {
+//   match app-id=r#"foot"#
+//   open-maximized true
+// }
 
 window-rule {
   match app-id=r#"waterfox$"#

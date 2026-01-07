@@ -44,7 +44,7 @@ declare -x http_proxy=socks5h://192.168.42.129:9050
 declare -x https_proxy=socks5h://192.168.42.129:9050
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/n00b/scripts:/home/n00b/.local/bin:/home/n00b/.npm-global/bin
 export EDITOR=nvim
-export NVIM_APPNAME=nvim-nvchad 
+# export NVIM_APPNAME=nvim-nvchad 
 setopt correct
 
 ############################## ALIASES ###################################
@@ -54,12 +54,15 @@ alias -s png="qiv"
 alias -s jpg="qiv"
 # global aliases
 alias -g NE="2>/dev/null"
-alias -g C="| wl-copy"
 # normal mfs
+alias please="sudo"
 alias uns="unset http_proxy https_proxy"
 alias wf="waterfox"
 alias vi="nvim"
 alias ..="cd .."
+alias ...="cd ../.."
+alias .3="cd ../../.."
+alias .4="cd ../../../.."
 alias chm="chmod +x"
 alias py="python3"
 alias ipy="ipython3"
@@ -69,12 +72,11 @@ alias ghidra="export _JAVA_AWT_WM_NONREPARENTING=1 AWT_TOOLKIT=MToolkit; /usr/bi
 alias chem="cd ~/al/chem/pap"
 alias ph="cd ~/al/ph/pap"
 alias cm="cd ~/al/cm/pap"
-alias autoremove="sudo pacman -Rns \$(pacman -Qdtq)"
+alias cleanup="sudo pacman -Rns \$(pacman -Qdtq)"
 # alias mdwms="cd ~/dotfiles/suckless/dwmstatus; sudo make clean install; cd -"
 # alias mdwm="cd ~/dotfiles/rice/dwm-flexipatch/; sudo make clean install; cd -"
 # alias mst="cd ~/dotfiles/rice/st; sudo make clean install; cd -"
 alias pav="pavucontrol"
-# alias neofetch="fastfetch --config ascii-art.jsonc"
 alias neofetch="fastfetch --config examples/13.jsonc"
 alias git="proxychains -q git"
 alias gs="git status"
@@ -95,7 +97,8 @@ alias la="eza -lah --icons --grid "
 alias c="clear"
 alias vii3="$EDITOR ~/.config/i3/config"
 alias viniri="$EDITOR ~/dotfiles/niri/.config/niri/config.kdl"
-alias vivi="$EDITOR ~/dotfiles/nvim-nvchad/.config/nvim-nvchad/"
+alias vivi="cd ~/dotfiles/nvim-nvchad/.config/nvim-nvchad/; vi ."
+alias pvi="proxychains -q nvim"
 
 ############################## STUFF #################################
 pipz(){ echo 'using pipx'; pipx install "${@}" }
