@@ -44,7 +44,7 @@ declare -x http_proxy=socks5h://192.168.42.129:9050
 declare -x https_proxy=socks5h://192.168.42.129:9050
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/n00b/scripts:/home/n00b/.local/bin:/home/n00b/.npm-global/bin
 export EDITOR=nvim
-# export NVIM_APPNAME=nvim-nvchad 
+export NVIM_APPNAME=nvim
 setopt correct
 
 ############################## ALIASES ###################################
@@ -97,7 +97,7 @@ alias la="eza -lah --icons --grid "
 alias c="clear"
 alias vii3="$EDITOR ~/.config/i3/config"
 alias viniri="$EDITOR ~/dotfiles/niri/.config/niri/config.kdl"
-alias vivi="cd ~/dotfiles/nvim-nvchad/.config/nvim-nvchad/; vi ."
+alias vivi="cd ~/dotfiles/nvim/.config/nvim/; vi ."
 alias pvi="proxychains -q nvim"
 
 ############################## STUFF #################################
