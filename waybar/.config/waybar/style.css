@@ -1,27 +1,27 @@
 * {
-    padding: 0px;
-    margin: 0px;
+	padding: 0px;
+	margin: 0px;
   }
 * {
-    border: none;
-    border-radius: 0;
-    font-family: "IosevkaTerm Nerd Font Propo";
-    font-size: 11px;
-    font-weight: bold;
-    color: #3c3836; /* Dark gray text */
-    min-height: 0;
+	border: none;
+	border-radius: 0;
+	font-family: "IosevkaTerm Nerd Font Propo";
+	font-size: 11px;
+	font-weight: bold;
+	color: #3c3836;
+	min-height: 0;
 }
 window#waybar>box {
-    padding-left:24px;
-    padding-right:19px;
-    margin-left: 10px;
-    background-color: transparent;
+	padding-left:24px;
+	padding-right:19px;
+	margin-left: 10px;
+	background-color: transparent;
 }
 window#waybar {
-    background-color: transparent;
+	background-color: transparent;
 }
 tooltip {
-  background: #ebdbb2; /* Light beige */
+  background: #ebdbb2;
   border: 1px solid #bdae93;
 }
 tooltip label {
@@ -29,7 +29,7 @@ tooltip label {
 }
 #workspaces {
   transition: all 250ms ease-in-out;
-  background-color: #ebdbb2; /* Light beige */
+  background-color: #ebdbb2;
   border-radius: 50px;
 }
 #workspaces button {
@@ -114,20 +114,20 @@ tooltip label {
   color: #3c3836;
 }
 menu {
-  background: #ebdbb2; /* Light beige background */
+  background: #ebdbb2;
   border: 1px solid #bdae93;
 }
 
 menu menuitem {
-  color: #3c3836; /* Dark text */
+  color: #3c3836;
   padding: 5px 10px;
 }
 
 menu menuitem:hover {
-  background: #d5c4a1; /* Slightly darker beige on hover */
-  color: #282828; /* Even darker text for contrast */
+  background: #d5c4a1; 
+  color: #282828;
 }
 
 menu menuitem:disabled {
-  color: #928374; /* Gray out disabled items */
+  color: #928374;
 }
