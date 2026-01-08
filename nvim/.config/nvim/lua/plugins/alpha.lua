@@ -46,7 +46,7 @@ return {
         -- end
         --
 				dashboard.section.footer.val = {
-			"Once, we all were n00bs",
+			"Once, we all were n00bs.",
 		}
 
         alpha.setup(dashboard.opts)

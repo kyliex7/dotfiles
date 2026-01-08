@@ -6,10 +6,8 @@ return {
     require('mini.ai').setup()
     require('mini.surround').setup()
     require('mini.indentscope').setup()
-    require('mini.tabline').setup()
 		require('mini.animate').setup()
-
-    require('mini.bufremove').setup()
+		require('mini.pairs').setup()
 
     vim.keymap.set('n', '<leader>bd', function()
       local bd = require("mini.bufremove").delete
@@ -26,7 +24,6 @@ return {
       end
     end, { noremap = true, silent = true, desc = "Delete Buffer" })
 
-    -- Force delete buffer
     vim.keymap.set('n', '<leader>bD', function()
       require("mini.bufremove").delete(0, true)
     end, { noremap = true, silent = true, desc = "Delete Buffer (Force)" })
