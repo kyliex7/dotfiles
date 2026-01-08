@@ -4,7 +4,6 @@ return {
         local alpha = require("alpha")
         local dashboard = require("alpha.themes.dashboard")
 
-        -- Set header (larger logo)
         dashboard.section.header.val = {
 					"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠠⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
 					"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⡀⠀⠙⢶⣄⠀⠀⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
@@ -32,7 +31,6 @@ return {
 					"⣾⣥⣤⣼⣿⣶⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣾⣵⣾⡿",
         }
 
-        -- Set buttons (smaller text for buttons)
         dashboard.section.buttons.val = {
             dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
             dashboard.button("f", "󰈞  Find file", ":cd $HOME | Telescope find_files<CR>"),
@@ -40,19 +38,17 @@ return {
             dashboard.button("q", "󰿅  Quit NVIM", ":qa<CR>"),
         }
 
-        -- Remove guifont for terminal users and just modify color
-        vim.cmd([[highlight AlphaButtons guifg=#d0d0d0 guibg=NONE]])
-
-        -- Apply custom highlight to buttons
-        for _, button in ipairs(dashboard.section.buttons.val) do
-            button.opts.hl = "AlphaButtons"  -- Applying a custom highlight
-        end
-
+        -- -- Remove guifont for terminal users and just modify color
+        -- vim.cmd([[highlight AlphaButtons guifg=#d0d0d0 guibg=NONE]])
+        --
+        -- for _, button in ipairs(dashboard.section.buttons.val) do
+        --     button.opts.hl = "AlphaButtons"
+        -- end
+        --
 				dashboard.section.footer.val = {
-			"Once we all were n00bs, bitch"
+			"Once, we all were n00bs",
 		}
 
-        -- Send config to alpha
         alpha.setup(dashboard.opts)
 
         -- Disable folding on alpha buffer
@@ -60,7 +56,6 @@ return {
             autocmd FileType alpha setlocal nofoldenable
         ]])
 
-        -- Set a keymap for triggering the Alpha screen
-        vim.keymap.set("n", "<leader>a", function() vim.cmd("Alpha") end)
+        vim.keymap.set("n", "<leader>a", function() vim.cmd("Alpha") end, { desc = "Dashboard" })
     end
 }
