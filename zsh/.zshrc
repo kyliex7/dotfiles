@@ -19,7 +19,6 @@ if [[ ! -d "$ZSH_PLUGIN_DIR/zsh-completions" ]]; then
 fi
 fpath+=("$ZSH_PLUGIN_DIR/zsh-completions/src")
 
-
 ############################## COMPLETION ################################
 autoload -Uz compinit
 if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
@@ -164,7 +163,7 @@ clear-keep-buffer(){
   zle clear-screen
 }
 zle -N clear-keep-buffer
-bindkey '^Xl' clear-keep-buffer
+bindkey '^Al' clear-keep-buffer
 
 copy-cmd(){
   echo -n $BUFFER | wl-copy

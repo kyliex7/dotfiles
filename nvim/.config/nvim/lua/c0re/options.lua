@@ -16,3 +16,5 @@ vim.o.inccommand = 'split'
 vim.o.cursorline = true
 vim.o.confirm = true
 vim.opt.fillchars = { eob = " " }
+vim.o.showmode = false
+vim.opt.termguicolors = true

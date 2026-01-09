@@ -2,7 +2,6 @@ return {
   'echasnovski/mini.nvim',
   enabled = true,
   config = function()
-    -- Set up individual mini modules
     require('mini.ai').setup()
     require('mini.surround').setup()
     require('mini.indentscope').setup()

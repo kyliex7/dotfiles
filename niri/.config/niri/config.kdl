@@ -7,20 +7,18 @@ input {
     touchpad {
         tap
     }
-
     mouse {
         accel-profile "flat"
     }
-
 }
 
-    cursor {
-        xcursor-theme "catppuccin-mocha-dark-cursors"
-        xcursor-size 20
+cursor {
+		xcursor-theme "catppuccin-mocha-dark-cursors"
+		xcursor-size 20
+		hide-when-typing
+		hide-after-inactive-ms 1500
+}
 
-        hide-when-typing
-        hide-after-inactive-ms 1000
-    }
 output "eDP-1" {
     off
 }
@@ -50,7 +48,7 @@ layout {
     // - "always", the focused column will always be centered.
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
-    // center-focused-column "always"
+    center-focused-column "never"
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -111,10 +109,9 @@ layout {
         left 28
         right 20
         top 2
-        bottom 2
+        bottom 0
     }
 }
-// spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/gruvbox/chinesewomen.png"
 spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/gruvbox/Kurumi-Ebisuzawa.png"
 spawn-at-startup "waybar"
 
@@ -125,7 +122,7 @@ hotkey-overlay {
 screenshot-path "~/Pictures/screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
-    slowdown 1.5
+    slowdown 1
 }
 
 // window-rule {
