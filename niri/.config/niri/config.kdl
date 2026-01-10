@@ -13,8 +13,8 @@ input {
 }
 
 cursor {
-		xcursor-theme "catppuccin-mocha-dark-cursors"
-		xcursor-size 20
+		xcursor-theme "BreezeX-RosePine-Linux"
+		xcursor-size 30
 		hide-when-typing
 		hide-after-inactive-ms 1500
 }
@@ -87,7 +87,7 @@ layout {
     focus-ring {
       on
         width 2
-        active-color "#bdae93"
+        active-color "#b0b0b0"
         inactive-color "#3c3836"
         // active-gradient from="#121212" to="#e8eaed" angle=45
         // inactive-gradient from="#3c3836" to="#ebdbb2" angle=45 relative-to="workspace-view"
