@@ -5,10 +5,11 @@ return {
     require('mini.ai').setup()
     require('mini.surround').setup()
     require('mini.indentscope').setup()
-		require('mini.animate').setup()
+		-- require('mini.animte').setup()
+		require('mini.statusline').setup()
 		require('mini.pairs').setup()
 
-    vim.keymap.set('n', '<leader>bd', function()
+    vim.keymap.set('n', '<leader>x', function()
       local bd = require("mini.bufremove").delete
       if vim.bo.modified then
         local choice = vim.fn.confirm(("Save changes to %q?"):format(vim.fn.bufname()), "&Yes\n&No\n&Cancel")
@@ -23,7 +24,7 @@ return {
       end
     end, { noremap = true, silent = true, desc = "Delete Buffer" })
 
-    vim.keymap.set('n', '<leader>bD', function()
+    vim.keymap.set('n', '<leader>bd', function()
       require("mini.bufremove").delete(0, true)
     end, { noremap = true, silent = true, desc = "Delete Buffer (Force)" })
   end,

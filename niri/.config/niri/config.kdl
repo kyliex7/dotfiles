@@ -112,7 +112,7 @@ layout {
         bottom 0
     }
 }
-spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/gruvbox/Kurumi-Ebisuzawa.png"
+spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/koda/girl3.jpg"
 spawn-at-startup "waybar"
 
 hotkey-overlay {
@@ -129,16 +129,20 @@ animations {
 //     match app-id=r#"waterfox$"# title="^Picture-in-Picture$"
 //     open-floating true
 // }
+window-rule {
+	match app-id=r#"neovide"#
+	open-maximized true
+}
 
 window-rule {
   match app-id=r#"Telegram"#
   open-maximized true
 }
 
-// window-rule {
-//   match app-id=r#"foot"#
-//   open-maximized true
-// }
+window-rule {
+  match app-id=r#"foot"#
+  open-maximized true
+}
 
 window-rule {
   match app-id=r#"waterfox$"#
@@ -157,6 +161,7 @@ binds {
     Mod+p hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+b hotkey-overlay-title="Run an application: waterfox" { spawn "waterfox"; }
+		Mod+e hotkey-overlay-title="Open file manager: thunar" { spawn "thunar"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
