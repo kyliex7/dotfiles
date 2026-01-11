@@ -30,6 +30,9 @@ return {
 					strings = {},
 					constants = {}, -- includes numbers, booleans
 				},
+				colors = {
+					highlight = "#268bd2",
+				},
 			})
 			vim.cmd("colorscheme koda")
 		end,
