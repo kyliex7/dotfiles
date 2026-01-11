@@ -8,13 +8,16 @@ input {
         tap
     }
     mouse {
+				accel-speed 0.7
         accel-profile "flat"
     }
+	focus-follows-mouse
+	warp-mouse-to-focus
 }
 
 cursor {
 		xcursor-theme "BreezeX-RosePine-Linux"
-		xcursor-size 30
+		xcursor-size 35
 		hide-when-typing
 		hide-after-inactive-ms 1500
 }

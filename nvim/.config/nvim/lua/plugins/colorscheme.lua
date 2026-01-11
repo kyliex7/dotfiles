@@ -13,6 +13,7 @@ return {
 	},
 	{
 		"oskarnurm/koda.nvim",
+		enabled = true,
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
 		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
@@ -23,7 +24,7 @@ return {
 				-- Common use case would be to set either `italic = true` or `bold = true` for a desired group.
 				-- See `:help nvim_set_hl` for more valid values.
 				styles = {
-					functions = {},
+					functions = { bold = false },
 					keywords = {},
 					comments = {},
 					strings = {},
@@ -31,6 +32,19 @@ return {
 				},
 			})
 			vim.cmd("colorscheme koda")
+		end,
+	},
+	{
+		"folke/tokyonight.nvim",
+		enabled = false,
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("tokyonight").setup({
+				style = "night",
+				transparent = true,
+			})
+			vim.cmd("colorscheme tokyonight")
 		end,
 	},
 }

@@ -54,6 +54,7 @@ alias -s jpg="qiv"
 # global aliases
 alias -g NE="2>/dev/null"
 # normal mfs
+alias pvi="proxychains -q nvim"
 alias please="sudo"
 alias uns="unset http_proxy https_proxy"
 alias wf="waterfox"
@@ -95,10 +96,9 @@ alias copy="wl-copy"
 alias ls="eza --icons --grid --sort=name"
 alias la="eza -lah --icons --grid "
 alias c="clear"
-alias vii3="$EDITOR ~/.config/i3/config"
+# alias vii3="$EDITOR ~/.config/i3/config"
 alias viniri="$EDITOR ~/dotfiles/niri/.config/niri/config.kdl"
 alias vivi="cd ~/dotfiles/nvim/.config/nvim/; vi ."
-alias pvi="proxychains -q nvim"
 
 ############################## STUFF #################################
 pipz(){ echo 'using pipx'; pipx install "${@}" }

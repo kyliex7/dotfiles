@@ -1,5 +1,6 @@
 local map = vim.keymap.set
 map("i", "jk", "<ESC>")
+map("i", "kj", "<ESC>")
 map("i", "<M-h>", "<left>", { noremap = true })
 map("i", "<M-l>", "<right>", { noremap = true })
 map("n", "n", "nzzzv")
