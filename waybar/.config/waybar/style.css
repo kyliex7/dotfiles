@@ -120,7 +120,8 @@ tooltip label {
 	margin-right: 4px;
 }
 #pulseaudio {
-	margin-left: 4px
+	margin-left: 4px;
+	color: @subtle;
 }
 #custom-date {
     margin-right: 4px;
