@@ -104,7 +104,9 @@ tooltip label {
 #custom-power,
 #battery,
 #cpu,
-#memory {
+#memory,
+#tray,
+#pulseaudio {
     background-color: @surface;
     color: @text;
     border-radius: 10px;
@@ -114,6 +116,12 @@ tooltip label {
 }
 
 /* Specific margins for spacing between modules */
+#tray {
+	margin-right: 4px;
+}
+#pulseaudio {
+	margin-left: 4px
+}
 #custom-date {
     margin-right: 4px;
 		padding-right: 2px;
