@@ -29,7 +29,7 @@
     border: 0;
     border-radius: 0;
     font-family: "MesloLGM Nerd Font Propo";
-    font-size: 11px;
+    font-size: 12px;
     font-weight: bold;
     color: @text;
     min-height: 0; /* Critical for thin bar */
@@ -116,6 +116,7 @@ tooltip label {
 /* Specific margins for spacing between modules */
 #custom-date {
     margin-right: 4px;
+		padding-right: 2px;
     color: @iris; 
 }
 

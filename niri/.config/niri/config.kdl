@@ -112,7 +112,7 @@ layout {
         left 28
         right 20
         top 0
-        bottom 0
+        bottom 2
     }
 }
 spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/rosepine/wallhaven-2ymp5g.png"
@@ -128,10 +128,10 @@ animations {
     slowdown 1
 }
 
-// window-rule {
-//     match app-id=r#"waterfox$"# title="^Picture-in-Picture$"
-//     open-floating true
-// }
+window-rule {
+    match app-id=r#"waterfox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
 window-rule {
 	match app-id=r#"neovide"#
 	open-maximized true
