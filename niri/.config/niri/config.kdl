@@ -11,8 +11,8 @@ input {
 				accel-speed 0.7
         accel-profile "flat"
     }
-	focus-follows-mouse
-	warp-mouse-to-focus
+	// focus-follows-mouse
+	// warp-mouse-to-focus
 }
 
 cursor {
@@ -111,11 +111,11 @@ layout {
     struts {
         left 28
         right 20
-        top 2
+        top 0
         bottom 0
     }
 }
-spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/koda/girl3.jpg"
+spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/rosepine/wallhaven-2ymp5g.png"
 spawn-at-startup "waybar"
 
 hotkey-overlay {

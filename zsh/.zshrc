@@ -72,7 +72,6 @@ alias ghidra="export _JAVA_AWT_WM_NONREPARENTING=1 AWT_TOOLKIT=MToolkit; /usr/bi
 alias chem="cd ~/al/chem/pap"
 alias ph="cd ~/al/ph/pap"
 alias cm="cd ~/al/cm/pap"
-alias cleanup="sudo pacman -Rns \$(pacman -Qdtq)"
 # alias mdwms="cd ~/dotfiles/suckless/dwmstatus; sudo make clean install; cd -"
 # alias mdwm="cd ~/dotfiles/rice/dwm-flexipatch/; sudo make clean install; cd -"
 # alias mst="cd ~/dotfiles/rice/st; sudo make clean install; cd -"
@@ -86,6 +85,7 @@ alias gall="ga; gc; gp"
 alias p="proxychains -q" 
 alias vizsh="vi ~/.zshrc" 
 alias so="source ~/.zshrc" 
+alias cleanup="sudo pacman -Rns \$(pacman -Qdtq)"
 alias tns="tmux new -s 'main'"
 alias tks="tmux kill-server"
 alias ta="tmux attach"
@@ -94,15 +94,18 @@ alias t="tmux"
 alias copy="wl-copy"
 # alias ls="ls --color=auto --sort=version"
 alias ls="eza --icons --grid --sort=name"
-alias la="eza -lah --icons --grid "
+alias la="ls -lah"
+alias lt="ls --tree"
 alias c="clear"
 # alias vii3="$EDITOR ~/.config/i3/config"
 alias viniri="$EDITOR ~/dotfiles/niri/.config/niri/config.kdl"
 alias vivi="cd ~/dotfiles/nvim/.config/nvim/; vi ."
 
 ############################## STUFF #################################
-pipz(){ echo 'using pipx'; pipx install "${@}" }
-i(){ sudo proxychains -q pacman -S "${@}"; }
+i(){ yay -S "${@}"; }
+s(){ yay -Ss "${@}"; }
+u(){ yay -R "${@}"; }
+
 pullzsh(){
 git -C ~/.zsh/plugins/fzf-tab pull; git -C ~/.zsh/plugins/zsh-completions pull
 }
@@ -163,7 +166,7 @@ clear-keep-buffer(){
   zle clear-screen
 }
 zle -N clear-keep-buffer
-bindkey '^Al' clear-keep-buffer
+bindkey '^K' clear-keep-buffer
 
 copy-cmd(){
   echo -n $BUFFER | wl-copy

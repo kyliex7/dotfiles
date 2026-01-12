@@ -1,133 +1,210 @@
+/* -----------------------------------------------------------------------------
+ * Rosé Pine Color Definitions
+ * -------------------------------------------------------------------------- */
+@define-color base           #191724;
+@define-color surface        #1f1d2e;
+@define-color overlay        #26233a;
+
+@define-color muted          #6e6a86;
+@define-color subtle         #908caa;
+@define-color text           #e0def4;
+
+@define-color love           #eb6f92;
+@define-color gold           #f6c177;
+@define-color rose           #ebbcba;
+@define-color pine           #31748f;
+@define-color foam           #9ccfd8;
+@define-color iris           #c4a7e7;
+
+@define-color highlightLow   #21202e;
+@define-color highlightMed   #403d52;
+@define-color highlightHigh  #524f67;
+
+/* -----------------------------------------------------------------------------
+ * Global Reset & Fonts
+ * -------------------------------------------------------------------------- */
 * {
-	padding: 0px;
-	margin: 0px;
-  }
-* {
-	border: 0;
-	border-radius: 0;
-	font-family: "MesloLGM Nerd Font Propo";
-	font-size: 11px;
-	font-weight: bold;
-	color: #3c3836;
-	min-height: 0;
+    padding: 0px;
+    margin: 0px;
+    border: 0;
+    border-radius: 0;
+    font-family: "MesloLGM Nerd Font Propo";
+    font-size: 11px;
+    font-weight: bold;
+    color: @text;
+    min-height: 0; /* Critical for thin bar */
 }
-window#waybar>box {
-	padding-left:24px;
-	padding-right:19px;
-	margin-left: 10px;
-	background-color: transparent;
-}
+
+/* -----------------------------------------------------------------------------
+ * Waybar Window & Layout
+ * -------------------------------------------------------------------------- */
 window#waybar {
-	background-color: transparent;
+    background-color: transparent; 
 }
+
+window#waybar > box {
+    padding: 2px 10px; 
+    /* Margin: Top Right Bottom Left */
+    /* margin: 0px 10px 0px 5px;  */
+    background-color: transparent;
+}
+
+/* -----------------------------------------------------------------------------
+ * Tooltips
+ * -------------------------------------------------------------------------- */
 tooltip {
-  background: #d0d0d0;
-  border: 1px solid #bdae93;
+    background: @base;
+    border: 1px solid @highlightMed;
+    border-radius: 10px;
 }
+
 tooltip label {
-  color: #3c3836;
+    color: @text;
 }
+
+/* -----------------------------------------------------------------------------
+ * Workspaces
+ * -------------------------------------------------------------------------- */
 #workspaces {
-  transition: all 250ms ease-in-out;
-  background-color: #d0d0d0;
-  border-radius: 50px;
+    transition: all 250ms ease-in-out;
+    background-color: @overlay; 
+    border-radius: 50px;
+    padding: 2px 8px; 
 }
+
 #workspaces button {
-  margin-left: 1px;
-  margin-right: 1px;
-  color: #3c3836;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding: 0px 4px; 
+    color: @subtle;
 }
+
 #workspaces button.active {
-  color: #3c3836;
+    color: @rose; 
 }
+
 #workspaces button.urgent {
-  color: #3c3836;
+    color: @love;
 }
-#custom-clock {
-  padding: 5px;
-  border-radius: 20px;
-  background: transparent;
-  background-color: #d0d0d0;
-  color: #3c3836;
+
+#workspaces button:hover {
+    color: @text;
+    background: @highlightMed;
+    border-radius: 50px;
 }
-#custom-date {
-  margin-right: 4px;
-  border-radius: 20px;
-  padding-right: 2px;
-  padding-left: 5px;
-  background: transparent;
-  background-color: #d0d0d0;
-  color: #3c3836;
-}
-#custom-fuzzel {
-  margin-right: 4px;
-  border-radius: 20px;
-  padding-right: 10px;
-  padding-left: 10px;
-  background: transparent;
-  background-color: #d0d0d0;
-  color: #3c3836;
-}
-#custom-power {
-  margin-right: 4px;
-  margin-left: 3px;
-  border-radius: 20px;
-  padding-right: 3px;
-  padding-left: 10px;
-  background: transparent;
-  background-color: #d0d0d0;
-  color: #3c3836;
-}
-#battery {
-  border-radius: 20px;
-  background: transparent;
-  background-color: #d0d0d0;
-  margin-right: 5px;
-  padding-left: 8px;
-  color: #3c3836;
-}
-#battery.warning {
-  color: #3c3836;
-}
-#battery.critical {
-  color: #3c3836;
-}
-#window {
-  border-radius: 0px;
-  padding-left: 10px;
-  padding-right: 10px;
-  color: #3c3836;
-}
-#cpu {
-  border-radius: 20px;
-  margin-right: 3px;
-  background: transparent;
-  background-color: #d0d0d0;
-  padding-left: 6px;
-  color: #3c3836;
-}
+
+/* -----------------------------------------------------------------------------
+ * Modules (Right Side)
+ * -------------------------------------------------------------------------- */
+
+/* Common style for pill-shaped modules */
+#custom-clock,
+#custom-date,
+#custom-fuzzel,
+#custom-power,
+#battery,
+#cpu,
 #memory {
-  border-radius: 20px;
-  background: transparent;
-  background-color: #d0d0d0;
-  padding-left: 9px;
-  color: #3c3836;
+    background-color: @surface;
+    color: @text;
+    border-radius: 20px;
+    padding: 2px 10px; 
+    margin-top: 2px;   
+    margin-bottom: 2px;
 }
+
+/* Specific margins for spacing between modules */
+#custom-date {
+    margin-right: 4px;
+    color: @iris; 
+}
+
+#custom-clock {
+    color: @rose;
+}
+
+#custom-fuzzel {
+    margin-right: 4px;
+		margin-left: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: @pine;
+}
+
+#custom-power {
+    margin-left: 4px;
+    margin-right: 15px;
+    padding-right: 4px;
+    background-color: @surface; 
+    color: @love;
+}
+
+#battery {
+    margin-right: 5px;
+    padding-left: 8px;
+    padding-right: 0px; /* Removed padding */
+}
+
+#battery.warning {
+    color: @gold;
+}
+
+#battery.critical {
+    color: @love;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#cpu {
+    margin-right: 3px;
+    color: @foam;
+    padding-right: 0px; /* Removed padding */
+}
+
+#memory {
+    padding-left: 9px;
+    padding-right: 0px; /* Removed padding */
+    color: @gold;
+}
+
+#window {
+    border-radius: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: @subtle; 
+}
+
+/* -----------------------------------------------------------------------------
+ * Context Menus (Right Click)
+ * -------------------------------------------------------------------------- */
 menu {
-  background: #d0d0d0;
-  border: 1px solid #bdae93;
+    background: @base;
+    border: 1px solid @highlightMed;
+    border-radius: 10px;
 }
 
 menu menuitem {
-  color: #3c3836;
-  padding: 5px 10px;
+    color: @text;
+    padding: 5px 10px;
 }
 
 menu menuitem:hover {
-  background: #d5c4a1; 
-  color: #282828;
+    background: @highlightMed; 
+    color: @text;
 }
 
 menu menuitem:disabled {
-  color: #928374;
+    color: @muted;
+}
+
+/* -----------------------------------------------------------------------------
+ * Animations
+ * -------------------------------------------------------------------------- */
+@keyframes blink {
+    to {
+        color: @text;
+    }
 }

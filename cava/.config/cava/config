@@ -4,26 +4,16 @@ framerate = 60
 output = term
 
 [colors]
-; Set the colors for the visualizer
-background = #282828
-foreground = #ebdbb2
-color0 = #282828 ; Black (background color)
-color1 = #fb4934 ; Red
-color2 = #8ec07c ; Green
-color3 = #d79921 ; Yellow
-color4 = #83a598 ; Blue
-color5 = #d3869b ; Purple
-color6 = #8ec07c ; Aqua
-color7 = #928374 ; Gray
-color8 = #a89984 ; Light Gray
-
-; Color scheme for individual frequency bands
-band_1 = #fb4934 ; Red
-band_2 = #8ec07c ; Green
-band_3 = #d79921 ; Yellow
-band_4 = #83a598 ; Blue
-band_5 = #d3869b ; Purple
-band_6 = #8ec07c ; Aqua
+# In the [color] section
+background = '#191724'
+gradient = 1
+gradient_count = 6
+gradient_color_1 = '#31748f'
+gradient_color_2 = '#9ccfd8'
+gradient_color_3 = '#c4a7e7'
+gradient_color_4 = '#ebbcba'
+gradient_color_5 = '#f6c177'
+gradient_color_6 = '#eb6f92'
 
 [visualizer]
 ; Set how the visualizer looks, for example:
