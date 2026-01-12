@@ -17,9 +17,9 @@ input {
 
 cursor {
 		xcursor-theme "catppuccin-mocha-mauve-cursors"
-		xcursor-size 30
+		xcursor-size 20
 		hide-when-typing
-		hide-after-inactive-ms 1500
+		// hide-after-inactive-ms 1500
 }
 
 output "eDP-1" {
@@ -116,7 +116,7 @@ layout {
     }
 }
 spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/rosepine/wallhaven-2ymp5g.png"
-spawn-at-startup "waybar"
+spawn-sh-at-startup "~/.config/waybar/launch.sh"
 
 hotkey-overlay {
     skip-at-startup
