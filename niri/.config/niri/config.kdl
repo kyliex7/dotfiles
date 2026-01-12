@@ -16,8 +16,8 @@ input {
 }
 
 cursor {
-		xcursor-theme "BreezeX-RosePine-Linux"
-		xcursor-size 35
+		xcursor-theme "catppuccin-mocha-mauve-cursors"
+		xcursor-size 30
 		hide-when-typing
 		hide-after-inactive-ms 1500
 }
