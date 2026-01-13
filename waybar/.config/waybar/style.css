@@ -125,7 +125,7 @@ tooltip label {
 }
 #custom-date {
     margin-right: 4px;
-		padding-right: 2px;
+		padding-right:  7px;
     color: @iris; 
 }
 
@@ -152,7 +152,7 @@ tooltip label {
 #battery {
     margin-right: 5px;
     padding-left: 8px;
-    padding-right: 0px; /* Removed padding */
+    padding-right: 7px; /* Removed padding */
 }
 
 #battery.warning {
@@ -171,12 +171,12 @@ tooltip label {
 #cpu {
     margin-right: 3px;
     color: @foam;
-    padding-right: 0px; /* Removed padding */
+    padding-right: 7px; /* Removed padding */
 }
 
 #memory {
     padding-left: 9px;
-    padding-right: 0px; /* Removed padding */
+    padding-right: 7px; /* Removed padding */
     color: @gold;
 }
 
