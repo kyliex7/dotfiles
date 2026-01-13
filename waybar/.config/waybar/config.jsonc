@@ -3,13 +3,15 @@
   "position": "top",
   "margin-top": 3,
   "modules-center": [
-    "niri/workspaces"
+    "niri/workspaces",
+		"custom/nightmode"
   ],
   "modules-left": [
     "custom/fuzzel",
     "custom/date",
     "custom/clock",
 		"pulseaudio",
+		"mpris"
   ],
   "modules-right": [
 		"tray",
@@ -39,6 +41,30 @@
       "shutdown": "systemctl poweroff"
     }
   },
+	"custom/nightmode": {
+    "format": "",
+    "tooltip": true,
+    "tooltip-format": "Left: 4000K\nMiddle: 5000K\nRight: 6000K\nScroll Up: Off",
+    "on-click": "pkill wlsunset > /dev/null 2>&1; wlsunset -t 4000 > /dev/null 2>&1 &",
+    "on-click-middle": "pkill wlsunset > /dev/null 2>&1; wlsunset -t 5000 > /dev/null 2>&1 &",
+    "on-click-right": "pkill wlsunset > /dev/null 2>&1; wlsunset -t 6000 > /dev/null 2>&1 &",
+    "on-scroll-up": "pkill wlsunset > /dev/null 2>&1",
+    "interval": "once"
+	},
+	
+	"mpris": {
+    "player": "cmus",
+    "format": "{player_icon}  {title} - {artist}",
+    "format-paused": "{status_icon} <i>{title} - {artist}</i>",
+    "player-icons": {
+        "default": "",
+        "cmus": "" 
+    },
+    "status-icons": {
+        "paused": ""
+    },
+	},
+
   "custom/fuzzel" : {
     "format": "",
     "on-click": "fuzzel",

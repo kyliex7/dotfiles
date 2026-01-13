@@ -1,11 +1,8 @@
 [general]
-; General settings for CAVA
 framerate = 60
 output = term
 
 [colors]
-# In the [color] section
-background = '#191724'
 gradient = 1
 gradient_count = 6
 gradient_color_1 = '#31748f'
@@ -15,7 +12,4 @@ gradient_color_4 = '#ebbcba'
 gradient_color_5 = '#f6c177'
 gradient_color_6 = '#eb6f92'
 
-[visualizer]
-; Set how the visualizer looks, for example:
-bar_width = 2
-smoothing = 1
+background = default
