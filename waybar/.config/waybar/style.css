@@ -1,6 +1,4 @@
-/* -----------------------------------------------------------------------------
- * Rosé Pine Color Definitions (Kept Original)
- * -------------------------------------------------------------------------- */
+/* hell yeah rose pine */
 @define-color base           #191724;
 @define-color surface        #1f1d2e;
 @define-color overlay        #26233a;
@@ -20,9 +18,6 @@
 @define-color highlightMed    #403d52;
 @define-color highlightHigh   #524f67;
 
-/* -----------------------------------------------------------------------------
- * Global Reset & Fonts (Original Styles)
- * -------------------------------------------------------------------------- */
 * {
     padding: 0px;
     margin: 0px;
@@ -44,9 +39,6 @@ window#waybar > box {
     background-color: transparent;
 }
 
-/* -----------------------------------------------------------------------------
- * Tooltips
- * -------------------------------------------------------------------------- */
 tooltip {
     background: @base;
     border: 1px solid @highlightMed;
@@ -55,11 +47,9 @@ tooltip {
 
 tooltip label {
     color: @text;
+		border-radius: 10px;
 }
 
-/* -----------------------------------------------------------------------------
- * Workspaces - Rebalanced Colors
- * -------------------------------------------------------------------------- */
 #workspaces {
     transition: all 250ms ease-in-out;
     background-color: @overlay; 
@@ -71,11 +61,11 @@ tooltip label {
     margin-left: 2px;
     margin-right: 2px;
     padding: 0px 4px; 
-    color: @muted; /* Subdued non-active icons */
+    color: @muted;
 }
 
 #workspaces button.active {
-    color: @iris; /* Soft purple for the current workspace */
+    color: @iris;
 }
 
 #workspaces button.urgent {
@@ -87,10 +77,6 @@ tooltip label {
     background: @highlightMed;
     border-radius: 50px;
 }
-
-/* -----------------------------------------------------------------------------
- * Modules (Right Side) - Color Overhaul
- * -------------------------------------------------------------------------- */
 
 #custom-clock,
 #custom-date,
@@ -117,7 +103,7 @@ tooltip label {
 
 #pulseaudio {
     margin-left: 4px;
-    color: @foam; /* Seafoam blue for audio */
+    color: @foam;
 }
 
 #custom-nightmode {
@@ -132,7 +118,7 @@ tooltip label {
 }
 
 #mpris {
-    color: @subtle; /* Subtle text for music info */
+    color: @subtle;
     margin-left: 4px;
 }
 
@@ -144,11 +130,11 @@ tooltip label {
 #custom-date {
     margin-right: 4px;
     padding-right: 7px;
-    color: @subtle; /* Date is secondary info */
+    color: @subtle;
 }
 
 #custom-clock {
-    color: @text; /* Pure text color for clock readability */
+    color: @text;
 }
 
 #custom-fuzzel {
@@ -156,22 +142,22 @@ tooltip label {
     margin-left: 20px;
     padding-left: 10px;
     padding-right: 10px;
-    color: @pine; /* Warm accent for launcher */
+    color: @pine;
 }
 
 #custom-power {
     margin-left: 4px;
     margin-right: 15px;
     padding-right: 2px;
-    background-color: @highlightLow; /* Slightly darker to stand out */
-    color: @love; /* Red for power */
+    background-color: @highlightLow;
+    color: @love;
 }
 
 #battery {
     margin-right: 5px;
     padding-left: 8px;
     padding-right: 7px;
-    color: @text; /* Teal/Pine for healthy battery */
+    color: @text;
 }
 
 #battery.warning {
@@ -189,14 +175,14 @@ tooltip label {
 
 #cpu {
     margin-right: 3px;
-    color: @iris; /* Consistent cool tone for hardware */
+    color: @iris;
     padding-right: 7px;
 }
 
 #memory {
     padding-left: 9px;
     padding-right: 7px; 
-    color: @foam; /* Consistent cool tone for hardware */
+    color: @foam;
 }
 
 #window {
@@ -206,9 +192,6 @@ tooltip label {
     color: @subtle; 
 }
 
-/* -----------------------------------------------------------------------------
- * Context Menus
- * -------------------------------------------------------------------------- */
 menu {
     background: @base;
     border: 1px solid @highlightMed;
@@ -225,9 +208,6 @@ menu menuitem:hover {
     color: @text;
 }
 
-/* -----------------------------------------------------------------------------
- * Animations
- * -------------------------------------------------------------------------- */
 @keyframes blink {
     to {
         color: @text;
