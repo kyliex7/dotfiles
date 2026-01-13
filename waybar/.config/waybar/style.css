@@ -144,7 +144,7 @@ tooltip label {
 #custom-power {
     margin-left: 4px;
     margin-right: 15px;
-    padding-right: 1px;
+    padding-right: 2px;
     background-color: @surface; 
     color: @love;
 }
