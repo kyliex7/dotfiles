@@ -167,7 +167,7 @@ clear-keep-buffer(){
   zle clear-screen
 }
 zle -N clear-keep-buffer
-bindkey '^K' clear-keep-buffer
+bindkey '^Al' clear-keep-buffer
 
 copy-cmd(){
   echo -n $BUFFER | wl-copy
