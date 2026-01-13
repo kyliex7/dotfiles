@@ -1,8 +1,8 @@
+set continue=true
 colorscheme catppuccin
 colorscheme amazon
 view sorted
 bind -f common C toggle continue
-set continue=true
 q
 s
 set continue

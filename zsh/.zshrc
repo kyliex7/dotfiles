@@ -53,6 +53,7 @@ alias -s png="qiv"
 alias -s jpg="qiv"
 # global aliases
 alias -g NE="2>/dev/null"
+alias -g C="| wl-copy"
 # normal mfs
 alias pvi="proxychains -q nvim"
 alias please="sudo"

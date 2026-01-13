@@ -1,0 +1,13 @@
+alacritty/
+ghidra/
+oxwm/
+scripts/
+cava/
+i3*/
+polybar/
+picom/
+suckless/
+firefox/
+nvim-*/
+gdb/
+rofi/

@@ -28,7 +28,6 @@ return {
 			use_icons = true,
 			set_vim_settings = false,
 		})
-		require("mini.pairs").setup()
 
 		vim.keymap.set("n", "<leader>x", function()
 			local bd = require("mini.bufremove").delete
