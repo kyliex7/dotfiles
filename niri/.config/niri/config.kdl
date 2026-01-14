@@ -115,7 +115,8 @@ layout {
         bottom 2
     }
 }
-spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/rosepine/wallhaven-2ymp5g.png"
+spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/rosepine/alonegirl.png"
+spawn-sh-at-startup "swaync"
 spawn-sh-at-startup "~/.config/waybar/launch.sh"
 
 hotkey-overlay {

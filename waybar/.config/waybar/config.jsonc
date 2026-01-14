@@ -53,12 +53,11 @@
 	},
 	
 	"mpris": {
-    "player": "cmus",
     "format": "{player_icon}  {title} - {artist}",
     "format-paused": "{status_icon} <i>{title} - {artist}</i>",
     "player-icons": {
         "default": "",
-        "cmus": "" 
+        "cmus": "" 
     },
     "status-icons": {
         "paused": ""
@@ -99,7 +98,7 @@
        "default": ["", ""]
     },
     "scroll-step": 1,
-    "on-click": "pavucontrol",
+    "on-click": "pavucontrol > /dev/null 2>&1",
     "ignored-sinks": ["Easy Effects Sink"]
 	},
 	"tray": {
