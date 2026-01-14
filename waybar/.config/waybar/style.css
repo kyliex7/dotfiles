@@ -120,6 +120,7 @@ tooltip label {
 #mpris {
     color: @subtle;
     margin-left: 4px;
+    /* max-width: 200px;  */
 }
 
 #mpris.paused {
