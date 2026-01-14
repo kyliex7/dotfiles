@@ -1,1 +1,1 @@
-# yet another dotfiles repo (use stow)
+### yet another dotfiles repo (use stow)
