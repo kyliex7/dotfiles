@@ -52,20 +52,21 @@ tooltip label {
 
 #workspaces {
     transition: all 250ms ease-in-out;
-    background-color: @overlay; 
+    background-color: @highlightLow; 
     border-radius: 50px;
     padding: 2px 8px; 
+		color: @subtle;
 }
 
 #workspaces button {
     margin-left: 2px;
     margin-right: 2px;
-    padding: 0px 4px; 
-    color: @muted;
+    padding: 0px 2px; 
+    color: @subtle;
 }
 
 #workspaces button.active {
-    color: @iris;
+    color: @text;
 }
 
 #workspaces button.urgent {
@@ -89,7 +90,7 @@ tooltip label {
 #pulseaudio,
 #custom-nightmode,
 #mpris {
-    background-color: @surface;
+    background-color: @highlightLow;
     color: @text;
     border-radius: 10px;
     padding: 2px 10px; 
@@ -103,19 +104,19 @@ tooltip label {
 
 #pulseaudio {
     margin-left: 4px;
-    color: @foam;
+    color: @subtle;
 }
 
 #custom-nightmode {
     padding: 0 10px;
     margin: 0 4px;
-    color: @gold;
+    color: @subtle;
     transition: all 0.3s ease;
 }
 
-#custom-nightmode:hover {
-    background-color: @highlightMed;
-}
+/* #custom-nightmode:hover { */
+/*     background-color: @highlightLow; */
+/* } */
 
 #mpris {
     color: @subtle;
@@ -135,7 +136,7 @@ tooltip label {
 }
 
 #custom-clock {
-    color: @text;
+    color: @subtle;
 }
 
 #custom-fuzzel {
@@ -143,7 +144,7 @@ tooltip label {
     margin-left: 20px;
     padding-left: 10px;
     padding-right: 10px;
-    color: @pine;
+    color: @subtle;
 }
 
 #custom-power {
@@ -151,14 +152,14 @@ tooltip label {
     margin-right: 15px;
     padding-right: 2px;
     background-color: @highlightLow;
-    color: @love;
+    color: @subtle;
 }
 
 #battery {
     margin-right: 5px;
     padding-left: 8px;
     padding-right: 7px;
-    color: @text;
+    color: @subtle;
 }
 
 #battery.warning {
@@ -176,14 +177,14 @@ tooltip label {
 
 #cpu {
     margin-right: 3px;
-    color: @iris;
+    color: @subtle;
     padding-right: 7px;
 }
 
 #memory {
     padding-left: 9px;
     padding-right: 7px; 
-    color: @foam;
+    color: @subtle;
 }
 
 #window {
