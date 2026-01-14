@@ -116,7 +116,7 @@ layout {
     }
 }
 spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/rosepine/alonegirl.png"
-spawn-sh-at-startup "swaync"
+// spawn-sh-at-startup "swaync" // fuck that's 200mb background usage duh
 spawn-sh-at-startup "~/.config/waybar/launch.sh"
 
 hotkey-overlay {
