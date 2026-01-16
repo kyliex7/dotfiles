@@ -115,7 +115,7 @@ layout {
         bottom 2
     }
 }
-spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/rosepine/alonegirl.png"
+spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/wallhaven-q2wrjl.jpg"
 spawn-at-startup "mako"
 spawn-sh-at-startup "~/.config/waybar/launch.sh"
 
@@ -135,6 +135,11 @@ window-rule {
 }
 window-rule {
 	match app-id=r#"neovide"#
+	open-maximized true
+}
+
+window-rule {
+	match app-id=r#"Telegram"#
 	open-maximized true
 }
 
