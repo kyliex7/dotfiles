@@ -203,11 +203,13 @@ menu {
 menu menuitem {
     color: @text;
     padding: 5px 10px;
+		border-radius: 10px;
 }
 
 menu menuitem:hover {
     background: @highlightMed; 
     color: @text;
+		border-radius: 10px;
 }
 
 @keyframes blink {
