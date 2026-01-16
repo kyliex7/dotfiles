@@ -182,29 +182,63 @@ setopt appendhistory sharehistory hist_ignore_space hist_ignore_all_dups \
        hist_save_no_dups hist_ignore_dups hist_find_no_dups
 
 ############################## FZF-TAB SETTINGS ##########################
-zstyle ':fzf-tab:*' fzf-flags --height=40% --border
-zstyle ':fzf-tab:*' default-color $'\033[38;2;144;140;170m'
-zstyle ':fzf-tab:*' fzf-bindings 'ctrl-a:toggle-all'
+zstyle ':fzf-tab:*' fzf-flags --height=40% --border --layout=reverse
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
 zstyle ':fzf-tab:*' switch-group ',' '.'
+
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 
-# Directory preview examples
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color=always $realpath 2>/dev/null'
-zstyle ':fzf-tab:complete:(ls|bat|cat|vim|nvim|vi):*' fzf-preview 'ls --color=always $realpath 2>/dev/null'
-zstyle ':fzf-tab:complete:(cp|mv|rm|mkdir|touch):*' fzf-preview 'ls --color=always $realpath 2>/dev/null'
-zstyle ':fzf-tab:complete:*' fzf-preview '
-  if [ -d $realpath ]; then
-      ls --color=always $realpath 2>/dev/null
-  else
-      bat --color=always $realpath 2>/dev/null || ls --color=always $realpath 2>/dev/null
-  fi'
+zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
+zstyle ':fzf-tab:complete:*:options' fzf-preview
+zstyle ':fzf-tab:complete:*:argument-1' fzf-preview
+
+zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' \
+	fzf-preview 'echo ${(P)word}'
+
+zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-preview \
+	'[[ $group == "[process ID]" ]] && ps --pid=$word -o cmd --no-headers -w -w'
+
+zstyle ':fzf-tab:complete:(cd|ls|eza):*' fzf-preview \
+	'eza -1 --color=always --icons --group-directories-first $realpath'
+
+zstyle ':fzf-tab:complete:*:*' fzf-preview '
+	if [ -d $realpath ]; then
+		eza --tree --color=always --level=2 --icons $realpath
+	elif [ -f $realpath ]; then
+		bat --color=always --style=numbers --line-range=:500 $realpath
+	else
+		echo "File not found"
+	fi'
 
 ############################## FZF INTEGRATION ###########################
+export FZF_DEFAULT_OPTS="
+  --height 40%
+  --layout=reverse
+  --border
+  --info=inline
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'
+"
+
+export FZF_CTRL_T_OPTS="
+  --preview 'bat -n --color=always --line-range :500 {} 2>/dev/null || eza --tree --level=2 --color=always {} 2>/dev/null'
+  --preview-window 'right:60%:wrap'
+"
+
+export FZF_CTRL_R_OPTS="
+  --preview 'echo {} | bat --language=sh --style=plain --color=always'
+  --preview-window 'down:3:wrap'
+"
+
+export FZF_ALT_C_OPTS="
+  --preview 'eza --tree --level=2 --color=always {}'
+"
+
 if [[ $- == *i* ]]; then
   eval "$(fzf --zsh)"
 fi
+
 eval "$(zoxide init --cmd cd zsh)"
 source $ZSH_PLUGIN_DIR/powerlevel10k/powerlevel10k.zsh-theme
 
