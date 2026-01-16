@@ -144,11 +144,6 @@ window-rule {
 }
 
 window-rule {
-  match app-id=r#"Telegram"#
-  open-maximized true
-}
-
-window-rule {
   match app-id=r#"foot"#
   open-maximized true
 }

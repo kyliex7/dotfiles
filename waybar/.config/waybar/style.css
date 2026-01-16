@@ -23,7 +23,7 @@
     margin: 0px;
     border: 0;
     border-radius: 0;
-    font-family: "SF Pro Display", "ComicShannsMono Nerd Font Propo";
+    font-family: "ComicShannsMono Nerd Font Propo";
     font-size: 12px;
     font-weight: bold;
     color: @text;
@@ -101,6 +101,7 @@ tooltip label {
 #tray {
     margin-right: 4px;
 }
+
 
 #pulseaudio {
     margin-left: 4px;
