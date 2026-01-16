@@ -24,7 +24,7 @@
     border: 0;
     border-radius: 0;
     font-family: "SF Pro Display", "ComicShannsMono Nerd Font Propo";
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     color: @text;
     min-height: 0; 
@@ -52,7 +52,7 @@ tooltip label {
 
 #workspaces {
     transition: all 250ms ease-in-out;
-    background-color: @highlightLow; 
+    background-color: @base; 
     border-radius: 50px;
     padding: 2px 8px; 
 		color: @subtle;
@@ -90,7 +90,7 @@ tooltip label {
 #pulseaudio,
 #custom-nightmode,
 #mpris {
-    background-color: @highlightLow;
+    background-color: @base;
     color: @text;
     border-radius: 10px;
     padding: 2px 10px; 
@@ -104,13 +104,13 @@ tooltip label {
 
 #pulseaudio {
     margin-left: 4px;
-    color: @subtle;
+    color: @text;
 }
 
 #custom-nightmode {
     padding: 0 10px;
     margin: 0 4px;
-    color: @subtle;
+    color: @text;
     transition: all 0.3s ease;
 }
 
@@ -119,7 +119,7 @@ tooltip label {
 /* } */
 
 #mpris {
-    color: @subtle;
+    color: @text;
     margin-left: 4px;
     /* max-width: 200px;  */
 }
@@ -132,11 +132,11 @@ tooltip label {
 #custom-date {
     margin-right: 4px;
     padding-right: 7px;
-    color: @subtle;
+    color: @text;
 }
 
 #custom-clock {
-    color: @subtle;
+    color: @text;
 }
 
 #custom-fuzzel {
@@ -144,22 +144,21 @@ tooltip label {
     margin-left: 20px;
     padding-left: 10px;
     padding-right: 10px;
-    color: @subtle;
+    color: @text;
 }
 
 #custom-power {
     margin-left: 4px;
     margin-right: 15px;
     padding-right: 2px;
-    background-color: @highlightLow;
-    color: @subtle;
+    color: @text;
 }
 
 #battery {
     margin-right: 5px;
     padding-left: 8px;
     padding-right: 7px;
-    color: @subtle;
+    color: @text;
 }
 
 #battery.warning {
@@ -177,21 +176,21 @@ tooltip label {
 
 #cpu {
     margin-right: 3px;
-    color: @subtle;
+    color: @text;
     padding-right: 7px;
 }
 
 #memory {
     padding-left: 9px;
     padding-right: 7px; 
-    color: @subtle;
+    color: @text;
 }
 
 #window {
     border-radius: 0px;
     padding-left: 10px;
     padding-right: 10px;
-    color: @subtle; 
+    color: @text; 
 }
 
 menu {
