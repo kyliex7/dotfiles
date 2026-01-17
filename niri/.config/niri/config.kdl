@@ -15,6 +15,11 @@ input {
 	// warp-mouse-to-focus
 }
 
+environment {
+	_JAVA_AWT_WM_NONREPARENTING "1"
+	AWT_TOOLKIT "MToolkit"
+}
+
 cursor {
 		xcursor-theme "catppuccin-mocha-dark-cursors"
 		xcursor-size 20
@@ -115,9 +120,11 @@ layout {
         bottom 2
     }
 }
+
+
 spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/wallhaven-q2wrjl.jpg"
 spawn-at-startup "mako"
-spawn-sh-at-startup "~/.config/waybar/launch.sh"
+spawn-sh-at-startup "~/.config/waybar/scripts/launch.sh"
 
 hotkey-overlay {
     skip-at-startup
