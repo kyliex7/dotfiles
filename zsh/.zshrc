@@ -101,9 +101,14 @@ alias viniri="$EDITOR ~/dotfiles/niri/.config/niri/config.kdl"
 alias vivi="cd ~/dotfiles/nvim/.config/nvim/; vi ."
 
 ############################## STUFF #################################
-i(){ yay -S "${@}"; }
+i(){ yay -S --needed "${@}"; }
 s(){ yay -Ss "${@}"; }
 u(){ yay -R "${@}"; }
+
+tmuxat() {
+	local session=$(tmux ls | fzf)
+	[[ $session ]] && tmux a -t "${session%%:*}"
+}
 
 pullzsh(){
 git -C ~/.zsh/plugins/fzf-tab pull; git -C ~/.zsh/plugins/zsh-completions pull
