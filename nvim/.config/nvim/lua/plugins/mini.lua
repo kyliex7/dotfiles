@@ -4,7 +4,23 @@ return {
 	config = function()
 		require("mini.ai").setup()
 		require("mini.surround").setup()
-		require("mini.indentscope").setup()
+		require("mini.indentscope").setup({
+			draw = {
+				delay = 100,
+				priority = 2,
+			},
+			options = {
+				border = "top",
+			},
+			symbol = "▎",
+		})
+
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = { "alpha", "dashboard", "fzf", "help", "lazy", "mason" },
+			callback = function()
+				vim.b.miniindentscope_disable = true
+			end,
+		})
 		require("mini.pairs").setup()
 		-- require('mini.animte').setup()
 		-- require("mini.statusline").setup({
