@@ -132,7 +132,7 @@ sn(){
 }
 pipxa(){
   unset http_proxy https_proxy
-  p pipx install "${@}"
+  p pipx install "${@}" -v
   source ~/.zshrc
 }
 pipxu(){

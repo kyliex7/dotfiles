@@ -95,8 +95,8 @@ layout {
     focus-ring {
       on
         width 2
-        active-color "#b0b0b0"
-        inactive-color "#3c3836"
+        active-color "#7fc8ff"
+        inactive-color "#505050"
         // active-gradient from="#121212" to="#e8eaed" angle=45
         // inactive-gradient from="#3c3836" to="#ebdbb2" angle=45 relative-to="workspace-view"
     }

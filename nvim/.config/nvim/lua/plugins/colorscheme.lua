@@ -19,10 +19,6 @@ return {
 		config = function()
 			require("koda").setup({
 				transparent = false,
-
-				-- Style to be applied to different syntax groups.
-				-- Common use case would be to set either `italic = true` or `bold = true` for a desired group.
-				-- See `:help nvim_set_hl` for more valid values.
 				styles = {
 					functions = { bold = false },
 					keywords = {},
@@ -45,14 +41,14 @@ return {
 		config = function()
 			require("tokyonight").setup({
 				style = "night",
-				transparent = false,
+				transparent = true,
 			})
 			vim.cmd("colorscheme tokyonight")
 		end,
 	},
 	{
 		"rose-pine/neovim",
-		enabled = true,
+		enabled = false,
 		name = "rose-pine",
 		config = function()
 			require("rose-pine").setup({
@@ -117,6 +113,39 @@ return {
 			})
 
 			vim.cmd("colorscheme rose-pine-main")
+		end,
+	},
+	{
+		"navarasu/onedark.nvim",
+		priority = 1000, -- make sure to load this before all the other start plugins
+		config = function()
+			require("onedark").setup({
+				style = "darker", -- 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+				transparent = true, -- Show/hide background
+				term_colors = true, -- Change terminal color as per the selected theme style
+				ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
+				cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+
+				code_style = {
+					comments = "italic",
+					keywords = "none",
+					functions = "none",
+					strings = "none",
+					variables = "none",
+				},
+
+				-- Custom Highlights --
+				colors = {}, -- Override default colors
+				highlights = {}, -- Override highlight groups
+
+				-- Plugins Config --
+				diagnostics = {
+					darker = true, -- darker colors for diagnostic
+					undercurl = true, -- use undercurl instead of underline for diagnostics
+					background = true, -- use background color for virtual text
+				},
+			})
+			require("onedark").load()
 		end,
 	},
 }
