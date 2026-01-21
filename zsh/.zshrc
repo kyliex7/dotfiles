@@ -142,7 +142,8 @@ pipxu(){
 bindkey -v  # vim mode
 
 # Insert mode
-# bindkey -M viins '^f' autosuggest-accept
+bindkey -M viins '^f' autosuggest-accept
+bindkey -M viins '^a' autosuggest-execute
 bindkey -M viins '^p' history-search-backward
 bindkey -M viins '^n' history-search-forward
 bindkey '^u' backward-kill-word
@@ -247,5 +248,6 @@ fi
 
 eval "$(zoxide init --cmd cd zsh)"
 source $ZSH_PLUGIN_DIR/powerlevel10k/powerlevel10k.zsh-theme
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
