@@ -21,7 +21,7 @@ return {
 				vim.b.miniindentscope_disable = true
 			end,
 		})
-		require("mini.pairs").setup()
+		-- require("mini.pairs").setup()
 		-- require('mini.animte').setup()
 		-- require("mini.statusline").setup({
 		-- 	content = {
