@@ -19,3 +19,8 @@ vim.o.confirm = true
 vim.opt.fillchars = { eob = " " }
 vim.o.showmode = true
 vim.opt.termguicolors = true
+
+if vim.g.neovide then
+	vim.g.neovide_opacity = 0.8
+	vim.g.neovide_normal_opacity = 0.8
+end

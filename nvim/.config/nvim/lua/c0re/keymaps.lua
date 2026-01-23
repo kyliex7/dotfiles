@@ -33,3 +33,26 @@ map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "general copy whole file" })
 -- map("n", "<leader>SS", function()
 -- 	vim.cmd("AutoSession save")
 -- end, { desc = "[S]ave [S]ession" })
+--
+local function insert_comment(direction)
+  local cs = vim.bo.commentstring
+  if cs == "" or cs == nil then
+    print("No commentstring set for this filetype")
+    return
+  end
+  
+  -- Extract the prefix (part before %s) and clean up whitespace
+  local comment_prefix = cs:gsub("%%s.*", ""):gsub("%s+$", "") .. " "
+  
+  -- Execute the 'o' or 'O' command to create a new line
+  vim.cmd("normal! " .. direction)
+  
+  -- Insert the comment character
+  vim.api.nvim_put({comment_prefix}, "c", true, true)
+  
+  -- Enter insert mode at the end of the line
+  vim.cmd("startinsert!")
+end
+
+vim.keymap.set("n", "gco", function() insert_comment("o") end, { desc = "Insert comment below" })
+vim.keymap.set("n", "gcO", function() insert_comment("O") end, { desc = "Insert comment above" })

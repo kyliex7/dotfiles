@@ -25,7 +25,7 @@ else
 fi
 
 ############################## PROMPT ####################################
-autoload -U colors && colors
+#autoload -U colors && colors
 # PROMPT='%F{#eeeeee}󰣇%f %F{#999999}%~%f %F{#eeeeee}$%f '
 # PROMPT='%F{green}%n@%m %F{blue}%~ %# %f'
 # NEWLINE=$'\n'
@@ -105,7 +105,7 @@ i(){ yay -S --needed "${@}"; }
 s(){ yay -Ss "${@}"; }
 u(){ yay -R "${@}"; }
 
-tmuxat() {
+tat() {
 	local session=$(tmux ls | fzf)
 	[[ $session ]] && tmux a -t "${session%%:*}"
 }

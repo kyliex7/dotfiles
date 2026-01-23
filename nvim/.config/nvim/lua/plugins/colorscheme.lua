@@ -127,7 +127,7 @@ return {
 				cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
 
 				code_style = {
-					comments = "italic",
+					comments = "none",
 					keywords = "none",
 					functions = "none",
 					strings = "none",

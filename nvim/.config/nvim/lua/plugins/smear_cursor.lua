@@ -1,6 +1,7 @@
 return {
   "sphamba/smear-cursor.nvim",
-	enabled = true,
+	-- enabled = not vim.g.neovide,
+	enabled = false,
 
   opts = {
     stiffness = 0.8,                      -- 0.6      [0, 1]
