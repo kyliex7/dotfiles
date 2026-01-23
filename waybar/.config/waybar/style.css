@@ -1,4 +1,4 @@
-/* hell yeah rose pine */
+/* Rose Pine - Structured Material Edition */
 @define-color base #191724;
 @define-color surface #1f1d2e;
 @define-color overlay #26233a;
@@ -19,66 +19,31 @@
 @define-color highlightHigh #524f67;
 
 * {
-  padding: 0px;
-  margin: 0px;
-  border: 0;
-  border-radius: 0;
-  font-family: "SF Pro Display", "CaskaydiaCove Nerd Font Propo";
-  font-size: 13px;
-  font-weight: bold;
-  color: @text;
-  min-height: 0;
+    padding: 0px;
+    margin: 0px;
+    border: 0;
+    border-radius: 0;
+    font-family: "SF Pro Display", "ComicShannsMono Nerd Font Propo";
+    font-size: 13px;
+    font-weight: bold;
+    color: @text;
+    min-height: 0;
 }
 
 window#waybar {
-  background-color: transparent;
+    background-color: @base;
+    border-radius: 8px;
+    border: 1px solid @highlightMed;
 }
 
 window#waybar > box {
-  padding: 2px 10px;
-  background-color: transparent;
+		padding-left: 30px;
+		padding-right: 30px;
+    background-color: @base;
+    border-radius: 8px;
 }
 
-tooltip {
-  background: @base;
-  border: 1px solid @highlightMed;
-  border-radius: 10px;
-}
-
-tooltip label {
-  color: @text;
-  border-radius: 10px;
-}
-
-#workspaces {
-  transition: all 250ms ease-in-out;
-  background-color: @base;
-  border-radius: 50px;
-  padding: 2px 8px;
-  color: @subtle;
-}
-
-#workspaces button {
-  margin-left: 2px;
-  margin-right: 2px;
-  padding: 0px 2px;
-  color: @subtle;
-}
-
-#workspaces button.active {
-  color: @text;
-}
-
-#workspaces button.urgent {
-  color: @love;
-}
-
-#workspaces button:hover {
-  color: @text;
-  background: @highlightMed;
-  border-radius: 50px;
-}
-
+#workspaces,
 #custom-clock,
 #custom-date,
 #custom-fuzzel,
@@ -90,124 +55,63 @@ tooltip label {
 #pulseaudio,
 #custom-nightmode,
 #mpris {
-  background-color: @base;
-  color: @text;
-  border-radius: 10px;
-  padding: 2px 10px;
-  margin-top: 2px;
-  margin-bottom: 2px;
+    background-color: @overlay;
+    color: @text;
+    border-radius: 6px;
+    padding: 2px 12px;
+    margin: 4px 3px;
+    border: 1px solid @highlightMed;
 }
 
-#tray {
-  margin-right: 4px;
+#workspaces {
+    background-color: @overlay;
+    padding: 0px 2px;
 }
 
-#pulseaudio {
-  margin-left: 4px;
-  color: @text;
+#workspaces button {
+    padding: 0px 8px;
+    color: @subtle;
 }
 
-#custom-nightmode {
-  padding: 0 10px;
-  margin: 0 4px;
-  color: @text;
-  transition: all 0.3s ease;
-}
-
-#mpris {
-  color: @text;
-  margin-left: 4px;
-}
-
-#mpris.paused {
-  color: @muted;
-  font-style: italic;
-}
-
-#custom-date {
-  margin-right: 4px;
-  padding-right: 7px;
-  color: @text;
-}
-
-#custom-clock {
-  color: @text;
+#workspaces button.active {
+    color: @text;
+    background-color: @highlightHigh;
+    border-radius: 4px;
 }
 
 #custom-fuzzel {
-  margin-right: 4px;
-  margin-left: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
-  color: @text;
+    background-color: @highlightMed;
 }
 
 #custom-power {
-  margin-left: 4px;
-  margin-right: 15px;
-  padding-right: 2px;
-  color: @text;
+    background-color: @highlightMed;
+	padding-right: 3px;
+		margin-left: 2px;
 }
 
-#battery {
-  margin-right: 5px;
-  padding-left: 8px;
-  padding-right: 7px;
-  color: @text;
+#cpu, #memory, #pulseaudio, #battery {
+    color: @text; 
 }
 
 #battery.warning {
-  color: @gold;
+    background-color: @gold;
+    color: @base;
 }
 
 #battery.critical {
-  color: @love;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-#cpu {
-  margin-right: 3px;
-  color: @text;
-  padding-right: 7px;
-}
-
-#memory {
-  padding-left: 9px;
-  padding-right: 7px;
-  color: @text;
+    background-color: @love;
+    color: @base;
 }
 
 #window {
-  border-radius: 0px;
-  padding-left: 10px;
-  padding-right: 10px;
-  color: @text;
-}
-
-menu {
-  background: @base;
-  border: 1px solid @highlightMed;
-  border-radius: 10px;
-}
-
-menu menuitem {
-  color: @text;
-  padding: 5px 10px;
-  border-radius: 10px;
-}
-
-menu menuitem:hover {
-  background: @highlightMed;
-  color: @text;
-  border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: @subtle;
 }
 
 @keyframes blink {
-  to {
-    color: @text;
-  }
+    to {
+        background-color: @overlay;
+        color: @love;
+    }
 }
