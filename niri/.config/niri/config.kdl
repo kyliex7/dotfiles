@@ -124,7 +124,6 @@ layout {
 
 spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/wallhaven-q2wrjl.jpg"
 spawn-sh-at-startup "~/.config/waybar/scripts/launch.sh"
-// spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "mako"
 
 hotkey-overlay {
