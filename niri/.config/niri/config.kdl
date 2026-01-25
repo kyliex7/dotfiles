@@ -18,6 +18,8 @@ input {
 environment {
 	_JAVA_AWT_WM_NONREPARENTING "1"
 	AWT_TOOLKIT "MToolkit"
+	XDG_CURRENT_DESKTOP "niri"
+	MOZ_ENABLE_WAYLAND "1"
 }
 
 cursor {
@@ -114,16 +116,17 @@ layout {
         off
     }
     struts {
-        left 34
+        left 36
         right 24
         top 2
-        bottom 4
+        bottom 8
     }
 }
 
 
-spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/wallhaven-q2wrjl.jpg"
-spawn-sh-at-startup "~/.config/waybar/scripts/launch.sh"
+spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/rosepine/pink-clouds.png"
+spawn-at-startup "waybar"
+spawn-at-startup "/usr/sbin/xwayland-satellite"
 spawn-at-startup "mako"
 
 hotkey-overlay {
@@ -141,12 +144,12 @@ window-rule {
     open-floating true
 }
 window-rule {
-	match app-id=r#"neovide"#
+	match app-id=r#"neovide$"#
 	open-maximized true
 }
 
 window-rule {
-	match app-id=r#"Telegram"#
+	match app-id=r#"Telegram$"#
 	open-maximized true
 }
 

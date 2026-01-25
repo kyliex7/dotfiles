@@ -7,16 +7,17 @@
     "custom/nightmode"
   ],
   "modules-left": [
-    "custom/fuzzel",
+    // "custom/fuzzel",
     "custom/date",
     "custom/clock",
-    "pulseaudio",
-    "mpris"
+    // "pulseaudio",
+		"niri/window"
   ],
   "modules-right": [
     "tray",
-    "battery",
-    "cpu",
+    // "battery",
+    // "cpu",
+    "mpris",
     "memory",
     "custom/power"
   ],
@@ -28,6 +29,12 @@
       "default": ""
     }
   },
+
+"niri/window": {
+    "format": "",
+    "icon": true,
+    "icon-size": 20
+},
 
   "custom/power": {
     "format": "⏻ ",
@@ -43,7 +50,7 @@
   },
 
   "custom/nightmode": {
-    "format": "",
+    "format": "🌙",
     "tooltip": true,
     "tooltip-format": "Left: 4000K\nMiddle: 5000K\nRight: 6000K\nScroll Up: Off",
     "on-click": "pkill wlsunset > /dev/null 2>&1; wlsunset -t 4000 > /dev/null 2>&1 &",

@@ -13,7 +13,7 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.o.inccommand = 'split'
-vim.o.cursorline = false
+vim.o.cursorline = true
 vim.opt.guicursor = ""
 vim.o.confirm = true
 vim.opt.fillchars = { eob = " " }

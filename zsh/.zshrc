@@ -78,6 +78,7 @@ alias neofetch="fastfetch --config examples/13.jsonc"
 alias git="proxychains -q git"
 alias gs="git status"
 alias ga="git add ."
+alias gd="git diff"
 alias gp="git push -u origin main"
 alias gall="ga; gc; gp"
 alias p="proxychains -q" 
@@ -250,4 +251,10 @@ eval "$(zoxide init --cmd cd zsh)"
 source $ZSH_PLUGIN_DIR/powerlevel10k/powerlevel10k.zsh-theme
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# if [ -z "$NIRI_SOCKET" ] || [ ! -S "$NIRI_SOCKET" ]; then
+#     ACTIVE_NIRI_SOCKET=$(ls -t /run/user/$(id -u)/niri.wayland-*.sock 2>/dev/null | head -n 1)
+#     if [ -n "$ACTIVE_NIRI_SOCKET" ]; then
+#         export NIRI_SOCKET="$ACTIVE_NIRI_SOCKET"
+#     fi
+# fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

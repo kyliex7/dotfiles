@@ -23,7 +23,8 @@
     margin: 0px;
     border: 0;
     border-radius: 0;
-    font-family: "SF Pro Display", "ComicShannsMono Nerd Font Propo";
+    /* font-family: "SF Pro Display", "ComicShannsMono Nerd Font Propo"; */
+		font-family: "ComicShannsMono Nerd Font Propo";
     font-size: 13px;
     font-weight: bold;
     color: @text;
@@ -31,16 +32,16 @@
 }
 
 window#waybar {
-    background-color: @base;
-    border-radius: 8px;
-    border: 1px solid @highlightMed;
+	background-color: transparent;
+	border-radius: 8px;
+	border: 1px solid @highlightMed;
 }
 
 window#waybar > box {
-		padding-left: 30px;
-		padding-right: 30px;
-    background-color: @base;
-    border-radius: 8px;
+	padding-left: 30px;
+	padding-right: 30px;
+	background-color: transparent;
+	border-radius: 8px;
 }
 
 #workspaces,
@@ -57,10 +58,9 @@ window#waybar > box {
 #mpris {
     background-color: @overlay;
     color: @text;
-    border-radius: 6px;
+    border-radius: 20px;
     padding: 2px 12px;
-    margin: 4px 3px;
-    border: 1px solid @highlightMed;
+    margin: 4px 3px; border: 1px solid @highlightMed;
 }
 
 #workspaces {
@@ -76,17 +76,17 @@ window#waybar > box {
 #workspaces button.active {
     color: @text;
     background-color: @highlightHigh;
-    border-radius: 4px;
+    border-radius: 20px;
 }
 
+
 #custom-fuzzel {
-    background-color: @highlightMed;
+	margin-left: 8px;
 }
 
 #custom-power {
-    background-color: @highlightMed;
 	padding-right: 3px;
-		margin-left: 2px;
+	margin-left: 2px;
 }
 
 #cpu, #memory, #pulseaudio, #battery {
@@ -104,9 +104,10 @@ window#waybar > box {
 }
 
 #window {
-    padding-left: 15px;
-    padding-right: 15px;
-    color: @subtle;
+	padding-left: 15px;
+	padding-right: 15px;
+	color: @subtle;
+	margin-left: 4px;
 }
 
 @keyframes blink {
