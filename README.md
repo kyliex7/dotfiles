@@ -1,3 +1,5 @@
 # minimal rice (onedark btw)
 ![alt text](./prev1.png) 
 ![alt text](./prev2.png) 
+![alt text](./prev3.png) 
+![alt text](./prev4.png) 
