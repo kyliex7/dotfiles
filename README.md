@@ -10,3 +10,9 @@
 ## neovim
 ![](./previews/prev4.png)
 ![](./previews/prev5.png)
+
+## tmux
+![](./previews/prev6.png)
+
+## fuzzel
+![](./previews/prev7.png)
