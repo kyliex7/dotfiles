@@ -1,11 +1,11 @@
 # minimal rice (onedark btw)
-![alt text](./prev1.png) 
+![](./prev1.png) 
 
 ## foot
-![alt text](./prev2.png) 
+![](./prev2.png) 
 
 ## waybar
-![alt text](./prev3.png) 
+![](./prev3.png) 
 
 ## neovim
-![alt text](./prev4.png) 
+![](./prev4.png)
