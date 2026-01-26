@@ -94,8 +94,6 @@ window#waybar > box {
 #workspaces button:hover {
     background: @highlight;
     color: @blue;
-    margin-top: 0px; 
-    margin-bottom: 2px;
 }
 
 #workspaces button.urgent {
