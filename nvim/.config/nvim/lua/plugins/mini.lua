@@ -4,6 +4,7 @@ return {
 	config = function()
 		require("mini.ai").setup()
 		require("mini.surround").setup()
+		require("mini.tabline").setup()
 		require("mini.indentscope").setup({
 			draw = {
 				delay = 100,

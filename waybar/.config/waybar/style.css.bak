@@ -1,0 +1,117 @@
+/* Rose Pine - Structured Material Edition */
+@define-color base #191724;
+@define-color surface #1f1d2e;
+@define-color overlay #26233a;
+
+@define-color muted #6e6a86;
+@define-color subtle #908caa;
+@define-color text #e0def4;
+
+@define-color love #eb6f92;
+@define-color gold #f6c177;
+@define-color rose #ebbcba;
+@define-color pine #31748f;
+@define-color foam #9ccfd8;
+@define-color iris #c4a7e7;
+
+@define-color highlightLow #21202e;
+@define-color highlightMed #403d52;
+@define-color highlightHigh #524f67;
+
+* {
+    padding: 0px;
+    margin: 0px;
+    border: 0;
+    border-radius: 0;
+		font-family: "MartianMono Nerd Font Propo";
+    font-size: 11px;
+    font-weight: bold;
+    color: @text;
+    min-height: 0;
+}
+
+window#waybar {
+	background-color: transparent;
+	border-radius: 8px;
+	border: 1px solid @highlightMed;
+}
+
+window#waybar > box {
+	padding-left: 30px;
+	padding-right: 30px;
+	background-color: transparent;
+	border-radius: 8px;
+}
+
+#workspaces,
+#custom-clock,
+#custom-date,
+#custom-fuzzel,
+#custom-power,
+#battery,
+#cpu,
+#memory,
+#tray,
+#pulseaudio,
+#custom-nightmode,
+#mpris {
+    background-color: @overlay;
+    color: @text;
+    border-radius: 20px;
+    padding: 2px 12px;
+    margin: 4px 3px; border: 1px solid @highlightMed;
+}
+
+#workspaces {
+    background-color: @overlay;
+    padding: 0px 2px;
+}
+
+#workspaces button {
+    padding: 0px 8px;
+    color: @subtle;
+}
+
+#workspaces button.active {
+    color: @text;
+    background-color: @highlightHigh;
+    border-radius: 20px;
+}
+
+
+#custom-fuzzel {
+	margin-left: 8px;
+}
+
+#custom-power {
+	padding-right: 3px;
+	margin-left: 2px;
+}
+
+#cpu, #memory, #pulseaudio, #battery {
+    color: @text; 
+}
+
+#battery.warning {
+    background-color: @gold;
+    color: @base;
+}
+
+#battery.critical {
+    background-color: @love;
+    color: @base;
+}
+
+#window {
+	padding-left: 15px;
+	padding-right: 15px;
+	color: @subtle;
+	margin-left: 4px;
+}
+
+@keyframes blink {
+    to {
+        background-color: @overlay;
+        color: @love;
+    }
+}

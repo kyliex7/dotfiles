@@ -1,117 +1,181 @@
-/* Rose Pine - Structured Material Edition */
-@define-color base #191724;
-@define-color surface #1f1d2e;
-@define-color overlay #26233a;
+/* One Dark - Pro Palette */
+@define-color bg             #282c34;
+@define-color bg-alt         #21252b;
+@define-color gray           #5c6370;
+@define-color fg             #abb2bf;
 
-@define-color muted #6e6a86;
-@define-color subtle #908caa;
-@define-color text #e0def4;
+@define-color red            #e06c75;
+@define-color orange         #d19a66;
+@define-color yellow         #e5c07b;
+@define-color green          #98c379;
+@define-color cyan           #56b6c2;
+@define-color blue           #61afef;
+@define-color purple         #c678dd;
 
-@define-color love #eb6f92;
-@define-color gold #f6c177;
-@define-color rose #ebbcba;
-@define-color pine #31748f;
-@define-color foam #9ccfd8;
-@define-color iris #c4a7e7;
-
-@define-color highlightLow #21202e;
-@define-color highlightMed #403d52;
-@define-color highlightHigh #524f67;
+/* Special Accents */
+@define-color arch-blue      #1793d1; /* The official Arch Linux Blue */
+@define-color selection      #3e4452;
+@define-color highlight      #4b5263;
 
 * {
-    padding: 0px;
-    margin: 0px;
-    border: 0;
-    border-radius: 0;
-		font-family: "MartianMono Nerd Font Propo";
-    font-size: 11px;
+    font-family: "Rubik", "MartianMono Nerd Font Propo";
+    font-size: 13px;
     font-weight: bold;
-    color: @text;
     min-height: 0;
+    padding: 0;
+    margin: 0;
 }
 
 window#waybar {
-	background-color: transparent;
-	border-radius: 8px;
-	border: 1px solid @highlightMed;
+    background-color: transparent;
 }
 
 window#waybar > box {
-	padding-left: 30px;
-	padding-right: 30px;
-	background-color: transparent;
-	border-radius: 8px;
+    padding-top: 3px;
 }
 
-#workspaces,
-#custom-clock,
+/* Container for the pill effect */
+.modules-left, .modules-center, .modules-right {
+    background: @bg;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-bottom: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid @highlight;
+}
+
+#custom-fuzzel {
+    font-size: 14px;
+    color: @arch-blue;
+    padding: 0 10px 0 5px;
+    text-shadow: 0 0 8px rgba(23, 147, 209, 0.5);
+}
+
 #custom-date,
-#custom-fuzzel,
-#custom-power,
+#network,
 #battery,
 #cpu,
 #memory,
 #tray,
 #pulseaudio,
 #custom-nightmode,
-#mpris {
-    background-color: @overlay;
-    color: @text;
-    border-radius: 20px;
-    padding: 2px 12px;
-    margin: 4px 3px; border: 1px solid @highlightMed;
+#mpris,
+#clock {
+    color: @fg;
+    padding: 0 8px;
+    margin: 0 2px;
 }
 
 #workspaces {
-    background-color: @overlay;
-    padding: 0px 2px;
+    background: transparent;
+    border: none;
+    margin: 0 5px;
+    padding: 0;
 }
 
 #workspaces button {
-    padding: 0px 8px;
-    color: @subtle;
+    background: @bg;
+    color: @gray;
+    margin: 3px 3px;
+    padding: 0 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+	transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1); /* Faster start, smoother finish */
 }
 
 #workspaces button.active {
-    color: @text;
-    background-color: @highlightHigh;
-    border-radius: 20px;
+    background: linear-gradient(45deg, @blue, @purple);
+    color: @bg-alt;
+    padding: 0 15px;     
+    min-width: 30px;     
+    border-radius: 999px;
+    border: none;
+    box-shadow: 0 0 12px rgba(97, 175, 239, 0.4);
 }
 
+#workspaces button:hover {
+    background: @highlight;
+    color: @blue;
+    margin-top: 0px; 
+    margin-bottom: 2px;
+}
 
-#custom-fuzzel {
-	margin-left: 8px;
+#workspaces button.urgent {
+    background-color: @red;
+    color: @bg;
+}
+
+#mpris {
+    color: @cyan;
+		font-family: "Rubik Medium";
+    font-weight: normal;
+		font-size: 14px;
+    padding-left: 10px;   /* Shifts the whole module content right */
+    margin-right: 0px;
+}
+
+#mpris label {
+    margin-left: 4px;    /* Specific gap between the icon and text */
+}
+
+#clock {
+	font-size: 13px;
+	margin-right: 0;
+	padding-right: 0;
 }
 
 #custom-power {
-	padding-right: 3px;
-	margin-left: 2px;
+	font-size: 14px;
+	color: @red;
+	margin-left: 7px;
 }
 
-#cpu, #memory, #pulseaudio, #battery {
-    color: @text; 
+/* Status Specific Colors */
+#battery    { color: @green; }
+#battery.warning { color: @orange; background: transparent; }
+#battery.critical { color: @red; background: transparent; }
+
+#custom-nightmode {
+	font-size: 15px;
+    color: @yellow; /* One Dark Yellow/Orange */
+    text-shadow: 0 0 8px rgba(229, 192, 123, 0.4); /* Subtle yellow glow */
+    padding: 0 10px;
 }
 
-#battery.warning {
-    background-color: @gold;
-    color: @base;
+#pulseaudio { 
+	font-size: 15px;
+	color: @purple; 
 }
 
-#battery.critical {
-    background-color: @love;
-    color: @base;
+#network    {
+	font-size: 16px;
+	color: @blue; 
 }
 
-#window {
-	padding-left: 15px;
-	padding-right: 15px;
-	color: @subtle;
-	margin-left: 4px;
+/* Tooltip Styling */
+tooltip {
+    background-color: @bg-alt;
+    border: 1px solid @blue;
+    border-radius: 8px;
 }
 
+tooltip label {
+    color: @fg;
+    padding: 8px;
+}
+
+/* Subtle Blink for Critical Battery */
 @keyframes blink {
     to {
-        background-color: @overlay;
-        color: @love;
+        color: @bg;
+        background-color: @red;
     }
+}
+
+#battery.critical:not(.charging) {
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
