@@ -1,4 +1,4 @@
-# minimal rice (onedark btw)
+# minimal rice with onedark by a noob.
 ![](./previews/prev1.png) 
 
 ## foot
