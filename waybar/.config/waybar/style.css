@@ -1,4 +1,4 @@
-/* One Dark - Pro Palette */
+/* odpro */
 @define-color bg             #282c34;
 @define-color bg-alt         #21252b;
 @define-color gray           #5c6370;
@@ -12,8 +12,7 @@
 @define-color blue           #61afef;
 @define-color purple         #c678dd;
 
-/* Special Accents */
-@define-color arch-blue      #1793d1; /* The official Arch Linux Blue */
+@define-color arch-blue      #1793d1;
 @define-color selection      #3e4452;
 @define-color highlight      #4b5263;
 
@@ -34,7 +33,6 @@ window#waybar > box {
     padding-top: 3px;
 }
 
-/* Container for the pill effect */
 .modules-left, .modules-center, .modules-right {
     background: @bg;
     padding: 2px 8px;
@@ -80,7 +78,7 @@ window#waybar > box {
     padding: 0 8px;
     border-radius: 999px;
     border: 1px solid rgba(255, 255, 255, 0.05);
-	transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1); /* Faster start, smoother finish */
+	transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 #workspaces button.active {
@@ -110,12 +108,12 @@ window#waybar > box {
 		font-family: "Rubik Medium";
     font-weight: normal;
 		font-size: 14px;
-    padding-left: 10px;   /* Shifts the whole module content right */
+    padding-left: 10px;
     margin-right: 0px;
 }
 
 #mpris label {
-    margin-left: 4px;    /* Specific gap between the icon and text */
+    margin-left: 4px;
 }
 
 #clock {
@@ -130,15 +128,14 @@ window#waybar > box {
 	margin-left: 7px;
 }
 
-/* Status Specific Colors */
 #battery    { color: @green; }
 #battery.warning { color: @orange; background: transparent; }
 #battery.critical { color: @red; background: transparent; }
 
 #custom-nightmode {
 	font-size: 15px;
-    color: @yellow; /* One Dark Yellow/Orange */
-    text-shadow: 0 0 8px rgba(229, 192, 123, 0.4); /* Subtle yellow glow */
+    color: @yellow;
+    text-shadow: 0 0 8px rgba(229, 192, 123, 0.4);
     padding: 0 10px;
 }
 
@@ -152,7 +149,6 @@ window#waybar > box {
 	color: @blue; 
 }
 
-/* Tooltip Styling */
 tooltip {
     background-color: @bg-alt;
     border: 1px solid @blue;
@@ -164,7 +160,6 @@ tooltip label {
     padding: 8px;
 }
 
-/* Subtle Blink for Critical Battery */
 @keyframes blink {
     to {
         color: @bg;
