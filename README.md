@@ -16,3 +16,6 @@
 
 ## fuzzel
 ![](./previews/prev7.png)
+
+## mako
+![](./previews/prev8.png)
