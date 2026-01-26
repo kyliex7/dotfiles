@@ -127,7 +127,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
-    Mod+p hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun"; }
+    Mod+p hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+b hotkey-overlay-title="Run an application: waterfox" { spawn "waterfox"; }
 		Mod+e hotkey-overlay-title="Open file manager: thunar" { spawn "thunar"; }
