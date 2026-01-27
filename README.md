@@ -20,5 +20,5 @@
 ## mako
 ![](./previews/prev8.png)
 
-## minimal system usage
+## average system usage
 ![](./previews/prev9.png)

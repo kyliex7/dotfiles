@@ -22,7 +22,7 @@ environment {
 
 cursor {
 		xcursor-theme "catppuccin-mocha-dark-cursors"
-		xcursor-size 20
+		xcursor-size 25
 		hide-when-typing
 		// hide-after-inactive-ms 1500
 }
@@ -78,7 +78,7 @@ focus-ring {
         left 30
         right 24
         top -6
-        bottom 8
+        bottom 3
 	} 
 }
 
