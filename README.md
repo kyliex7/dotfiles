@@ -20,5 +20,4 @@
 ## mako
 ![](./previews/prev8.png)
 
-## average system usage without apps are under ~800mb
 ![](./previews/prev9.png)
