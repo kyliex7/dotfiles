@@ -103,18 +103,15 @@ animations {
 
 window-rule {
     match app-id=r#"waterfox$"# title="^Picture-in-Picture$"
+    match app-id=r#"librewolf$"# title="^Picture-in-Picture$"
     open-floating true
 }
 window-rule {
     match app-id=r#"waterfox$"#
+    match app-id=r#"librewolf$"#
     match app-id=r#"foot"#
-    match app-id=r#"Telegram$"#
+    match app-id=r#"org.telegram.desktop$"#
     open-maximized true
-}
-
-window-rule {
-    match app-id=r#"waterfox$"# title="^Picture-in-Picture$"
-    open-floating true
 }
 
 window-rule {
@@ -129,7 +126,7 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
     Mod+p hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
-    Mod+b hotkey-overlay-title="Run an application: waterfox" { spawn "waterfox"; }
+    Mod+b hotkey-overlay-title="Run an application: librewolf" { spawn "librewolf"; }
 		Mod+e hotkey-overlay-title="Open file manager: thunar" { spawn "thunar"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.

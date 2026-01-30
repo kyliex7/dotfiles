@@ -52,6 +52,7 @@ alias -s jpg="qiv"
 alias -g NE="2>/dev/null"
 alias -g C="| wl-copy"
 # normal mfs
+alias obsidian="obsidian --disable-gpu --proxy-server=socks5://192.168.42.129:9050"
 alias pvi="proxychains -q nvim"
 alias please="sudo"
 alias uns="unset http_proxy https_proxy"
@@ -260,6 +261,7 @@ fi
 eval "$(zoxide init --cmd cd zsh)"
 source $ZSH_PLUGIN_DIR/powerlevel10k/powerlevel10k.zsh-theme
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # if [ -z "$NIRI_SOCKET" ] || [ ! -S "$NIRI_SOCKET" ]; then
 #     ACTIVE_NIRI_SOCKET=$(ls -t /run/user/$(id -u)/niri.wayland-*.sock 2>/dev/null | head -n 1)
