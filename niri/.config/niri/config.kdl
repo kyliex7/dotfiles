@@ -42,9 +42,8 @@ layer-rule {
 }
 
 overview {
-    workspace-shadow {
-        off
-    }
+    backdrop-color "#000"
+    zoom 0.5
 }
 
 layout {
@@ -57,14 +56,31 @@ layout {
         proportion 0.5
         proportion 0.66667
     }
+	    shadow {
+        on
+        softness 20
+        spread 5
+        offset x=0 y=5
+    }
+
+	    tab-indicator {
+        width 2
+        gap -5
+        gaps-between-tabs 5
+        corner-radius 10
+        active-color "#fff"
+        inactive-color "#ffffff55"
+    }
 
     default-column-width { proportion 0.5; }
 
 focus-ring {
         on
-        width 2
-        active-gradient from="#61afef" to="#c678dd" angle=45
-        inactive-color "#3e4452"
+        // active-gradient from="#61afef" to="#c678dd" angle=45
+        // inactive-color "#3e4452"
+        width 1
+        active-color "#555"
+        inactive-color "#222"
     }
 
     border {
@@ -83,9 +99,9 @@ focus-ring {
 }
 
 
-spawn-at-startup "systemctl" "--user" "import-environment" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
-spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri"
-spawn-at-startup "/usr/sbin/xwayland-satellite"
+// spawn-at-startup "systemctl" "--user" "import-environment" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
+// spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri"
+// spawn-at-startup "/usr/sbin/xwayland-satellite"
 
 spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/onedark/28.png"
 spawn-at-startup "waybar"
@@ -93,12 +109,33 @@ spawn-at-startup "mako"
 
 hotkey-overlay {
     skip-at-startup
+
 }
 
 screenshot-path "~/Pictures/screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
-    slowdown 1
+    window-open {
+        spring damping-ratio=1.0 stiffness=700 epsilon=0.0001
+    }
+    window-close {
+        spring damping-ratio=1.0 stiffness=700 epsilon=0.1
+    }
+    window-resize {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.001
+    }
+    window-movement {
+        spring damping-ratio=1.0 stiffness=600 epsilon=0.0001
+    }
+    overview-open-close {
+        spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
+    }
+    workspace-switch {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.00001
+    }
+    horizontal-view-movement {
+        spring damping-ratio=1.0 stiffness=700 epsilon=0.0001
+    }
 }
 
 window-rule {
@@ -111,11 +148,12 @@ window-rule {
     match app-id=r#"librewolf$"#
     match app-id=r#"foot"#
     match app-id=r#"org.telegram.desktop$"#
+    match app-id=r#"chromium$"#
     open-maximized true
 }
 
 window-rule {
-    geometry-corner-radius 6
+    geometry-corner-radius 8
     clip-to-geometry true
 }
 binds {
@@ -201,8 +239,8 @@ binds {
 
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
-    Mod+U              { focus-workspace-down; }
-    Mod+I              { focus-workspace-up; }
+    // Mod+U              { focus-workspace-down; }
+    // Mod+I              { focus-workspace-up; }
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
     Mod+Ctrl+U         { move-column-to-workspace-down; }
@@ -283,7 +321,7 @@ binds {
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
-    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    // Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
