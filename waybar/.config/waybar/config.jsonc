@@ -77,7 +77,7 @@
 
   "custom/fuzzel": {
     "format": "",
-    "on-click": "fuzzel",
+    "on-click": "rofi -show drun -theme ~/.config/rofi/theme.rasi",
     "tooltip": false
   },
 
