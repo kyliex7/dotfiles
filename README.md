@@ -1,24 +1,24 @@
 # minimal rice
 ![](./previews/prev1.png) 
 
-## foot
+### foot
 ![](./previews/prev2.png) 
 
-## waybar
+### waybar
 ![](./previews/prev3.png) 
 
-## neovim
+### neovim
 ![](./previews/prev4.png)
 ![](./previews/prev5.png)
 
-## tmux
+### tmux
 ![](./previews/prev6.png)
 
-## fuzzel
+### [rofi](https://github.com/Murzchnvok/rofi-collection)
 ![](./previews/prev7.png)
 
-## mako
+### mako
 ![](./previews/prev8.png)
 
-## average system usage
+### average system usage
 ![](./previews/prev9.png)
