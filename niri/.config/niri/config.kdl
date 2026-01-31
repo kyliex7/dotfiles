@@ -103,9 +103,10 @@ focus-ring {
 // spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri"
 // spawn-at-startup "/usr/sbin/xwayland-satellite"
 
-spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/onedark/28.png"
-spawn-at-startup "waybar"
-spawn-at-startup "mako"
+// spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/onedark/28.png"
+// spawn-at-startup "waybar"
+// spawn-at-startup "mako"
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
 
 hotkey-overlay {
     skip-at-startup
