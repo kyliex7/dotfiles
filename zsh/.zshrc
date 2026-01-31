@@ -86,7 +86,6 @@ alias p="proxychains -q"
 alias vizsh="vi ~/.zshrc" 
 alias so="source ~/.zshrc" 
 alias cleanup="sudo pacman -Rns \$(pacman -Qdtq)"
-alias tns="tmux new -s 'main'"
 alias tks="tmux kill-server"
 alias ta="tmux attach"
 alias t="tmux"
@@ -107,6 +106,13 @@ i(){ yay -S --needed "${@}"; }
 s(){ yay -Ss "${@}"; }
 u(){ yay -R "${@}"; }
 
+tns() {
+	if [[ $# -eq 0 ]]; then
+		tmux new -s 'main'
+	else
+		tmux new -s "$1"
+	fi
+}
 tat() {
 	local session=$(tmux ls | fzf)
 	[[ $session ]] && tmux a -t "${session%%:*}"
