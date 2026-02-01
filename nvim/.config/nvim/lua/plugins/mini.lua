@@ -12,14 +12,10 @@ return {
 		})
 
 		require("mini.indentscope").setup({
-			draw = {
-				delay = 100,
-				priority = 2,
-			},
 			options = {
 				border = "top",
 			},
-			symbol = "▎",
+			symbol = "│",
 		})
 
 		vim.api.nvim_create_autocmd("FileType", {

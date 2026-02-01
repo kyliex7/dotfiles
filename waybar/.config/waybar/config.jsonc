@@ -63,8 +63,8 @@
   },
 
 "mpris": {
-    "format": "<span size='17000' rise='-3500'>{player_icon}</span><span>  </span><span rise='-2500'>{title}</span>",
-    "format-paused": "<span size='17000' rise='-3500'>{status_icon}</span><span>  </span><span rise='-2500'>{title}</span>",
+    "format": "<span size='12000' rise='-3500'>{player_icon}</span><span>  </span><span rise='-2500'>{title}</span>",
+    "format-paused": "<span size='12000' rise='-3500'>{status_icon}</span><span>  </span><span rise='-2500'>{title}</span>",
     "player-icons": {
         "cmus": "󰐊"
     },

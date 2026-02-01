@@ -1,5 +1,4 @@
 /* vibe'd, not completely tho */
-/* odpro */
 @define-color bg             #282c34;
 @define-color bg-alt         #21252b;
 @define-color gray           #5c6370;
@@ -18,7 +17,7 @@
 @define-color highlight      #4b5263;
 
 * {
-    font-family: "Rubik", "ComicShannsMono Nerd Font Propo";
+    font-family: "Rubik", "JetBrainsMono Nerd Font Propo";
     font-size: 13px;
     font-weight: bold;
     min-height: 0;
@@ -83,7 +82,7 @@ window#waybar > box {
 }
 
 #workspaces button.active {
-    background: linear-gradient(45deg, @blue, @purple);
+    background: linear-gradient(30deg, @blue, @purple);
     color: @bg-alt;
     padding: 0 15px;     
     min-width: 30px;     
