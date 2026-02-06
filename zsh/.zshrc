@@ -334,12 +334,6 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 #         ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
 # 	fi
 
-if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-    . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
-fi
-
-
 # if [ -z "$NIRI_SOCKET" ] || [ ! -S "$NIRI_SOCKET" ]; then
 #     ACTIVE_NIRI_SOCKET=$(ls -t /run/user/$(id -u)/niri.wayland-*.sock 2>/dev/null | head -n 1)
 #     if [ -n "$ACTIVE_NIRI_SOCKET" ]; then

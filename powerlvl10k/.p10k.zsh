@@ -37,15 +37,6 @@
   # Zsh >= 5.1 is required.
   [[ $ZSH_VERSION == (5.<1->*|<6->.*) ]] || return
 
-  # Prompt colors.
-  local grey='242'
-  local red='1'
-  local yellow='3'
-  local blue='4'
-  local magenta='5'
-  local cyan='6'
-  local white='7'
-
   # Left prompt segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     context                   # user@host
@@ -59,7 +50,7 @@
   # Right prompt segments.
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
     # command_execution_time  # previous command duration
-    # virtualenv              # python virtual environment
+    virtualenv              # python virtual environment
     # context                 # user@host
     # time                    # current time
   )
@@ -95,7 +86,7 @@
   typeset -g POWERLEVEL9K_VIRTUALENV_{LEFT,RIGHT}_DELIMITER=
 
   # Blue current directory. edit: white
-  typeset -g POWERLEVEL9K_DIR_FOREGROUND=$blue
+  typeset -g POWERLEVEL9K_DIR_FOREGROUND=blue
 
   # Context format when root: user@host. The first part white, the rest grey.
   typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE="%F{$white}%n%f%F{$grey}@%m%f"
