@@ -17,7 +17,7 @@
 @define-color highlight      #4b5263;
 
 * {
-    font-family: "Rubik", "Google Sans NFP";
+    font-family: "Rubik", "Google Sans Code NF";
     font-size: 13px;
     font-weight: bold;
     min-height: 0;
@@ -78,22 +78,23 @@ window#waybar > box {
     padding: 0 8px;
     border-radius: 999px;
     border: 1px solid rgba(255, 255, 255, 0.05);
-	transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+		min-width: 10px;
+		transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 #workspaces button.active {
-    background: linear-gradient(30deg, @blue, @purple);
+    background: linear-gradient(15deg, @blue, @purple);
     color: @bg-alt;
     padding: 0 15px;     
-    min-width: 30px;     
+    min-width: 45px;     
     border-radius: 999px;
     border: none;
-    box-shadow: 0 0 12px rgba(97, 175, 239, 0.4);
+		transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    /* box-shadow: 0 0 12px rgba(97, 175, 239, 0.4); */
 }
 
 #workspaces button:hover {
-    background: @highlight;
-    color: @blue;
+    border-color: @highlight;
 }
 
 #workspaces button.urgent {
