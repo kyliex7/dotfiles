@@ -42,7 +42,9 @@ declare -x https_proxy=socks5h://192.168.42.129:9050
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/n00b/scripts:/home/n00b/.local/bin:/home/n00b/.npm-global/bin:
 export EDITOR=nvim
 export NVIM_APPNAME=nvim
+
 setopt correct
+setopt autocd
 
 ############################## ALIASES ###################################
 # suffix aliases
@@ -53,6 +55,7 @@ alias -s jpg="qiv"
 alias -g NE="2>/dev/null"
 alias -g C="| wl-copy"
 # normal mfs
+alias sc="sudo systemctl"
 alias obsidian="obsidian --disable-gpu --proxy-server=socks5://192.168.42.129:9050"
 alias pvi="proxychains -q nvim"
 alias please="sudo"
@@ -189,12 +192,13 @@ zle -N copy-cmd
 bindkey '^Y' copy-cmd
 
 ############################## HISTORY ###################################
-HISTSIZE=10000
+HISTSIZE=2000
 HISTFILE=$HOME/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
 setopt appendhistory sharehistory hist_ignore_space hist_ignore_all_dups \
-       hist_save_no_dups hist_ignore_dups hist_find_no_dups
+       hist_save_no_dups hist_ignore_dups hist_find_no_dups \
+			 hist_verify
 
 ############################## FZF-TAB SETTINGS ##########################
 zstyle ':fzf-tab:*' fzf-flags --height=40% --border --layout=reverse
@@ -226,6 +230,21 @@ zstyle ':fzf-tab:complete:*:*' fzf-preview '
 	else
 		echo "File not found"
 	fi'
+
+#from kali
+# zstyle ':completion:*:*:*:*:*' menu select
+# zstyle ':completion:*' auto-description 'specify: %d'
+# zstyle ':completion:*' completer _expand _complete
+# zstyle ':completion:*' format 'Completing %d'
+# zstyle ':completion:*' group-name ''
+# zstyle ':completion:*' list-colors ''
+# zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+# zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+# zstyle ':completion:*' rehash true
+# zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+# zstyle ':completion:*' use-compctl false
+# zstyle ':completion:*' verbose true
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 ############################## FZF INTEGRATION ###########################
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
@@ -267,7 +286,59 @@ fi
 eval "$(zoxide init --cmd cd zsh)"
 source $ZSH_PLUGIN_DIR/powerlevel10k/powerlevel10k.zsh-theme
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+#         . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#         ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+#         ZSH_HIGHLIGHT_STYLES[default]=none
+#         ZSH_HIGHLIGHT_STYLES[unknown-token]=underline
+#         ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=cyan,bold
+#         ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=green,underline
+#         ZSH_HIGHLIGHT_STYLES[global-alias]=fg=green,bold
+#         ZSH_HIGHLIGHT_STYLES[precommand]=fg=green,underline
+#         ZSH_HIGHLIGHT_STYLES[commandseparator]=fg=blue,bold
+#         ZSH_HIGHLIGHT_STYLES[autodirectory]=fg=green,underline
+#         ZSH_HIGHLIGHT_STYLES[path]=bold
+#         ZSH_HIGHLIGHT_STYLES[path_pathseparator]=
+#         ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=
+#         ZSH_HIGHLIGHT_STYLES[globbing]=fg=blue,bold
+#         ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=blue,bold
+#         ZSH_HIGHLIGHT_STYLES[command-substitution]=none
+#         ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter]=fg=magenta,bold
+#         ZSH_HIGHLIGHT_STYLES[process-substitution]=none
+#         ZSH_HIGHLIGHT_STYLES[process-substitution-delimiter]=fg=magenta,bold
+#         ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=green
+#         ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=green
+#         ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
+#         ZSH_HIGHLIGHT_STYLES[back-quoted-argument-delimiter]=fg=blue,bold
+#         ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=yellow
+#         ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=yellow
+#         ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=yellow
+#         ZSH_HIGHLIGHT_STYLES[rc-quote]=fg=magenta
+#         ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=magenta,bold
+#         ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=magenta,bold
+#         ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=magenta,bold
+#         ZSH_HIGHLIGHT_STYLES[assign]=none
+#         ZSH_HIGHLIGHT_STYLES[redirection]=fg=blue,bold
+#         ZSH_HIGHLIGHT_STYLES[comment]=fg=black,bold
+#         ZSH_HIGHLIGHT_STYLES[named-fd]=none
+#         ZSH_HIGHLIGHT_STYLES[numeric-fd]=none
+#         ZSH_HIGHLIGHT_STYLES[arg0]=fg=cyan
+#         ZSH_HIGHLIGHT_STYLES[bracket-error]=fg=red,bold
+#         ZSH_HIGHLIGHT_STYLES[bracket-level-1]=fg=blue,bold
+#         ZSH_HIGHLIGHT_STYLES[bracket-level-2]=fg=green,bold
+#         ZSH_HIGHLIGHT_STYLES[bracket-level-3]=fg=magenta,bold
+#         ZSH_HIGHLIGHT_STYLES[bracket-level-4]=fg=yellow,bold
+#         ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
+#         ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
+# 	fi
+
+if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
+fi
+
 
 # if [ -z "$NIRI_SOCKET" ] || [ ! -S "$NIRI_SOCKET" ]; then
 #     ACTIVE_NIRI_SOCKET=$(ls -t /run/user/$(id -u)/niri.wayland-*.sock 2>/dev/null | head -n 1)

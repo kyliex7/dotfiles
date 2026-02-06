@@ -173,7 +173,7 @@ return {
 					virtual_text = "NONE", -- Style that is applied to virtual text
 				},
 				options = {
-					cursorline = false, -- Use cursorline highlighting?
+					cursorline = true, -- Use cursorline highlighting?
 					transparency = true, -- Use a transparent background?
 					highlight_inactive_windows = true, -- When the window is out of focus, change the normal background?
 				},

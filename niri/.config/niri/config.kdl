@@ -103,7 +103,7 @@ focus-ring {
 // spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri"
 // spawn-at-startup "/usr/sbin/xwayland-satellite"
 
-// spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/onedark/28.png"
+spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/onedark/fog.jpg"
 // spawn-at-startup "waybar"
 // spawn-at-startup "mako"
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
@@ -150,6 +150,7 @@ window-rule {
     match app-id=r#"foot"#
     match app-id=r#"org.telegram.desktop$"#
     match app-id=r#"chromium$"#
+		match app-id=r#"org.gnome.Evince$"#
     open-maximized true
 }
 
