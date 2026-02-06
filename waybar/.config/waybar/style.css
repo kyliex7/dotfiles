@@ -33,7 +33,7 @@ window#waybar > box {
     padding-top: 3px;
 }
 
-.modules-left, .modules-center, .modules-right {
+.modules-center {
     background: @bg;
     padding: 2px 8px;
     border-radius: 20px;

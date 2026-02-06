@@ -2,11 +2,12 @@
   "layer": "top",
   "position": "top",
   "margin-top": 0,
-
 	"modules-left": [
+		"",
 	],
 
 	"modules-right": [
+		"",
 	],
   "modules-center": [
     "tray",
