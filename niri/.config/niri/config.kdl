@@ -163,7 +163,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
-    Mod+p hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun -theme ~/.config/rofi/theme.rasi"; }
+    Mod+p hotkey-overlay-title="Run an Application: rofi" { spawn-sh "~/dotfiles/scripts/menu.sh"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+b hotkey-overlay-title="Run an application: librewolf" { spawn "librewolf"; }
 		Mod+e hotkey-overlay-title="Open file manager: nautilus" { spawn "nautilus"; }
