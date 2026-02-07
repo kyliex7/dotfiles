@@ -93,7 +93,7 @@ focus-ring {
    struts {
         left 30
         right 24
-        top -6
+        top -4
         bottom 3
 	} 
 }

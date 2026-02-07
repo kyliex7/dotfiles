@@ -7,18 +7,8 @@
 ### waybar
 ![](./previews/prev3.png) 
 
-### neovim
-![](./previews/prev4.png)
-![](./previews/prev5.png)
-
-### tmux
-![](./previews/prev6.png)
-
 ### [rofi](https://github.com/Murzchnvok/rofi-collection)
-![](./previews/prev7.png)
+![](./previews/prev4.png)
 
-### mako
-![](./previews/prev8.png)
-
-### average system usage
-![](./previews/prev9.png)
+### average system usage with this setup
+![](./previews/prev5.png)

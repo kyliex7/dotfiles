@@ -118,13 +118,13 @@ return {
 	{
 		"navarasu/onedark.nvim",
 		enabled = true,
-		priority = 1000, -- make sure to load this before all the other start plugins
+		priority = 1000,
 		config = function()
 			require("onedark").setup({
-				style = "darker", -- 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-				transparent = true, -- Show/hide background
-				term_colors = true, -- Change terminal color as per the selected theme style
-				cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+				style = "darker",
+				transparent = false,
+				term_colors = true,
+				cmp_itemkind_reverse = false,
 
 				code_style = {
 					comments = "none",
@@ -134,15 +134,15 @@ return {
 					variables = "none",
 				},
 
-				-- Custom Highlights --
-				colors = {}, -- Override default colors
-				highlights = {}, -- Override highlight groups
+				colors = {
+					bg0 = "#131318",
+				},
+				highlights = {},
 
-				-- Plugins Config --
 				diagnostics = {
-					darker = true, -- darker colors for diagnostic
-					undercurl = true, -- use undercurl instead of underline for diagnostics
-					background = true, -- use background color for virtual text
+					darker = true,
+					undercurl = true,
+					background = true,
 				},
 			})
 			require("onedark").load()
