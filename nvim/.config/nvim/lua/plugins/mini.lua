@@ -5,12 +5,12 @@ return {
 		require("mini.ai").setup()
 		require("mini.surround").setup()
 		require("mini.tabline").setup({
-			show_icons = false,
+			show_icons = true,
 			format = function(buf_id, label)
-				return "  " .. label .. " " .. "│"
+				local suffix = vim.bo[buf_id].modified and " ●" or ""
+				return MiniTabline.default_format(buf_id, label) .. suffix
 			end,
 		})
-
 		require("mini.indentscope").setup({
 			options = {
 				border = "top",
@@ -24,14 +24,16 @@ return {
 				vim.b.miniindentscope_disable = true
 			end,
 		})
-		local od_white = "#abb2bf"
-		local od_grey = "#5c6370"
-		local od_dark = "NONE"
 
-		vim.api.nvim_set_hl(0, "MiniTablineCurrent", { fg = od_white, bg = od_dark, bold = true })
-		vim.api.nvim_set_hl(0, "MiniTablineHidden", { fg = od_grey, bg = od_dark })
-		vim.api.nvim_set_hl(0, "MiniTablineVisible", { fg = od_grey, bg = od_dark })
-		vim.api.nvim_set_hl(0, "MiniTablineFill", { bg = od_dark })
+local dark_bg  = "#131318"
+local black    = "#181a1f"
+local green    = "#98c379"
+local grey     = "#5c6370"
+
+vim.api.nvim_set_hl(0, 'MiniTablineCurrent', { fg = green, bg = dark_bg, italic = true })
+vim.api.nvim_set_hl(0, 'MiniTablineHidden', { fg = grey, bg = black })
+vim.api.nvim_set_hl(0, 'MiniTablineVisible', { fg = grey, bg = black })
+vim.api.nvim_set_hl(0, 'MiniTablineFill', { bg = black })
 
 		-- require("mini.pairs").setup()
 		-- require('mini.animte').setup()
