@@ -103,7 +103,6 @@ focus-ring {
 // spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri"
 // spawn-at-startup "/usr/sbin/xwayland-satellite"
 
-spawn-sh-at-startup "swaybg -m fill -i ~/Pictures/wallpapers/onedark/fog.jpg"
 // spawn-at-startup "waybar"
 // spawn-at-startup "mako"
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
@@ -167,7 +166,7 @@ binds {
     Mod+p hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun -theme ~/.config/rofi/theme.rasi"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+b hotkey-overlay-title="Run an application: librewolf" { spawn "librewolf"; }
-		Mod+e hotkey-overlay-title="Open file manager: thunar" { spawn "thunar"; }
+		Mod+e hotkey-overlay-title="Open file manager: nautilus" { spawn "nautilus"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.

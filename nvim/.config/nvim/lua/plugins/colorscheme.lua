@@ -122,9 +122,8 @@ return {
 		config = function()
 			require("onedark").setup({
 				style = "darker", -- 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-				transparent = false, -- Show/hide background
+				transparent = true, -- Show/hide background
 				term_colors = true, -- Change terminal color as per the selected theme style
-				ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
 				cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
 
 				code_style = {
