@@ -10,4 +10,3 @@
 ![](./previews/prev3.png) 
 
 ### [rofi](https://github.com/Murzchnvok/rofi-collection)
-![](./previews/prev4.png)
