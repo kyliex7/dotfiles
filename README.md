@@ -13,4 +13,4 @@
 
 ### average system usage with this setup
 ![](./previews/prev5.png)
-<details>
+</details>
