@@ -11,7 +11,3 @@
 
 ### [rofi](https://github.com/Murzchnvok/rofi-collection)
 ![](./previews/prev4.png)
-
-### average system usage with this setup
-![](./previews/prev5.png)
-</details>
