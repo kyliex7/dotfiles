@@ -163,7 +163,8 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
-    Mod+p hotkey-overlay-title="Run an Application: rofi" { spawn-sh "~/dotfiles/scripts/menu.sh"; }
+    Mod+p hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun -theme ~/.config/rofi/theme.rasi"; }
+		Mod+Shift+P { spawn-sh "~/dotfiles/scripts/powermenu.sh"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+b hotkey-overlay-title="Run an application: librewolf" { spawn "librewolf"; }
 		Mod+e hotkey-overlay-title="Open file manager: nautilus" { spawn "nautilus"; }
@@ -327,5 +328,5 @@ binds {
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
 
-    Mod+Shift+P { power-off-monitors; }
+    // Mod+Shift+P { power-off-monitors; }
 }
