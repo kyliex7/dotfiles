@@ -1,5 +1,6 @@
 <details>
     <summary>Gallery</summary>
+
 ![](./previews/prev1.png) 
 
 ### foot
