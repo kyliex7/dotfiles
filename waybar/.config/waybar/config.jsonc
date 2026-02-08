@@ -10,28 +10,17 @@
 		"",
 	],
   "modules-center": [
-    "tray",
 		"custom/launcher",
     "clock",
 		"mpris",
     "niri/workspaces",
-		"pulseaudio",
-		"network",
     "custom/nightmode",
-		"custom/power",
+    "tray",
 	],
 
   "niri/workspaces": {
-    "format": "{icon}",
+    "format": "",
     "format-icons": {
-			"1": "1",
-			"2": "2",
-			"3": "3",
-			"4": "4",
-			"5": "5",
-      // "active": "",
-      // "default": "",
-			"urgent": "",
     },
 		"persistent-workspaces": {
 			"*": 3,
@@ -164,7 +153,7 @@
   },
 
     "clock": {
-        "format": "{:%H:%M} ",
+				"format": "{:%H:%M <span color='#565f89'>·</span> %d %b}",
         "format-alt": "{:%A, %B %d, %Y (%R)}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
