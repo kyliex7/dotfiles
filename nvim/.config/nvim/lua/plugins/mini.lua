@@ -5,7 +5,7 @@ return {
 		require("mini.ai").setup()
 		require("mini.surround").setup()
 		require("mini.tabline").setup({
-			show_icons = true,
+			show_icons = false,
 			format = function(buf_id, label)
 				local suffix = vim.bo[buf_id].modified and " ●" or ""
 				return MiniTabline.default_format(buf_id, label) .. suffix
