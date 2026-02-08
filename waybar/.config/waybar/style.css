@@ -91,6 +91,7 @@ window#waybar > box {
 
 #custom-launcher {
     color: @arch-blue;
+		padding-left: 0px;
     font-size: 16px;
     text-shadow: 0 0 10px rgba(23, 147, 209, 0.6);
     margin-right: 10px;
@@ -114,8 +115,9 @@ window#waybar > box {
 #custom-power {
     font-size: 14px;
     color: @red;
+		padding-right: 0px;
     margin-left: 7px;
-    margin-right: 3px;
+		margin-right: 0px;
 }
 
 #battery         { color: @green; }
