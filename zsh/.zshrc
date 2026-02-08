@@ -105,7 +105,7 @@ alias viniri="$EDITOR ~/dotfiles/niri/.config/niri/config.kdl"
 alias vivi="cd ~/dotfiles/nvim/.config/nvim/; vi ."
 
 ############################## STUFF #################################
-i(){ yay -S --needed "${@}"; }
+i(){ yay -S --disable-download-timeout --needed "${@}"; }
 s(){ yay -Ss "${@}"; }
 u(){ yay -R "${@}"; }
 
@@ -248,21 +248,27 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 ############################## FZF INTEGRATION ###########################
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
-  --color=border:#5c6370 \
-  --color=fg:#abb2bf \
-  --color=fg+:#c678dd \
-  --color=gutter:#282c34 \
-  --color=header:#61afef \
-  --color=hl:#c678dd \
-  --color=hl+:#c678dd \
-  --color=info:#56b6c2 \
-  --color=marker:#c678dd \
-  --color=pointer:#c678dd \
-  --color=prompt:#c678dd \
-  --color=query:#abb2bf:regular \
-  --color=scrollbar:#5c6370 \
-  --color=separator:#5c6370 \
-  --color=spinner:#c678dd \
+  --highlight-line \
+  --info=inline-right \
+  --ansi \
+  --layout=reverse \
+  --border=none \
+  --color=bg+:#283457 \
+  --color=bg:#16161e \
+  --color=border:#27a1b9 \
+  --color=fg:#c0caf5 \
+  --color=gutter:#16161e \
+  --color=header:#ff9e64 \
+  --color=hl+:#2ac3de \
+  --color=hl:#2ac3de \
+  --color=info:#545c7e \
+  --color=marker:#ff007c \
+  --color=pointer:#ff007c \
+  --color=prompt:#2ac3de \
+  --color=query:#c0caf5:regular \
+  --color=scrollbar:#27a1b9 \
+  --color=separator:#ff9e64 \
+  --color=spinner:#ff007c \
 "
 
 export FZF_CTRL_T_OPTS="
@@ -285,7 +291,7 @@ fi
 
 eval "$(zoxide init --cmd cd zsh)"
 source $ZSH_PLUGIN_DIR/powerlevel10k/powerlevel10k.zsh-theme
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then

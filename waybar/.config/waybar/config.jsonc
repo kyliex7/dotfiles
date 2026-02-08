@@ -11,7 +11,7 @@
 	],
   "modules-center": [
     "tray",
-		"custom/fuzzel",
+		"custom/launcher",
     "clock",
 		"mpris",
     "niri/workspaces",
@@ -81,7 +81,7 @@
     "max-length": 18 
 },
 
-  "custom/fuzzel": {
+  "custom/launcher": {
     "format": "",
     "on-click": "rofi -show drun -theme ~/.config/rofi/theme.rasi",
     "tooltip": false
