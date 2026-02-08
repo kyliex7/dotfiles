@@ -5,7 +5,7 @@ return {
 		require("mini.ai").setup()
 		require("mini.surround").setup()
 		require("mini.tabline").setup({
-			show_icons = false,jK
+			show_icons = false,
 		})
 		require("mini.indentscope").setup({
 			options = {
