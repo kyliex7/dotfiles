@@ -35,7 +35,7 @@ window#waybar > box {
 
 .modules-center {
     background: rgba(26, 27, 38, 0.85);
-		border-radius: 999px;
+		border-radius: 20px;
     padding: 2px 20px;
     border: 1px solid rgba(122, 162, 247, 0.2);
     /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); */
@@ -53,8 +53,7 @@ window#waybar > box {
     margin: 3px 3px;
 		background-color: @gray;
     padding: 0 8px;
-    border-radius: 999px; 
-    border: none;
+		border-radius: 8px;
     min-width: 5px; 
     transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
@@ -70,7 +69,6 @@ window#waybar > box {
     color: @bg;
     padding: 0 16px;      
     min-width: 5px;      
-    border-radius: 999px;
     /* box-shadow: 0 4px 10px rgba(187, 154, 247, 0.4);  */
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
