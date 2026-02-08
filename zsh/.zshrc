@@ -47,6 +47,15 @@ setopt correct
 setopt autocd
 
 ############################## ALIASES ###################################
+# lol
+alias burp="java --add-opens=java.desktop/javax.swing=ALL-UNNAMED \
+--add-opens=java.base/java.lang=ALL-UNNAMED \
+--add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED \
+--add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED \
+--add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED \
+-javaagent:"/home/n00b/.tools/burp/BurpLoaderKeygen_v1.18.jar" -noverify -jar "/home/n00b/.tools/burp/burpsuite_pro_v2025.11.3/burpsuite_pro_v2025.11.3.jar"
+"
+
 # suffix aliases
 alias -s md="bat"
 alias -s png="qiv"
