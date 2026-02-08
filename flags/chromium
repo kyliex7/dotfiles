@@ -1,1 +1,0 @@
-chromium --disable-gpu --proxy-server=socks5://192.168.42.129:9050 --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=WebRTCPipeWireCapturer
