@@ -9,12 +9,12 @@ vim.o.mouse = 'a'
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.signcolumn = 'yes'
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
 vim.o.inccommand = 'split'
 -- vim.o.cursorline = false
--- vim.opt.guicursor = ""
+vim.opt.guicursor = ""
 vim.o.confirm = true
 vim.opt.fillchars = { eob = " " }
 vim.o.showmode = false

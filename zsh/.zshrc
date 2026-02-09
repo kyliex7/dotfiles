@@ -34,7 +34,7 @@ fi
 # PROMPT=' %F{#a89984}%~%f %F{#928374}%f '
 
 ############################## GLOBAL EXPORTS ############################
-export CLANGD_FLAGS="--fallback-style=LLVM"
+# export CLANGD_FLAGS="--fallback-style=LLVM"
 eval "$(batman --export-env)"
 export BAT_THEME="OneDark"
 declare -x http_proxy=socks5h://192.168.42.129:9050
