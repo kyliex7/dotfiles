@@ -140,6 +140,7 @@ animations {
 
 window-rule {
     match app-id=r#"waterfox$"# title="^Picture-in-Picture$"
+    match app-id=r#"chromium$"# title="^Picture-in-Picture$"
     match app-id=r#"librewolf$"# title="^Picture-in-Picture$"
     open-floating true
 }
@@ -149,7 +150,8 @@ window-rule {
     match app-id=r#"foot"#
     match app-id=r#"org.telegram.desktop$"#
     match app-id=r#"chromium$"#
-		match app-id=r#"org.gnome.Evince$"#
+	match app-id=r#"org.gnome.Evince$"#
+    match app-id=r#"org.gnome.Nautilus$"#
     open-maximized true
 }
 
@@ -159,7 +161,7 @@ window-rule {
 }
 binds {
     Mod+Shift+S hotkey-overlay-title="Screenshot" { spawn "~/dotfiles/scripts/ss.sh"; }
-		Mod+Shift+W hotkey-overlay-title="Togggle Waybar" { spawn "~/dotfiles/scripts/toggle_waybar.sh"; }
+	Mod+Shift+W hotkey-overlay-title="Togggle Waybar" { spawn "~/dotfiles/scripts/toggle_waybar.sh"; }
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
@@ -172,7 +174,7 @@ binds {
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).
-    Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
+    // Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }

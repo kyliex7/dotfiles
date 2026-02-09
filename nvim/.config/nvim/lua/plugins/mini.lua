@@ -4,9 +4,9 @@ return {
 	config = function()
 		require("mini.ai").setup()
 		require("mini.surround").setup()
-		require("mini.tabline").setup({
-			show_icons = false,
-		})
+		-- require("mini.tabline").setup({
+		-- 	show_icons = false,
+		-- })
 		require("mini.indentscope").setup({
 			options = {
 				border = "top",
