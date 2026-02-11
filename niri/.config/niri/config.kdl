@@ -142,16 +142,19 @@ window-rule {
     match app-id=r#"waterfox$"# title="^Picture-in-Picture$"
     match app-id=r#"chromium$"# title="^Picture-in-Picture$"
     match app-id=r#"librewolf$"# title="^Picture-in-Picture$"
+    match app-id=r#"burp-StartBurp$"#
     open-floating true
 }
 window-rule {
     match app-id=r#"waterfox$"#
     match app-id=r#"librewolf$"#
     match app-id=r#"foot"#
+    match app-id=r#"st-256color"#
     match app-id=r#"org.telegram.desktop$"#
     match app-id=r#"chromium$"#
 	match app-id=r#"org.gnome.Evince$"#
     match app-id=r#"org.gnome.Nautilus$"#
+    match app-id=r#"burp-StartBurp$"#
     open-maximized true
 }
 
@@ -164,7 +167,7 @@ binds {
 	Mod+Shift+W hotkey-overlay-title="Togggle Waybar" { spawn "~/dotfiles/scripts/toggle_waybar.sh"; }
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: st" { spawn "st"; }
     Mod+p hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun -theme ~/.config/rofi/theme.rasi"; }
 		Mod+Shift+P { spawn-sh "~/dotfiles/scripts/powermenu.sh"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }

@@ -36,7 +36,7 @@ fi
 ############################## GLOBAL EXPORTS ############################
 # export CLANGD_FLAGS="--fallback-style=LLVM"
 eval "$(batman --export-env)"
-export BAT_THEME="OneDark"
+export BAT_THEME="tokyonight_night"
 declare -x http_proxy=socks5h://192.168.42.129:9050
 declare -x https_proxy=socks5h://192.168.42.129:9050
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/n00b/scripts:/home/n00b/.local/bin:/home/n00b/.npm-global/bin:
