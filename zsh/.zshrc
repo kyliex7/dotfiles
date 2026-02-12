@@ -85,7 +85,7 @@ alias ph="cd ~/al/ph/pap"
 alias cm="cd ~/al/cm/pap"
 # alias mdwms="cd ~/dotfiles/suckless/dwmstatus; sudo make clean install; cd -"
 # alias mdwm="cd ~/dotfiles/rice/dwm-flexipatch/; sudo make clean install; cd -"
-# alias mst="cd ~/dotfiles/rice/st; sudo make clean install; cd -"
+alias mst="cd ~/dotfiles/st-flexipatch; sudo make clean install; cd -"
 alias pav="pavucontrol"
 alias neofetch="fastfetch --config examples/13.jsonc"
 alias git="proxychains -q git"
@@ -116,7 +116,7 @@ alias vivi="cd ~/dotfiles/nvim/.config/nvim/; vi ."
 ############################## STUFF #################################
 i(){ yay -S --disable-download-timeout --needed "${@}"; }
 s(){ yay -Ss "${@}"; }
-u(){ yay -R "${@}"; }
+u(){ yay -Rns "${@}"; }
 
 tns() {
 	if [[ $# -eq 0 ]]; then
@@ -201,7 +201,7 @@ zle -N copy-cmd
 bindkey '^Y' copy-cmd
 
 ############################## HISTORY ###################################
-HISTSIZE=2000
+HISTSIZE=5000
 HISTFILE=$HOME/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
