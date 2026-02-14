@@ -155,6 +155,7 @@ window-rule {
 	match app-id=r#"org.gnome.Evince$"#
     match app-id=r#"org.gnome.Nautilus$"#
     match app-id=r#"burp-StartBurp$"#
+    match app-id=r#"obsidian$"#
     open-maximized true
 }
 

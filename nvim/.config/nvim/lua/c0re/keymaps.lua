@@ -56,3 +56,13 @@ end
 
 vim.keymap.set("n", "gco", function() insert_comment("o") end, { desc = "Insert comment below" })
 vim.keymap.set("n", "gcO", function() insert_comment("O") end, { desc = "Insert comment above" })
+
+
+-- vim.keymap.set({ 't', 'i' }, '<A-h>', '<C-\\><C-n><C-w>h')
+-- vim.keymap.set({ 't', 'i' }, '<A-j>', '<C-\\><C-n><C-w>j')
+-- vim.keymap.set({ 't', 'i' }, '<A-k>', '<C-\\><C-n><C-w>k')
+-- vim.keymap.set({ 't', 'i' }, '<A-l>', '<C-\\><C-n><C-w>l')
+-- vim.keymap.set({ 'n' }, '<A-h>', '<C-w>h')
+-- vim.keymap.set({ 'n' }, '<A-j>', '<C-w>j')
+-- vim.keymap.set({ 'n' }, '<A-k>', '<C-w>k')
+-- vim.keymap.set({ 'n' }, '<A-l>', '<C-w>l')

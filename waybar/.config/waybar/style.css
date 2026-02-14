@@ -1,5 +1,5 @@
-@define-color bg            #1a1b26; 
-@define-color bg-alt        #24283b; 
+@define-color bg            #1a1b26;
+@define-color bg-alt        #24283b;
 @define-color gray          #565f89;
 @define-color fg            #a9b1d6;
 
@@ -17,7 +17,7 @@
 @define-color highlight     #292e42;
 
 * {
-    font-family: "Rubik", "Google Sans Code NF";
+    font-family: "Rubik", "MonaspiceAr NFP";
     font-size: 13px;
     font-weight: 600;
     min-height: 0;
@@ -30,15 +30,14 @@ window#waybar {
 }
 
 window#waybar > box {
-    padding-top: 3px;
+    padding-top: 2px;
 }
 
 .modules-center {
     background: rgba(26, 27, 38, 0.85);
-		border-radius: 20px;
+    border-radius: 20px;
     padding: 2px 20px;
     border: 1px solid rgba(122, 162, 247, 0.2);
-    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); */
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -51,25 +50,23 @@ window#waybar > box {
 
 #workspaces button {
     margin: 3px 3px;
-		background-color: @gray;
+    background-color: @gray;
     padding: 0 8px;
-		border-radius: 8px;
-    min-width: 5px; 
+    border-radius: 8px;
+    min-width: 5px;
     transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 #workspaces button:hover {
-		background: rgba(122, 162, 247, 0.2);
-		color: @fg;
-    /* box-shadow: inset 0 0 0 1px rgba(122, 162, 247, 0.4); */
+    background: rgba(122, 162, 247, 0.2);
+    color: @fg;
 }
 
 #workspaces button.active {
     background: @blue;
     color: @bg;
-    padding: 0 16px;      
-    min-width: 6px;      
-    /* box-shadow: 0 4px 10px rgba(187, 154, 247, 0.4);  */
+    padding: 0 16px;
+    min-width: 6px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -78,21 +75,19 @@ window#waybar > box {
     color: @bg;
 }
 
-#custom-launcher, 
-#network, 
-#battery, 
-#pulseaudio, 
-#custom-nightmode, 
+#custom-launcher,
+#network,
+#battery,
+#pulseaudio,
+#custom-nightmode,
 #mpris {
     padding: 0 5px;
-    /* text-shadow: 0 0 16px rgba(0, 0, 0, 0.5);  */
 }
 
 #custom-launcher {
     color: @arch-blue;
-		padding-left: 0px;
-    font-size: 17px;
-    /* text-shadow: 0 0 10px rgba(23, 147, 209, 0.6); */
+    padding-left: 0px;
+    font-size: 14px;
     margin-right: 10px;
 }
 
@@ -103,7 +98,6 @@ window#waybar > box {
     font-size: 14px;
     padding-left: 10px;
     margin-right: 0px;
-
 }
 
 #clock {
@@ -115,41 +109,40 @@ window#waybar > box {
 #custom-power {
     font-size: 14px;
     color: @red;
-		padding-right: 0px;
+    padding-right: 0px;
     margin-left: 7px;
-		margin-right: 0px;
+    margin-right: 0px;
 }
 
-#battery         { color: @green; }
+#battery { color: @green; }
 #battery.warning { color: @orange; background: transparent; }
 #battery.critical { color: @red; background: transparent; }
 
 #custom-nightmode {
-    font-size: 18px;
+    font-size: 14px;
     color: @yellow;
-		margin-right: 4px;
-		padding-right: 0px;
+    margin-right: 4px;
+    padding-right: 0px;
 }
 
 #tray {
-	margin-left: 10px;
-	font-size: 5px;
+    margin-left: 10px;
+    font-size: 5px;
 }
 
-#pulseaudio { 
-    font-size: 15px;
-    color: @purple; 
+#pulseaudio {
+    font-size: 14px;
+    color: @purple;
 }
 
-#network    {
-    font-size: 16px;
-    color: @cyan; 
+#network {
+    font-size: 14px;
+    color: @cyan;
 }
 
 tooltip {
     background: rgba(36, 40, 59, 0.95);
     border: 1px solid rgba(122, 162, 247, 0.3);
-    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); */
     border-radius: 12px;
 }
 
