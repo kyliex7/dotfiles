@@ -64,6 +64,10 @@ alias -s jpg="qiv"
 alias -g NE="2>/dev/null"
 alias -g C="| wl-copy"
 # normal mfs
+alias hex='_hex(){ printf "0x%x\n" $(($1)) }; _hex'
+alias dec='_dec(){ printf "%d\n" $(($1)) }; _dec'
+alias oct='_oct(){ printf "0o%o\n" $(($1)) }; _oct'
+alias bin='_bin(){ echo "obase=2; $1" | bc | sed "s/^/0b/" }; _bin'
 alias sc="sudo systemctl"
 alias obsidian="obsidian --disable-gpu --proxy-server=socks5://192.168.42.129:9050"
 alias pvi="proxychains -q nvim"
@@ -130,9 +134,8 @@ tat() {
 	[[ $session ]] && tmux a -t "${session%%:*}"
 }
 
-pullzsh(){
-git -C ~/.zsh/plugins/fzf-tab pull; git -C ~/.zsh/plugins/zsh-completions pull
-}
+pullzsh(){ git -C ~/.zsh/plugins/fzf-tab pull; git -C ~/.zsh/plugins/zsh-completions pull }
+
 gc(){
   if [[ $# -eq 0 ]]; then
     git commit --allow-empty-message -m ""
@@ -140,6 +143,7 @@ gc(){
     git commit -m "$@"
   fi
 }
+
 sn(){
   neofetch
   echo -ne "shutting down in "
@@ -150,14 +154,17 @@ sn(){
   echo
   shutdown now
 }
+
 pipxa(){
   unset http_proxy https_proxy
   p pipx install "${@}" -v
   source ~/.zshrc
 }
+
 pipxu(){
   p pipx uninstall "${@}"
 }
+
 ############################## KEYBINDS ##################################
 bindkey -v  # vim mode
 

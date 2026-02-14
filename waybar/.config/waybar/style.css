@@ -126,8 +126,8 @@ window#waybar > box {
 }
 
 #tray {
-    margin-left: 10px;
-    font-size: 5px;
+    margin-left: 5px;
+    font-size: 1px;
 }
 
 #pulseaudio {
