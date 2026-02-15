@@ -5,16 +5,23 @@ fi
 ############################## PLUGINS ##################################
 ZSH_PLUGIN_DIR="$HOME/.zsh/plugins"
 
-if [[ ! -d "$ZSH_PLUGIN_DIR/fzf-tab" ]]; then
-  mkdir -p "$ZSH_PLUGIN_DIR"
-  git clone --depth=1 https://github.com/Aloxaf/fzf-tab.git "$ZSH_PLUGIN_DIR/fzf-tab"
-fi
-source "$ZSH_PLUGIN_DIR/fzf-tab/fzf-tab.plugin.zsh"
+plugins=(
+	Aloxaf/fzf-tab
+	zsh-users/zsh-completions
+	zsh-users/zsh-autosuggestions
+)
 
-if [[ ! -d "$ZSH_PLUGIN_DIR/zsh-completions" ]]; then
-  git clone --depth=1 https://github.com/zsh-users/zsh-completions.git "$ZSH_PLUGIN_DIR/zsh-completions"
-fi
-fpath+=("$ZSH_PLUGIN_DIR/zsh-completions/src")
+for plugin in $plugins; do
+    plugin_name=${plugin#*/}
+    if [[ ! -d "$ZSH_PLUGIN_DIR/$plugin_name" ]]; then
+        echo "Installing $plugin_name..."
+        git clone --depth=1 "https://github.com/$plugin" "$ZSH_PLUGIN_DIR/$plugin_name"
+    fi
+done
+
+source "$ZSH_PLUGIN_DIR/fzf-tab/fzf-tab.plugin.zsh"
+# source "$ZSH_PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
+# source "$ZSH_PLUGIN_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 ############################## COMPLETION ################################
 autoload -Uz compinit
@@ -39,30 +46,45 @@ eval "$(batman --export-env)"
 export BAT_THEME="tokyonight_night"
 declare -x http_proxy=socks5h://192.168.42.129:9050
 declare -x https_proxy=socks5h://192.168.42.129:9050
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/n00b/scripts:/home/n00b/.local/bin:/home/n00b/.npm-global/bin:
+# export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/n00b/scripts:/home/n00b/.local/bin:/home/n00b/.npm-global/bin:
 export EDITOR=nvim
 export NVIM_APPNAME=nvim
+typeset -U path
+path=(
+	~/scripts
+	~/.local/bin
+	~/.npm_global/bin
+	$path
+)
 
 setopt correct
 setopt autocd
+setopt autopushd        # pushd every time you cd
+setopt pushdignoredups  # don't store duplicates
+setopt pushdminus       # use - for the stack instead of +
 
 ############################## ALIASES ###################################
-# lol
-alias burp="java --add-opens=java.desktop/javax.swing=ALL-UNNAMED \
---add-opens=java.base/java.lang=ALL-UNNAMED \
---add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED \
---add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED \
---add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED \
--javaagent:"/home/n00b/.tools/burp/BurpLoaderKeygen_v1.18.jar" -noverify -jar "/home/n00b/.tools/burp/burpsuite_pro_v2025.11.3/burpsuite_pro_v2025.11.3.jar"
-"
 
 # suffix aliases
 alias -s md="bat"
 alias -s png="qiv"
 alias -s jpg="qiv"
+alias -s pcap="wireshark"
+alias -s json="jq ."
+alias -s html="librewolf"
+alias -s log="bat"
+alias -s pdf="evince"
+alias -s py="python3"
 # global aliases
 alias -g NE="2>/dev/null"
 alias -g C="| wl-copy"
+alias -g G='| grep --color=auto'
+alias -g L='| bat'
+alias -g M='| most'
+alias -g H='| head'
+alias -g T='| tail'
+# Recursively grep for a string, ignore binaries, show line numbers
+alias -g RG='| xargs rg --line-number --column --smart-case'
 # normal mfs
 alias hex='_hex(){ printf "0x%x\n" $(($1)) }; _hex'
 alias dec='_dec(){ printf "%d\n" $(($1)) }; _dec'
@@ -118,6 +140,46 @@ alias viniri="$EDITOR ~/dotfiles/niri/.config/niri/config.kdl"
 alias vivi="cd ~/dotfiles/nvim/.config/nvim/; vi ."
 
 ############################## STUFF #################################
+burp() {
+    local loader="/home/n00b/.tools/burp/BurpLoaderKeygen_v1.18.jar"
+    local jar="/home/n00b/.tools/burp/burpsuite_pro_v2025.11.3/burpsuite_pro_v2025.11.3.jar"
+    
+    java --add-opens=java.desktop/javax.swing=ALL-UNNAMED \
+         --add-opens=java.base/java.lang=ALL-UNNAMED \
+         --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED \
+         --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED \
+         --add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED \
+         -javaagent:"$loader" -noverify -jar "$jar" "$@"
+}
+
+fs() {
+  local file
+  local line
+  read -r file line <<< "$(rg --line-number --column --no-heading --color=always --smart-case "${*:-}" | fzf --ansi --delimiter : --preview 'bat --color=always --highlight-line {2} {1}' | awk -F: '{print $1, $2}')"
+  [[ -n $file ]] && ${EDITOR:-vim} "+$line" "$file"
+}
+
+ex() {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1     ;;
+      *.tar.gz)    tar xzf $1     ;;
+      *.bz2)       bunzip2 $1     ;;
+      *.rar)       unrar x $1     ;;
+      *.gz)        gunzip $1      ;;
+      *.tar)       tar xf $1      ;;
+      *.tbz2)      tar xjf $1     ;;
+      *.tgz)       tar xzf $1     ;;
+      *.zip)       unzip $1       ;;
+      *.Z)         uncompress $1  ;;
+      *.7z)        7z x $1        ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
 i(){ yay -S --disable-download-timeout --needed "${@}"; }
 s(){ yay -Ss "${@}"; }
 u(){ yay -Rns "${@}"; }
@@ -188,6 +250,35 @@ bindkey '^r' fzf-history-widget
 bindkey '^t' fzf-file-widget
 bindkey '^[c' fzf-cd-widget
 
+# Change cursor shape for different vi modes
+# zle-keymap-select() {
+#   if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
+#     echo -ne '\e[2 q' # Block
+#   elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} == "" ]] || [[ $1 = 'beam' ]]; then
+#     echo -ne '\e[6 q' # Beam/Line
+#   fi
+# }
+# zle -N zle-keymap-select
+# _fix_cursor() { echo -ne '\e[6 q' } # Ensure beam on startup
+# precmd_functions+=(_fix_cursor)
+
+# Force a steady block cursor everywhere
+# \e[2 q = steady block (use \e[1 q if you want it to blink)
+_force_block_cursor() {
+  echo -ne '\e[2 q'
+}
+
+# Apply on shell startup
+_force_block_cursor
+
+# Ensure it stays a block after every command
+precmd_functions+=(_force_block_cursor)
+
+# Override the Vi mode switch so it doesn't change the cursor
+zle-keymap-select() {
+  _force_block_cursor
+}
+zle -N zle-keymap-select
 
 ############################## MISC ###############################
 autoload -Uz edit-command-line
@@ -207,6 +298,36 @@ copy-cmd(){
 zle -N copy-cmd
 bindkey '^Y' copy-cmd
 
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    fg 2>/dev/null || zle redisplay
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
+# expand-alias-space() {
+#   # Check if the word before the cursor is an alias
+#   # This regex is more forgiving: [a-zA-Z0-9_-] covers most alias names
+#   if [[ $LBUFFER =~ ' [a-zA-Z0-9_-]+$' ]]; then
+#     zle _expand_alias
+#   fi
+#   zle self-insert
+# }
+
+# Register it as a Zle widget
+# zle -N expand-alias-space
+#
+# # Bind it to BOTH Emacs and Vi-Insert maps
+# bindkey -M emacs ' ' expand-alias-space
+# bindkey -M viins ' ' expand-alias-space
+#
+# # Optional: If you want 'Enter' to also expand aliases before running
+# bindkey -M viins '^M' _expand_alias
+
 ############################## HISTORY ###################################
 HISTSIZE=5000
 HISTFILE=$HOME/.zsh_history
@@ -221,9 +342,13 @@ zstyle ':fzf-tab:*' fzf-flags --height=40% --border --layout=reverse
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 zstyle ':fzf-tab:*' switch-group ',' '.'
 
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no
+# Group matches and describe categories
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
+zstyle ':completion:*' menu select
+# Focus on the relevant part of the path
+zstyle ':completion:*' expand yes
+zstyle ':completion:*' squeeze-slashes yes
 
 zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
 zstyle ':fzf-tab:complete:*:options' fzf-preview
@@ -232,8 +357,10 @@ zstyle ':fzf-tab:complete:*:argument-1' fzf-preview
 zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' \
 	fzf-preview 'echo ${(P)word}'
 
-zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-preview \
-	'[[ $group == "[process ID]" ]] && ps --pid=$word -o cmd --no-headers -w -w'
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=01;31'
+zstyle ':fzf-tab:complete:kill:argument-rest' fzf-preview \
+  'ps --pid=$word -o cmd --no-headers -w -w'
+zstyle ':fzf-tab:complete:kill:argument-rest' fzf-flags '--preview-window=down:3:wrap'
 
 zstyle ':fzf-tab:complete:(cd|ls|eza):*' fzf-preview \
 	'eza -1 --color=always --icons --group-directories-first $realpath'
@@ -310,52 +437,6 @@ source $ZSH_PLUGIN_DIR/powerlevel10k/powerlevel10k.zsh-theme
 # source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-#         . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#         ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
-#         ZSH_HIGHLIGHT_STYLES[default]=none
-#         ZSH_HIGHLIGHT_STYLES[unknown-token]=underline
-#         ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=cyan,bold
-#         ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=green,underline
-#         ZSH_HIGHLIGHT_STYLES[global-alias]=fg=green,bold
-#         ZSH_HIGHLIGHT_STYLES[precommand]=fg=green,underline
-#         ZSH_HIGHLIGHT_STYLES[commandseparator]=fg=blue,bold
-#         ZSH_HIGHLIGHT_STYLES[autodirectory]=fg=green,underline
-#         ZSH_HIGHLIGHT_STYLES[path]=bold
-#         ZSH_HIGHLIGHT_STYLES[path_pathseparator]=
-#         ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=
-#         ZSH_HIGHLIGHT_STYLES[globbing]=fg=blue,bold
-#         ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=blue,bold
-#         ZSH_HIGHLIGHT_STYLES[command-substitution]=none
-#         ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter]=fg=magenta,bold
-#         ZSH_HIGHLIGHT_STYLES[process-substitution]=none
-#         ZSH_HIGHLIGHT_STYLES[process-substitution-delimiter]=fg=magenta,bold
-#         ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=green
-#         ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=green
-#         ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
-#         ZSH_HIGHLIGHT_STYLES[back-quoted-argument-delimiter]=fg=blue,bold
-#         ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=yellow
-#         ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=yellow
-#         ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=yellow
-#         ZSH_HIGHLIGHT_STYLES[rc-quote]=fg=magenta
-#         ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=magenta,bold
-#         ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=magenta,bold
-#         ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=magenta,bold
-#         ZSH_HIGHLIGHT_STYLES[assign]=none
-#         ZSH_HIGHLIGHT_STYLES[redirection]=fg=blue,bold
-#         ZSH_HIGHLIGHT_STYLES[comment]=fg=black,bold
-#         ZSH_HIGHLIGHT_STYLES[named-fd]=none
-#         ZSH_HIGHLIGHT_STYLES[numeric-fd]=none
-#         ZSH_HIGHLIGHT_STYLES[arg0]=fg=cyan
-#         ZSH_HIGHLIGHT_STYLES[bracket-error]=fg=red,bold
-#         ZSH_HIGHLIGHT_STYLES[bracket-level-1]=fg=blue,bold
-#         ZSH_HIGHLIGHT_STYLES[bracket-level-2]=fg=green,bold
-#         ZSH_HIGHLIGHT_STYLES[bracket-level-3]=fg=magenta,bold
-#         ZSH_HIGHLIGHT_STYLES[bracket-level-4]=fg=yellow,bold
-#         ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
-#         ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
-# 	fi
-
 # if [ -z "$NIRI_SOCKET" ] || [ ! -S "$NIRI_SOCKET" ]; then
 #     ACTIVE_NIRI_SOCKET=$(ls -t /run/user/$(id -u)/niri.wayland-*.sock 2>/dev/null | head -n 1)
 #     if [ -n "$ACTIVE_NIRI_SOCKET" ]; then
